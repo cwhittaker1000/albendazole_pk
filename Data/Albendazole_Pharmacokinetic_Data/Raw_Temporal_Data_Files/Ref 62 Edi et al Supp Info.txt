@@ -1,0 +1,43 @@
+#DataThief C:\Users\cw1716\Documents\Q_Drive_Copy\Loa_Loa\Drug Efficacy Modelling\Albendazole Modelling\Albendazole_Pharmacokinetic_Data\Raw_Temporal_Data_Files\Ref 62 Edi et al Supp Info.JPG Thursday 18-Jul-2019 8:50:44 PM
+
+
+1.0476, 12.865
+
+2.1118, 53.2692
+
+3.0937, 66.4901
+
+4.1043, 62.5891
+
+6.1147, 26.0468
+
+8.1905, 10.9493
+
+12.0259, 3.9174
+
+24.0778, 0.9653
+
+36.0409, 0.4487
+
+48.0126, 0.3859
+
+
+1.072, 7.171
+
+2.131, 20.6585
+
+3.0803, 25.7856
+
+4.0634, 34.8875
+
+6.0465, 21.0791
+
+8.0247, 9.0414
+
+11.99, 3.107
+
+24.0752, 0.8052
+
+35.9393, 0.3454
+
+47.9773, 0.3186

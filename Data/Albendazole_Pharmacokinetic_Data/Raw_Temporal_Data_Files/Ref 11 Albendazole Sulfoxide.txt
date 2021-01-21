@@ -1,0 +1,18 @@
+#DataThief C:\Users\Charlie\Documents\Albendazole_Temporal_Data\Ref 11 Albendazole Sulfoxide.JPG Wednesday 15-May-2019 12:15:39 AM
+
+
+0.3474, 47.9771
+
+0.7746, 142.9461
+
+1.7389, 244.3043
+
+2.7271, 239.5027
+
+3.7952, 230.1807
+
+5.7381, 192.5231
+
+9.826, 303.9195
+
+23.3102, 81.9961

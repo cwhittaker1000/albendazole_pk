@@ -1,0 +1,13 @@
+#DataThief C:\Users\cw1716\Documents\Q_Drive_Copy\Loa_Loa\Drug Efficacy Modelling\Albendazole Modelling\Albendazole_Pharmacokinetic_Data\Raw_Temporal_Data_Files\Ref 44 Albendazole Sulfoxide.JPG Thursday 16-May-2019 12:01:13 PM
+0.1714, 55.1282
+0.5543, 59.4977
+1.0574, 144.3687
+1.5124, 276.6714
+2.0801, 434.3294
+3.0258, 561.0633
+4.1143, 533.3697
+6.0639, 411.8312
+8.0726, 323.3744
+12.1029, 241.3122
+24.1041, 138.5179
+36.163, 57.7761
