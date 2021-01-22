@@ -24,7 +24,7 @@ Albendazole_PK_Model <- odin::odin({
 })
 
 
-model_runner <- Albendazole_PK_Model(k_abs = 0.5, bioavailability = 0.18, sigma = 2, k_alb_so = 0.06716841, k_alb = 0, dose = 400)
-times <- seq(0, 48, length.out = 1000)
-y <- model_runner$run(times)
-plot(y)
+# model_runner <- Albendazole_PK_Model(k_abs = 0.5, bioavailability = 0.18, sigma = 2, k_alb_so = 0.06716841, k_alb = 0, dose = 400)
+# times <- seq(0, 48, length.out = 1000)
+# y <- model_runner$run(times)
+# plot(y)
