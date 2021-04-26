@@ -110,15 +110,15 @@ parameters <- c(k_abs = 3,
                 k_alb_so = 0.25,
                 k_alb = 0.12)
 blopp <- run_multi_dose(parameters, c(80000, 80000, 80000), c(0, 24, 48))
-plot(blopp[, 1], blopp[, 7], type = "l", ylim = c(0, max(c(kloop$conc, blopp[, 7]))))
+plot(blopp[, 1], blopp[, 7], type = "l") #, ylim = c(0, max(c(blopp$conc, blopp[, 7]))))
 points(kloop$time, kloop$conc, pch = 20)
 
 times <- seq(0, 24, length.out = 100)
 model_runner <- Albendazole_PK_Model(k_abs = 3, bioavailability = 0.03, sigma = 50, k_alb_so = 0.2, k_alb = 0.12, 
                                      dose = 45000, gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0, 
-                                     regime_k = 0, regime_bio = 1)
+                                     regime_k = 0)
 y_one <- model_runner$run(times)
-
+plot(y_one[, 6], type = "l")
 extract_final_values(y_one)
 end <- dim(y_one)[1]
 dose <- y_one[end, 2]
@@ -126,14 +126,11 @@ gut_2 <- y_one[end, 3]
 liver <- y_one[end, 4]
 blood_alb <- y_one[end, 5]
 blood_alb_so <- y_one[end, 6]
-overall_exposure <- AUC(times, y_one[, 6])
-effect_size <- 5/(1 + (200/overall_exposure)^4)
 model_runner <- Albendazole_PK_Model(k_abs = 3, bioavailability = 0.01, sigma = 50, k_alb_so = 0.2, k_alb = 0.12, 
                                      dose = (dose + 45000), gut_2 = gut_2, liver = liver, blood_alb = blood_alb, blood_alb_so = blood_alb_so, 
-                                     regime_k = effect_size, regime_bio = 1)
+                                     regime_k = 1)
 y_two <- model_runner$run(times[-1])
 y_overall <- rbind(y_one, y_two)
-
 plot(y_overall[, 6], type = "l")
 
 
