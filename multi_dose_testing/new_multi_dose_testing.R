@@ -1,6 +1,7 @@
 library(odin); library(tidyverse)
 
-source("multi_dose_testing/multi_dose_model_ODIN.R")
+#source("multi_dose_testing/multi_dose_model_ODIN.R")
+source("multi_dose_testing/new_test_multi_dose_model_ODIN.R")
 
 extract_final_values <- function(model_output) {
   end <- dim(model_output)[1]
@@ -17,13 +18,13 @@ extract_final_values <- function(model_output) {
 bioavailability <- 0.001
 dose <- 400
 mod <- Albendazole_PK_Model(k_abs = 0.5, sigma = 15, k_alb = 0.2, k_alb_so_init = 0.13, 
-                            auto_ind = 0.2, k_env = 0.05,
+                            k_env = 0.05, Emax = 5, EC50 = 3,
                             gut_1 = (bioavailability/1e+5) * (dose * 1e+6), gut_2 = 0, liver = 0, 
                             blood_alb = 0, blood_alb_so = 0, enzyme = 0)
 output1 <- mod$run(t = seq(0, 20, 1))
 final1 <- extract_final_values(output1)
 mod2 <- Albendazole_PK_Model(k_abs = 0.5, sigma = 15, k_alb = 0.2, k_alb_so_init = 0.13, 
-                             auto_ind = 0.2, k_env = 0.05,
+                             k_env = 0.05, Emax = 5, EC50 = 3,
                              gut_1 = final1["Gut_1"] + (bioavailability/1e+5) * (dose * 1e+6), gut_2 = final1["Gut_2"], liver = final1["Liver"], 
                              blood_alb = final1["Blood_Alb"], blood_alb_so = final1["Blood_Alb_SO"], enzyme = final1["Enzyme_conc"])
 output2 <- mod2$run(t = seq(0, 20, 1))
@@ -31,7 +32,22 @@ final <- rbind(output1, output2[-1, ])
 
 plot(final[, "Enzyme_conc"], type = "l")
 plot(final[, "Blood_Alb_SO"], type = "l")
+plot(final[, "k_alb_so"], type = "l", ylim = c(0, max(final[, "k_alb_so"])))
+plot(final[, "k_alb_so"]/0.13, type = "l")
+plot(final[, "x"], type = "l")
 
+plot(final[, "Blood_Alb_SO"], type = "l")
+plot(final[, "Blood_Alb"], type = "l")
+plot(final[, "Gut_1"], type = "l")
+plot(final[, "Gut_2"], type = "l")
+plot(final[, "Liver"], type = "l")
+
+
+Emax = 0
+EC50 = 3
+x <- seq(0, 10, 0.1)
+y <- 1 + (Emax * x)/(EC50 + x)
+plot(x, y)
 
 final_noise_inc <- cbind(final, final[, "Blood_Alb_SO"] + rnorm(n = length(final[, "Blood_Alb_SO"]), 
                                                       mean = 0,
