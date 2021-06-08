@@ -2,41 +2,44 @@
 library(tictoc); library(deSolve); library(MALDIquant); library(mvtnorm); library(MASS); library(tmvtnorm); library(odin); library(dplyr); 
 
 # Loading in ODIN Model Instance
-source("C:/Users/cw1716/Documents/Q_Drive_Copy/Loa_Loa/Drug Efficacy Modelling/Albendazole Modelling/Basic_Model_ODIN.R")
-source("C:/Users/cw1716/Documents/Q_Drive_Copy/Loa_Loa/Drug Efficacy Modelling/Albendazole Modelling/Basic_Model_ODIN_MCMC_Functions.R")
-source("C:/Users/cw1716/Documents/Q_Drive_Copy/Loa_Loa/Drug Efficacy Modelling/Albendazole Modelling/Processing_and_Plotting_Functions.R")
+source("Models/single_dose_model_ODIN.R")
+source("Functions/simple_model_MCMC_Functions.R")
+source("Functions/Processing_and_Plotting_Functions.R")
 
 # Importing and Processing the Data
-All_PK_Data <- read.csv("C:/Users/cw1716/Documents/Q_Drive_Copy/Loa_Loa/Drug Efficacy Modelling/Albendazole Modelling/Albendazole_Pharmacokinetic_Data/Alb_PK_Data.csv")
-
-# Creating Vectors of Key Variables to Colour the Data With
-time_series_information <- All_PK_Data[!duplicated(All_PK_Data$Temporal_ID), ]
-sex <- time_series_information$Sex
-state <- time_series_information$State
-dose_info <- time_series_information$Dose_binary
+single_PK_Data <- read.csv("Data/Albendazole_Pharmacokinetic_Data/Alb_PK_Data.csv", stringsAsFactors = FALSE)
+overall <- single_PK_Data
 
 # Defining the MCMC Inputs
-number_iterations <- 5000
+number_iterations <- 50000
+initial_parameters <- c(k_abs = 2, bioavailability = 0.01, sigma = 15, k_alb = 0.2, k_alb_so = 0.1300)
 sd_proposals <- c(0.002, 0.002, 0.002, 0.002, 0.002)
-reparam <- c(1, 1, 1, 1, 1) 
-start_covariance_adaptation <- 2500
+reparam <- c(1, 100, 0.1, 10, 10) 
+start_covariance_adaptation <- 5000
 informative_prior <- FALSE
-raw_MCMC_output <- vector(mode = "list", length = max(All_PK_Data$Temporal_ID))
 
 # Looping Over the Dataset and Fitting Each of the Datasets
-par(mfrow = c(5, 11))
-par(mar = c(2, 2, 0.5, 1))
-par(oma = c(0, 2, 0, 0))
-plot_limit <- FALSE
-# ts <- c(7, 8, 9, 10, 11, 12, 16, 35, 36, 42, 43, 44, 51, 53, 54)
-for (k in 1:max(All_PK_Data$Temporal_ID)) {
+for (k in 1:max(overall$Temporal_ID)) {
   
-  initial_parameters <- c(k_abs = 2, bioavailability = 0.001, sigma = 15, k_alb_so = 0.1300, k_alb = 0.2)
+  # Selecting individual time series for fitting 
   time_series_number <- k
-  Single_PK_Dataset <- filter(All_PK_Data, Temporal_ID == k) # filter by time_series_number
-  dose <- Single_PK_Dataset$Dose_mg[1] 
-  end_time <- max(Single_PK_Dataset$Time)
+  Single_PK_Dataset <- filter(overall, Temporal_ID == k) # filter by time_series_number
   
+  # Extracting dose and time period dataset spans
+  dosing <- unique(Single_PK_Dataset$Dosing)
+  if (dosing == "Single") {
+    dose_info <- data.frame(amount = unique(Single_PK_Dataset$Dose_Amount), times = 0)
+  } else if (dosing == "Multiple") {
+    dose_info <- data.frame(amount = unique(Single_PK_Dataset$Dose_Amount), times = eval(parse(text = unique(Single_PK_Dataset$Dose_Timing))))
+  } else {
+    stop("Error in single vs multiple")
+  }
+  if (unique(dose_info$amount) != length(dose_info$amount)) {
+    amount <- as.numeric(unique(dose_info$amount) * unlist(unname(table(dose_info$times))))
+    dose_info <- data.frame(amount = amount, times = unique(dose_info$times))
+  }
+  
+  # Extracting Albendazole and Albendazole Sulfoxide data if present
   Albendazole_Time <- Single_PK_Dataset$Time[Single_PK_Dataset$Metabolite == "Alb"]  
   Albendazole_Conc <- Single_PK_Dataset$Converted_Concentration[Single_PK_Dataset$Metabolite == "Alb"]  
   Alb_data <- data.frame(Time = Albendazole_Time, Alb = Albendazole_Conc)
@@ -45,346 +48,348 @@ for (k in 1:max(All_PK_Data$Temporal_ID)) {
   Albendazole_Sulfoxide_Conc <- Single_PK_Dataset$Converted_Concentration[Single_PK_Dataset$Metabolite == "AlbSO"]  
   Alb_SO_data <- data.frame(Time = Albendazole_Sulfoxide_Time, Alb_SO = Albendazole_Sulfoxide_Conc)
   
+  # Defining which dataset(s) to fit to
   if (sum(Single_PK_Dataset$Metabolite == "Alb") >= 1) {
     metabolite_availability <- "Both" 
   } else {
     metabolite_availability <- "Sulfoxide_Only"
   }
   
-  bloop <- MCMC_running(number_iterations, initial_parameters, sd_proposals, start_covariance_adaptation, Alb_data, Alb_SO_data, metabolite_availability, Albendazole_PK_Model, end_time, dose, FALSE, informative_prior, reparam)
-  # par(mfrow = c(3, 2))
-  # for (j in 1:ncol(bloop$MCMC_Output)) {
-  #   cl <- rainbow(ncol(bloop$MCMC_Output))
-  #   plot(bloop$MCMC_Output[1:number_iterations, j], type = "l", lwd = 2, col = cl[j])
-  # }
-
-  burn_in <- 0.5
-  iterations <- number_iterations
-  chain <- bloop$MCMC_Output[(burn_in*number_iterations):number_iterations, ]
-  raw_MCMC_output[[k]] <- chain
+  # Running the MCMC and saving the output
+  run_MCMC <- MCMC_running(number_of_iterations = number_iterations, 
+                           parameters_vector = initial_parameters, 
+                           sd_proposals = sd_proposals, 
+                           start_covariance_adaptation = start_covariance_adaptation, 
+                           Alb_data = Alb_data, 
+                           Alb_SO_data = Alb_SO_data, 
+                           metabolite_availability = metabolite_availability, 
+                           model_instance = Albendazole_PK_Model, 
+                           dose_info = dose_info, 
+                           dosage = dosing, 
+                           output = FALSE, 
+                           informative_prior = informative_prior, 
+                           reparam = reparam, 
+                           refresh = 1000)
   
-  median_k_abs <- median(chain[, 1])/reparam[1]
-  median_bioavailability <- median(chain[, 2])/reparam[2]
-  median_sigma <- median(chain[, 3])/reparam[3]
-  median_k_alb_so <- median(chain[, 4])/reparam[4]
-  median_k_alb <- median(chain[, 5])/reparam[5]
-  model_runner <- Albendazole_PK_Model(k_abs = median_k_abs, bioavailability = median_bioavailability, sigma = median_sigma, k_alb_so = median_k_alb_so, k_alb = median_k_alb, dose = dose) 
-  times <- seq(0, 100, length.out = 1000)
-  median_out <- model_runner$run(times)
-  max <- max(c(as.vector(median_out[, 5:6]), Alb_SO_data$Alb_SO))
-  
-  # Generating the 95% Credible Intervals
-  size_of_burned_chain <- number_iterations - (burn_in * number_iterations)
-  thinned_chain <- chain # [seq(1, size_of_burned_chain, 10), ]
-  Alb_SO_Storage_matrix <- matrix(nrow = length(thinned_chain[, 1]), ncol = length(median_out[, 1]))
-  Alb_Storage_matrix <- matrix(nrow = length(thinned_chain[, 1]), ncol = length(median_out[, 1]))
-  for (i in 1:length(thinned_chain[, 1])) {
-    k_abs <- thinned_chain[i, 1]/reparam[1]
-    bioavailability <- thinned_chain[i, 2]/reparam[2]
-    sigma <- thinned_chain[i, 3]/reparam[3]
-    k_alb_so <- thinned_chain[i, 4]/reparam[4]
-    k_alb <- thinned_chain[i, 5]/reparam[5]
-    model_runner <- Albendazole_PK_Model(k_abs = k_abs, bioavailability = bioavailability, sigma = sigma, k_alb_so = k_alb_so, dose = dose, k_alb = k_alb)
-    out <- model_runner$run(times)
-    Alb_Storage_matrix[i, ] <- out[, 5]
-    Alb_SO_Storage_matrix[i, ] <- out[, 6]
-  }
-  Alb_Credible_Upper <- apply(Alb_Storage_matrix, 2, quantile, 0.975)
-  Alb_Credible_Lower <- apply(Alb_Storage_matrix, 2, quantile, 0.025)
-  Alb_SO_Credible_Upper <- apply(Alb_SO_Storage_matrix, 2, quantile, 0.975)
-  Alb_SO_Credible_Lower <- apply(Alb_SO_Storage_matrix, 2, quantile, 0.025)
-
-  # Plotting the Median Output Along With the 95% Credible Intervals 
-  # par(mfrow = c(1, 1))
-  if (plot_limit == TRUE) {
-    plot(median_out[, 1], median_out[, 5], type = "l", col = "#E5005F",  ylim = c(0, max), xlim = c(0, 48), ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2)
-    lines(median_out[, 1], median_out[, 6], type = "l", col = "#7609BA", lwd = 2)
-    points(Alb_data$Time, Alb_data$Alb, pch = 20, col = "#E5005F", cex = 2)
-    points(Alb_SO_data$Time, Alb_SO_data$Alb_SO, pch = 20, col = "#7609BA", cex = 2)
-    polygon(c(median_out[, 1], rev(median_out[, 1])), c(Alb_Credible_Lower, rev(Alb_Credible_Upper)), col = adjustcolor("#E5005F", alpha.f = 0.2), border = NA)
-    polygon(c(median_out[, 1], rev(median_out[, 1])), c(Alb_SO_Credible_Lower, rev(Alb_SO_Credible_Upper)), col = adjustcolor("#7609BA", alpha.f = 0.2), border = NA)
+  if (informative_prior) {
+    prior_string <- "Inf"
   } else {
-    plot(median_out[, 1], median_out[, 5], type = "l", col = "#E5005F",  ylim = c(0, max), xlim = c(0, end_time), ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2)
-    lines(median_out[, 1], median_out[, 6], type = "l", col = "#7609BA", lwd = 2)
-    points(Alb_data$Time, Alb_data$Alb, pch = 20, col = "#E5005F", cex = 2)
-    points(Alb_SO_data$Time, Alb_SO_data$Alb_SO, pch = 20, col = "#7609BA", cex = 2)
-    polygon(c(median_out[, 1], rev(median_out[, 1])), c(Alb_Credible_Lower, rev(Alb_Credible_Upper)), col = adjustcolor("#E5005F", alpha.f = 0.2), border = NA)
-    polygon(c(median_out[, 1], rev(median_out[, 1])), c(Alb_SO_Credible_Lower, rev(Alb_SO_Credible_Upper)), col = adjustcolor("#7609BA", alpha.f = 0.2), border = NA)
+    prior_string <- "Uninf"
   }
-  print(k)
+  
+  saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC,
+               Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
+          paste0("Outputs/MCMC_Outputs/TS", k, "_prior", prior_string, "_singleDose_simpleModel_", Sys.Date(), ".rds"))
+  
+  alb_so <- run_MCMC$Alb_SO[max(number_iterations/2, start_covariance_adaptation):number_iterations, ]
+  mean <- apply(alb_so, 2, mean)
+  lower <- apply(alb_so, 2, quantile, 0.025)
+  upper <- apply(alb_so, 2, quantile, 0.975)
+  
+  plot(run_MCMC$Times, mean, type = "l", col = "#7609BA", ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2, main = paste0("Time Series ", k))
+  points(Alb_SO_data$Time, Alb_SO_data$Alb_SO, pch = 20, col = "#7609BA", cex = 2)
+  polygon(c(run_MCMC$Times, rev(run_MCMC$Times)), c(lower, rev(upper)), col = adjustcolor("#7609BA", alpha.f = 0.2), border = NA)
+  
+  print(k) 
 }
 
-saveRDS(raw_MCMC_output, file = "C:/Users/cw1716/Documents/Q_Drive_Copy/Loa_Loa/Drug Efficacy Modelling/Albendazole Modelling/MCMC_Output_26th_December.rds")
-raw_MCMC_output <- readRDS("C:/Users/cw1716/Documents/Q_Drive_Copy/Loa_Loa/Drug Efficacy Modelling/Albendazole Modelling/MCMC_Output_26th_December.rds")
-
-par(mfrow = c(5, 11))
-for (k in 1:max(All_PK_Data$Temporal_ID)) {
-  MCMC_output_plotting_function(raw_MCMC_output, k, plot_limit = TRUE, plot_separately = FALSE, plot_both = TRUE, credible_intervals = TRUE)  
-}
-
-
-# Plotting All the Alb-SO Lines On the Same Graph
-par(mfrow = c(2, 4))
-par(mar = c(4, 5.2, 3, 3))
-sex <- time_series_information$Sex_Binary
-state <- time_series_information$Feeding_State
-dose_info <- time_series_information$Dose_Binary
-infected <- time_series_information$Disease_Binary
-drugs <- time_series_information$Drug_Binary
-age_group <- ifelse(is.na(time_series_information$Age_Cont), "Unsure", ifelse(time_series_information$Age_Cont <= 18, "Young", "Old"))
-weight_group <- ifelse(is.na(time_series_information$Weight), "Unsure", ifelse(time_series_information$Weight <= 50, "Light", "Heavy"))
-plotting_function(All_PK_Data, raw_MCMC_output, "Sex", colours = c("#4E90CE", "#CE4E61"))
-plotting_function(All_PK_Data, raw_MCMC_output, "State", colours = c("#F28123", "#4BBC00"))
-plotting_function(All_PK_Data, raw_MCMC_output, "Dose", colours = c("#3ED6BA", "#725FAD"))
-plotting_function(All_PK_Data, raw_MCMC_output, "Infection", colours = c("#F7C911", "#CE5A90"))
-plotting_function(All_PK_Data, raw_MCMC_output, "Drug", colours = c("#ADA9A9", "#D62C2C"))
-plotting_function(All_PK_Data, raw_MCMC_output, "Age", colours = c("#ED7BEB", "#E0A02A"))
-plotting_function(All_PK_Data, raw_MCMC_output, "Weight", colours = c("#32720C", "#CCB5FF"))
-
-
-parameters <- matrix(nrow = 55, ncol = 5)
-colnames(parameters) <- c("k_abs", "bioavailability", "sigma", "k_alb_so", "k_alb")
-bioavailability_vector <- c() 
-k_alb_so_vector <- c()
-AUC_vector <- c()
-C_max_vector <- c()
-times <- seq(0, 100, length.out = 400)
-model_output <- matrix(nrow = 55, ncol = 400)
-
+# Plotting all the raw model fitting results
+m <- matrix(c(1, 1, 2, 3, 1, 1, 4, 5, 1, 1, 6, 7), nrow = 3, ncol = 4, byrow = TRUE)
+layout(m)
 for (i in 1:55) {
-  temp <- raw_MCMC_output[[i]]
-  temp_k_abs <- median(temp[20000:40000, 1])
-  temp_bioavailability <- median(temp[20000:40000, 2])
-  temp_sigma <- median(temp[20000:40000, 3])
-  temp_k_alb_so <- median(temp[20000:40000, 4])
-  temp_k_alb <- median(temp[20000:40000, 5])
   
-  bioavailability_vector[i] <- temp_bioavailability
-  k_alb_so_vector[i] <- temp_k_alb_so
-  parameters[i, ] <- c(temp_k_abs, temp_bioavailability, temp_sigma, temp_k_alb_so, temp_k_alb)
-  dose <- time_series_information$Dose_mg[i]
+  # Loading in results
+  temp <- readRDS(paste0("Outputs/MCMC_Outputs/TS_", i, "_single_simple.rds"))
+  alb_so <- temp$mcmc_output$Alb_SO[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, ]
+  mean_alb_so <- apply(alb_so, 2, mean)
+  lower_alb_so <- apply(alb_so, 2, quantile, 0.025)
+  upper_alb_so <- apply(alb_so, 2, quantile, 0.975)
   
-  model_runner <- Albendazole_PK_Model(k_abs = temp_k_abs, bioavailability = temp_bioavailability, sigma = temp_sigma, k_alb_so = temp_k_alb_so, dose = dose, k_alb = temp_k_alb) 
-  median_out <- model_runner$run(times)
-  model_output[i, ] <- median_out[, 6]
+  alb <- temp$mcmc_output$Alb[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, ]
+  mean_alb <- apply(alb, 2, mean)
+  lower_alb <- apply(alb, 2, quantile, 0.025)
+  upper_alb <- apply(alb, 2, quantile, 0.975)
   
-  AUC_vector[i] <- DescTools::AUC(times, model_output[i, ])
-  C_max_vector[i] <- max(model_output[i, ])
-  print(i)
+  # Plotting model outputs
+  plot(temp$mcmc_output$Times, mean_alb_so, type = "l", col = "#7609BA", ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2, 
+       main = paste0("Time Series ", i), ylim = c(0, max(upper_alb_so, temp$info$Converted_Concentration[temp$info$Metabolite == "AlbSO"])))
+  points(temp$info$Time[temp$info$Metabolite == "AlbSO"], temp$info$Converted_Concentration[temp$info$Metabolite == "AlbSO"], pch = 20, col = "#7609BA", cex = 2)
+  polygon(c(temp$mcmc_output$Times, rev(temp$mcmc_output$Times)), c(lower_alb_so, rev(upper_alb_so)), col = adjustcolor("#7609BA", alpha.f = 0.2), border = NA)
+  if("Alb" %in% temp$info$Metabolite) {
+    lines(temp$mcmc_output$Times, mean_alb, type = "l", col = "#E5005F", ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2, main = paste0("Time Series ", i))
+    points(temp$info$Time[temp$info$Metabolite == "Alb"], temp$info$Converted_Concentration[temp$info$Metabolite == "Alb"], pch = 20, col = "#E5005F", cex = 2)
+    polygon(c(temp$mcmc_output$Times, rev(temp$mcmc_output$Times)), c(lower_alb, rev(upper_alb)), col = adjustcolor("#E5005F", alpha.f = 0.2), border = NA)
+  }
+  
+  colours <- rainbow(5)
+  naming <- colnames(temp$mcmc_output$MCMC_Output)
+  for (j in 1:dim(temp$mcmc_output$MCMC_Output)[2]) {
+    plot(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, j],
+         type = "l", col = colours[j], main = naming[j], ylab = "")
+  }
+  plot.new()
+  
 }
 
-sex_ratio <- as.numeric(time_series_information$Sex_Ratio)
-state <- as.character(time_series_information$Feeding_State)
-state <- replace(state, state == "Mixture", NA)
-state <- replace(state, state == "Unclear", NA)
-dose_info <- time_series_information$Dose_mg
-infected <- as.character(time_series_information$Disease_Binary)
-infected <- replace(infected, infected == "Mixture", NA)
-drugs <- as.character(time_series_information$Drug_Binary)
-age <- time_series_information$Age_Cont
-weight <- time_series_information$Weight
-lm_compatible <- data.frame(bioavailability = parameters[, "bioavailability"],
-                            half_life = 1/parameters[, "k_alb_so"],
-                            AUC = AUC_vector,
-                            Cmax = C_max_vector,
-                            sex = sex_ratio,
-                            state = state, 
-                            dose = dose_info, 
-                            drugs = drugs,
-                            age = age,
-                            weight = weight)
+# Compiling parameter estimates and covariates
+results <- data.frame(median_k_alb_so = rep(NA, max(overall$Temporal_ID)),
+                      median_bioavailability = rep(NA, max(overall$Temporal_ID)),
+                      median_AUC = rep(NA, max(overall$Temporal_ID)),
+                      median_Cmax = rep(NA, max(overall$Temporal_ID)),
+                      mean_k_alb_so = rep(NA, max(overall$Temporal_ID)),
+                      mean_bioavailability = rep(NA, max(overall$Temporal_ID)),
+                      mean_AUC = rep(NA, max(overall$Temporal_ID)),
+                      mean_Cmax = rep(NA, max(overall$Temporal_ID)),
+                      sex = rep(NA_character_, max(overall$Temporal_ID)),
+                      sex_ratio = rep(NA, max(overall$Temporal_ID)), 
+                      state = rep(NA_character_, max(overall$Temporal_ID)), 
+                      dose = rep(NA, max(overall$Temporal_ID)),
+                      dose_binary = rep(NA_character_, max(overall$Temporal_ID)),
+                      infection = rep(NA_character_, max(overall$Temporal_ID)), 
+                      age = rep(NA, max(overall$Temporal_ID)),
+                      age_binary = rep(NA_character_, max(overall$Temporal_ID)),
+                      weight = rep(NA, max(overall$Temporal_ID)),
+                      drug = rep(NA_character_, max(overall$Temporal_ID)), 
+                      dosing = character(max(overall$Temporal_ID)),
+                      number = rep(NA, max(overall$Temporal_ID)),
+                      stringsAsFactors = FALSE)
 
-cor(parameters[, "bioavailability"], parameters[, "k_alb_so"])
-cor(parameters[, "bioavailability"], C_max_vector)
-cor(parameters[, "bioavailability"], AUC_vector)
-cor(C_max_vector, parameters[, "k_alb_so"])
-cor(AUC_vector, parameters[, "k_alb_so"])
-cor(AUC_vector, C_max_vector)
-
-table(time_series_information$Sex_Ratio, useNA = "ifany")
-table(time_series_information$Feeding_State, useNA = "ifany")
-table(time_series_information$Dose_mg, useNA = "ifany")
-table(time_series_information$Drug_Binary, useNA = "ifany")
-table(time_series_information$Age_Cont, useNA = "ifany")
-table(time_series_information$Weight, useNA = "ifany")
-table(time_series_information$Disease, useNA = "ifany")
-
-table(time_series_information$Disease_Binary, time_series_information$Sex_Ratio, useNA = "ifany")
-table(time_series_information$Disease_Binary, time_series_information$Feeding_State, useNA = "ifany")
-table(time_series_information$Disease_Binary, time_series_information$Dose_mg, useNA = "ifany")
-table(time_series_information$Disease_Binary, time_series_information$Drug_Binary, useNA = "ifany")
-table(time_series_information$Disease_Binary, time_series_information$Age_Cont, useNA = "ifany")
-table(time_series_information$Disease_Binary, time_series_information$Weight, useNA = "ifany")
-
-table(time_series_information$Sex_Ratio, time_series_information$Feeding_State, useNA = "ifany")
-table(time_series_information$Sex_Ratio, time_series_information$Dose_mg, useNA = "ifany")
-table(time_series_information$Sex_Ratio, time_series_information$Drug_Binary, useNA = "ifany")
-table(time_series_information$Sex_Ratio, time_series_information$Age_Cont, useNA = "ifany")
-table(time_series_information$Sex_Ratio, time_series_information$Weight, useNA = "ifany")
-
-table(time_series_information$Feeding_State, time_series_information$Dose_mg, useNA = "ifany")
-table(time_series_information$Feeding_State, time_series_information$Drug_Binary, useNA = "ifany")
-table(time_series_information$Feeding_State, time_series_information$Age_Cont, useNA = "ifany")
-table(time_series_information$Feeding_State, time_series_information$Weight, useNA = "ifany")
-
-table(time_series_information$Dose_mg, time_series_information$Drug_Binary, useNA = "ifany")
-table(time_series_information$Dose_mg, time_series_information$Age_Cont, useNA = "ifany")
-table(time_series_information$Dose_mg, time_series_information$Weight, useNA = "ifany")
-
-table(time_series_information$Age_Cont, time_series_information$Weight, useNA = "ifany")
-
-complete_studies <- time_series_information[!is.na(time_series_information$Sex_Ratio) &
-                                            (time_series_information$Feeding_State != "Mixture" & time_series_information$Feeding_State != "Unclear") &
-                                            !is.na(time_series_information$Age_Cont) &
-                                            !is.na(time_series_information$Weight), ]
-
-sex_lost_studies <- time_series_information[!is.na(time_series_information$Sex_Ratio) & 
-                                            ((time_series_information$Feeding_State == "Mixture" | time_series_information$Feeding_State == "Unclear") |
-                                               is.na(time_series_information$Age_Cont) | 
-                                               is.na(time_series_information$Weight)), ]
-
-
-
-# Regressions - Bioavailability
-bioavailability_sex <- lm(bioavailability ~ sex, data = lm_compatible)
-summary(bioavailability_sex)
-
-bioavailability_state <- lm(bioavailability ~ state, data = lm_compatible)
-summary(bioavailability_state)
-
-bioavailability_dose <- lm(bioavailability ~ dose, data = lm_compatible)
-summary(bioavailability_dose)
-
-bioavailability_drugs <- lm(bioavailability ~ drugs, data = lm_compatible)
-summary(bioavailability_drugs)
-
-bioavailability_age <- lm(bioavailability ~ age, data = lm_compatible)
-summary(bioavailability_age)
-
-bioavailability_weight <- lm(bioavailability ~ weight, data = lm_compatible)
-summary(bioavailability_weight)
-
-bioavailability_coinfection <- lm(bioavailability ~ infected, data = lm_compatible)
-summary(bioavailability_coinfection)
-
-bioavailability_all <- lm(bioavailability ~ sex + state + dose + drugs + age + weight + infected, data = lm_compatible)
-summary(bioavailability_all)
-
-bloop <- summary(bioavailability_all)
-bloop$coefficients
+for (k in 1:max(overall$Temporal_ID)) {
   
-# Regressions - Half Life
-half_life_sex <- lm(half_life ~ sex, data = lm_compatible)
-summary(half_life_sex)
+  # Reading in the Dataset
+  temp <- readRDS(paste0("Outputs/MCMC_Outputs/TS_", k, "_single_simple.rds"))
+  
+  # Generic inputs
+  times <- seq(0, 100, 0.01)
+  dose <- unique(temp$info$Dose_mg_daily)
+  
+  # Running model with median parameter estimates
+  median_k_abs <- median(temp$mcmc_output$MCMC_Output[15000:25000, "k_abs"]) / reparam[1]
+  median_bioavailability <- median(temp$mcmc_output$MCMC_Output[15000:25000, "bioavailability"]) / reparam[2]
+  median_sigma <- median(temp$mcmc_output$MCMC_Output[15000:25000, "sigma"]) / reparam[3]
+  median_k_alb <- median(temp$mcmc_output$MCMC_Output[15000:25000, "k_alb"]) / reparam[4]
+  median_k_alb_so <- median(temp$mcmc_output$MCMC_Output[15000:25000, "k_alb_so"]) / reparam[5]
+  median_model <- Albendazole_PK_Model(k_abs = median_k_abs, sigma = median_sigma, 
+                                       k_alb_so = median_k_alb_so, k_alb = median_k_alb, 
+                                       gut_1 = (median_bioavailability/1e+5) * (dose * 1e+6), 
+                                       gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
+  median_out <- median_model$run(times)
+  median_alb_so_PK <- median_out[, 6]
+  median_AUC <- DescTools::AUC(times, median_alb_so_PK)
+  median_Cmax <- max(median_alb_so_PK)
+  
+  results$median_k_alb_so[k] <- median_k_alb_so
+  results$median_bioavailability[k] <- median_bioavailability
+  results$median_AUC[k] <- median_AUC
+  results$median_Cmax[k] <- median_Cmax
+  
+  # Running model with mean parameter estimates
+  mean_k_abs <- mean(temp$mcmc_output$MCMC_Output[15000:25000, "k_abs"]) / reparam[1]
+  mean_bioavailability <- mean(temp$mcmc_output$MCMC_Output[15000:25000, "bioavailability"]) / reparam[2]
+  mean_sigma <- mean(temp$mcmc_output$MCMC_Output[15000:25000, "sigma"]) / reparam[3]
+  mean_k_alb <- mean(temp$mcmc_output$MCMC_Output[15000:25000, "k_alb"]) / reparam[4]
+  mean_k_alb_so <- mean(temp$mcmc_output$MCMC_Output[15000:25000, "k_alb_so"]) / reparam[5]
+  mean_model <- Albendazole_PK_Model(k_abs = mean_k_abs, sigma = mean_sigma, 
+                                       k_alb_so = mean_k_alb_so, k_alb = mean_k_alb, 
+                                       gut_1 = (mean_bioavailability/1e+5) * (dose * 1e+6), 
+                                       gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
+  mean_out <- mean_model$run(times)
+  mean_alb_so_PK <- mean_out[, 6]
+  mean_AUC <- DescTools::AUC(times, mean_alb_so_PK)
+  mean_Cmax <- max(mean_alb_so_PK)
 
-half_life_state <- lm(half_life ~ state, data = lm_compatible)
-summary(half_life_state)
+  results$mean_k_alb_so[k] <- mean_k_alb_so # change to 1 over this quantity i.e. half life
+  results$mean_bioavailability[k] <- mean_bioavailability
+  results$mean_AUC[k] <- mean_AUC
+  results$mean_Cmax[k] <- mean_Cmax  
+  
+  # Get metadata for each timeseries
+  meta <- temp$info
+  
+  results$sex[k] <- unique(meta$Sex_Binary)
+  results$sex_ratio[k] <- unique(meta$Sex_Ratio)
+  results$state[k] <- unique(meta$Feeding_State)
+  results$dose[k] <- unique(meta$Dose_mg_daily)
+  results$dose_binary[k] <- unique(meta$Dose_Binary)
+  results$infection[k] <- unique(meta$Disease_Binary)
+  results$age[k] <- unique(meta$Age_Cont)
+  results$age_binary[k] <- unique(meta$Age_Binary)
+  results$weight[k] <- unique(meta$Weight)
+  results$dosing[k] <- unique(meta$Dosing)
+  results$number[k] <- unique(meta$Number)
+  results$drug[k] <- unique(meta$Drug_Binary)
+  
+  print(k)
 
-half_life_dose <- lm(half_life ~ dose, data = lm_compatible)
-summary(half_life_dose)
+}
 
-half_life_drugs <- lm(half_life ~ drugs, data = lm_compatible)
-summary(half_life_drugs)
+# Regression Results
+summary(lm(median_bioavailability ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results[1:55, ]))
+summary(lm(median_k_alb_so ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results[1:55, ]))
+summary(lm(median_AUC ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results[1:55, ]))
+summary(lm(median_Cmax ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results[1:55, ]))
 
-half_life_age <- lm(half_life ~ age, data = lm_compatible)
-summary(half_life_age)
+summary(lm(mean_bioavailability ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results[1:55, ]))
+summary(lm(mean_k_alb_so ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results[1:55, ]))
+summary(lm(mean_AUC ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results[1:55, ]))
+summary(lm(mean_Cmax ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results[1:55, ]))
 
-half_life_weight <- lm(half_life ~ weight, data = lm_compatible)
-summary(half_life_weight)
+# Generating median outputs for plotting
+times <- seq(0, 50, 0.1)
+median_output <- matrix(nrow = 55, ncol = length(times))
+for (i in 1:55) {
+  
+  # Loading in results
+  temp <- readRDS(paste0("Outputs/MCMC_Outputs/TS_", i, "_single_simple.rds"))
+  dose <- unique(temp$info$Dose_mg_daily)
+  
+  # Running model with median parameter estimates
+  median_k_abs <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_abs"]) / reparam[1]
+  median_bioavailability <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "bioavailability"]) / reparam[2]
+  median_sigma <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "sigma"]) / reparam[3]
+  median_k_alb <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_alb"]) / reparam[4]
+  median_k_alb_so <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_alb_so"]) / reparam[5]
+  median_model <- Albendazole_PK_Model(k_abs = median_k_abs, sigma = median_sigma, 
+                                       k_alb_so = median_k_alb_so, k_alb = median_k_alb, 
+                                       gut_1 = (median_bioavailability/1e+5) * (dose * 1e+6), 
+                                       gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
+  median_out <- median_model$run(times)
+  median_alb_so_PK <- median_out[, 6]
+  median_output[i, ] <- median_alb_so_PK
+  
+  print(i)
+  
+}
 
-half_life_coinfection <- lm(half_life ~ infected, data = lm_compatible)
-summary(half_life_coinfection)
+# Plotting sex results
+sex <- factor(results$sex)
+colours <- c("#4E90CE", "#CE4E61")
+indices <- which(!is.na(sex) & sex != "Unclear")
+mean_men <- apply(median_output[sex == "Male", ], 2, mean)
+mean_mixture <- apply(median_output[sex == "Mixture", ], 2, mean)
+for (i in indices) {
+  if (i == 1) {
+    plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
+         col = ifelse(sex[i] == "Male", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  } else {
+    lines(times, median_output[i, ], col = ifelse(sex[i] == "Male", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  }
+}
+lines(times, mean_men, lwd = 3, col = colours[1])
+lines(times, mean_mixture, lwd = 3, col = colours[2])
+legend("topright", inset = 0.02, legend = c(paste0("Males (n = ", sum(sex == "Male"), ")"), paste0("Mixture (n = ", sum(sex == "Mixture"), ")")), 
+       title = "Sex", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
-half_life_all <- lm(half_life ~ sex + state + dose + drugs + age + weight + infected, data = lm_compatible)
-summary(half_life_all)
+# Plotting state results
+state <- factor(results$state)
+colours <- c("#4BBC00","#F28123")
+indices <- which(!is.na(state) & state != "Unclear" & state != "Mixture")
+mean_fatty_meal <- apply(median_output[state == "Fatty_meal", ], 2, mean)
+mean_fasted <- apply(median_output[state == "Fasted", ], 2, mean)
+for (i in indices) {
+  if (i == 1) {
+    plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
+         col = ifelse(state[i] == "Fatty_meal", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  } else {
+    lines(times, median_output[i, ], col = ifelse(state[i] == "Fatty_meal", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  }
+}
+lines(times, mean_fatty_meal, lwd = 3, col = colours[1])
+lines(times, mean_fasted, lwd = 3, col = colours[2])
+legend("topright", inset = 0.02, legend = c(paste0("Fatty Meal (n = ", sum(state == "Fatty_meal"), ")"), paste0("Fasted (n = ", sum(state == "Fasted"), ")")), 
+       title = "State", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
-# Regressions - AUC
-AUC_sex <- lm(AUC ~ sex, data = lm_compatible)
-summary(AUC_sex)
+# Plotting dose results
+dose <- factor(results$dose_binary)
+colours <- c("#3ED6BA", "#725FAD")
+indices <- which(!is.na(dose))
+mean_high <- apply(median_output[dose == "High", ], 2, mean)
+mean_low <- apply(median_output[dose == "Low", ], 2, mean)
+for (i in indices) {
+  if (i == 1) {
+    plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
+         col = ifelse(dose[i] == "High", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  } else {
+    lines(times, median_output[i, ], col = ifelse(dose[i] == "High", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  }
+}
+lines(times, mean_high, lwd = 3, col = colours[1])
+lines(times, mean_low, lwd = 3, col = colours[2])
+legend("topright", inset = 0.02, legend = c(paste0("High (n = ", sum(dose == "High"), ")"), paste0("Low (n = ", sum(dose == "Low"), ")")), 
+       title = "State", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
-AUC_state <- lm(AUC ~ state, data = lm_compatible)
-summary(AUC_state)
+# Plotting infection results
+infection <- factor(results$infection)
+colours <- c("#F7C911", "#CE5A90")
+indices <- which(!is.na(infection) & infection != "Mixture")
+mean_infected <- apply(median_output[infection == "Infected", ], 2, mean)
+mean_healthy <- apply(median_output[infection == "Healthy", ], 2, mean)
+for (i in indices) {
+  if (i == 1) {
+    plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
+         col = ifelse(infection[i] == "Healthy", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  } else {
+    lines(times, median_output[i, ], col = ifelse(infection[i] == "Healthy", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  }
+}
+lines(times, mean_healthy, lwd = 3, col = colours[1])
+lines(times, mean_infected, lwd = 3, col = colours[2])
+legend("topright", inset = 0.02, legend = c(paste0("Healthy (n = ", sum(infection == "Healthy"), ")"), paste0("Infected (n = ", sum(infection == "Infected"), ")")), 
+       title = "Infection Status", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
-AUC_dose <- lm(AUC ~ dose, data = lm_compatible)
-summary(AUC_dose)
+# Plotting drug results
+drug <- factor(results$drug)
+colours <- c("#ADA9A9", "#D62C2C")
+indices <- which(!is.na(drug))
+mean_none <- apply(median_output[drug == "None", ], 2, mean)
+mean_drug <- apply(median_output[drug == "Yes", ], 2, mean)
+for (i in indices) {
+  if (i == 1) {
+    plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
+         col = ifelse(drug[i] == "None", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  } else {
+    lines(times, median_output[i, ], col = ifelse(drug[i] == "None", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  }
+}
+lines(times, mean_none, lwd = 3, col = colours[1])
+lines(times, mean_drug, lwd = 3, col = colours[2])
+legend("topright", inset = 0.02, legend = c(paste0("None (n = ", sum(drug == "None"), ")"), paste0("Drug (n = ", sum(drug == "Yes"), ")")), 
+       title = "Drug Co-Administration", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
-AUC_drugs <- lm(AUC ~ drugs, data = lm_compatible)
-summary(AUC_drugs)
+# Plotting age results
+age <- factor(results$age_binary)
+colours <- c("#E0A02A", "#ED7BEB")
+indices <- which(!is.na(age) & age != "Unclear")
+mean_adults <- apply(median_output[age == "Adult", ], 2, mean)
+mean_children <- apply(median_output[age == "Children", ], 2, mean)
+for (i in indices) {
+  if (i == 1) {
+    plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
+         col = ifelse(age[i] == "Adult", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  } else {
+    lines(times, median_output[i, ], col = ifelse(age[i] == "Adult", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  }
+}
+lines(times, mean_adults, lwd = 3, col = colours[1])
+lines(times, mean_children, lwd = 3, col = colours[2])
+legend("topright", inset = 0.02, legend = c(paste0("Adults (n = ", sum(age == "Adult"), ")"), paste0("Children (n = ", sum(age == "Children"), ")")), 
+       title = "Age", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
-AUC_age <- lm(AUC ~ age, data = lm_compatible)
-summary(AUC_age)
-
-AUC_weight <- lm(AUC ~ weight, data = lm_compatible)
-summary(AUC_weight)
-
-AUC_coinfection <- lm(AUC ~ infected, data = lm_compatible)
-summary(AUC_coinfection)
-
-AUC_all <- lm(AUC ~ sex + state + dose + drugs + age + weight + infected, data = lm_compatible)
-summary(AUC_all)
-
-# Univariate Regressions - Cmax
-Cmax_sex <- lm(Cmax ~ sex, data = lm_compatible)
-summary(Cmax_sex)
-
-Cmax_state <- lm(Cmax ~ state, data = lm_compatible)
-summary(Cmax_state)
-
-Cmax_dose <- lm(Cmax ~ dose, data = lm_compatible)
-summary(Cmax_dose)
-
-Cmax_drugs <- lm(Cmax ~ drugs, data = lm_compatible)
-summary(Cmax_drugs)
-
-Cmax_age <- lm(Cmax ~ age, data = lm_compatible)
-summary(Cmax_age)
-
-Cmax_weight <- lm(Cmax ~ weight, data = lm_compatible)
-summary(Cmax_weight)
-
-Cmax_coinfection <- lm(Cmax ~ infected, data = lm_compatible)
-summary(Cmax_coinfection)
-
-Cmax_all <- lm(Cmax ~ sex + state + dose + drugs + age + weight + infected, data = lm_compatible)
-summary(Cmax_all)
-
-
-mean(time_series_information$Sex_Ratio, na.rm = TRUE)
-
-###____________
-
-All_PK_Data <- read.csv("C:/Users/cw1716/Documents/Q_Drive_Copy/Loa_Loa/Drug Efficacy Modelling/Albendazole Modelling/Albendazole_Pharmacokinetic_Data/Alb_PK_Data.csv")
-
-unique(All_PK_Data$Temporal_ID)
-
-time_series_information <- All_PK_Data[!duplicated(All_PK_Data$Temporal_ID), ]
-
-table(time_series_information$Dose_Binary)
-time_series_information$Dose_mg[order(time_series_information$Dose_mg)]
-median(time_series_information$Dose_mg[order(time_series_information$Dose_mg)])
-
-table(time_series_information$Sex_Ratio)
-time_series_information$Sex_Ratio[order(time_series_information$Sex_Ratio)]
-median(time_series_information$Sex_Ratio[order(time_series_information$Sex_Ratio)], na.rm = TRUE)
-
-table(time_series_information$Age_Cont)
-time_series_information$Age_Cont[order(time_series_information$Age_Cont)]
-median(time_series_information$Age_Cont[order(time_series_information$Age_Cont)], na.rm = TRUE)
-
-table(time_series_information$Weight)
-time_series_information$Weight[order(time_series_information$Weight)]
-median(time_series_information$Weight[order(time_series_information$Weight)], na.rm = TRUE)
-
-table(time_series_information$Sex_Binary)
-table(time_series_information$Feeding_State)
-table(time_series_information$Age_Binary)
-table(time_series_information$Metabolite)
-sum(time_series_information$Number)
-table(time_series_information$Disease_Binary)
-table(time_series_information$Disease)
-table(time_series_information$Drug_Binary)
-table(time_series_information$Drug, time_series_information$Drug_Binary)
-
-bloop <- time_series_information[time_series_information$Drug == "None" & time_series_information$Drug_Binary == "Yes", ]
-
-
+# Plotting weight results
+weight <- results$weight > 60
+colours <- c("#32720C", "#CCB5FF")
+indices <- which(!is.na(weight))
+mean_heavy <- apply(median_output[weight[indices], ], 2, mean)
+mean_light <- apply(median_output[!weight[indices], ], 2, mean)
+for (i in indices) {
+  if (i == 1) {
+    plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
+         col = ifelse(weight[indices[i]], adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  } else {
+    lines(times, median_output[i, ], col = ifelse(weight[indices[i]], adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+  }
+}
+lines(times, mean_heavy, lwd = 3, col = colours[1])
+lines(times, mean_light, lwd = 3, col = colours[2])
+legend("topright", inset = 0.02, legend = c(paste0(">60kg (n = ", sum(weight[indices]), ")"), paste0("<60kg (n = ", sum(sum(!weight[indices])), ")")), 
+       title = "Age", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
