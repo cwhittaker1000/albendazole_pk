@@ -8,17 +8,23 @@ Albendazole_PK_Model <- odin::odin({
   deriv(Blood_Alb_SO) <- (sigma * Liver) - (k_alb_so * Blood_Alb_SO)
   
   ## Initial conditions
-  initial(Gut_1) <- (bioavailability/1e+5) * (dose * 1e+6)
-  initial(Gut_2) <- 0.0
-  initial(Liver) <- 0.0
-  initial(Blood_Alb) <- 0.0
-  initial(Blood_Alb_SO) <- 0.0
+  initial(Gut_1) <- gut_1
+  initial(Gut_2) <- gut_2
+  initial(Liver) <- liver
+  initial(Blood_Alb) <- blood_alb
+  initial(Blood_Alb_SO) <- blood_alb_so
+  
+  ## Initial condition parameters
+  gut_1 <- user()
+  gut_2 <- user()
+  liver <- user()
+  blood_alb <- user()
+  blood_alb_so <- user()
   
   ## Parameters
-  dose <- user()
   k_abs <- user()
-  bioavailability <- user()
   sigma <- user()
-  k_alb_so <- user()
   k_alb <- user()
+  k_alb_so <- user()
+
 })
