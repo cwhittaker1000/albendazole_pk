@@ -7,7 +7,7 @@ source("Functions/simple_model_MCMC_Functions.R")
 source("Functions/Processing_and_Plotting_Functions.R")
 
 # Importing and Processing the Data
-single_PK_Data <- read.csv("Data/Albendazole_Pharmacokinetic_Data/Alb_PK_Data.csv", stringsAsFactors = FALSE)
+single_PK_Data <- read.csv("Data/single_dose_data.csv", stringsAsFactors = FALSE)
 overall <- single_PK_Data
 
 # Defining the MCMC Inputs
@@ -79,7 +79,7 @@ for (k in 1:max(overall$Temporal_ID)) {
   
   saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC,
                Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
-          paste0("Outputs/MCMC_Outputs/TS", k, "_prior", prior_string, "_singleDose_simpleModel_", Sys.Date(), ".rds"))
+          paste0("Outputs/SingleDose_SimpleModel_MCMC_Outputs/TS", k, "_prior", prior_string, "_singleDose_simpleModel_.rds"))
   
   alb_so <- run_MCMC$Alb_SO[max(number_iterations/2, start_covariance_adaptation):number_iterations, ]
   mean <- apply(alb_so, 2, mean)
@@ -99,7 +99,7 @@ layout(m)
 for (i in 1:55) {
   
   # Loading in results
-  temp <- readRDS(paste0("Outputs/MCMC_Outputs/TS_", i, "_single_simple.rds"))
+  temp <- readRDS(paste0("Outputs/SingleDose_SimpleModel_MCMC_Outputs/TS", i, "_prior", prior_string, "_singleDose_simpleModel_.rds"))
   alb_so <- temp$mcmc_output$Alb_SO[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, ]
   mean_alb_so <- apply(alb_so, 2, mean)
   lower_alb_so <- apply(alb_so, 2, quantile, 0.025)
@@ -157,7 +157,7 @@ results <- data.frame(median_k_alb_so = rep(NA, max(overall$Temporal_ID)),
 for (k in 1:max(overall$Temporal_ID)) {
   
   # Reading in the Dataset
-  temp <- readRDS(paste0("Outputs/MCMC_Outputs/TS_", k, "_single_simple.rds"))
+  temp <- readRDS(paste0("Outputs/SingleDose_SimpleModel_MCMC_Outputs/TS", k, "_prior", prior_string, "_singleDose_simpleModel_.rds"))
   
   # Generic inputs
   times <- seq(0, 100, 0.01)
