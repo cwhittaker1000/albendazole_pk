@@ -1,5 +1,5 @@
 # Prior Function 
-prior_function <- function(parameters_vector, informative_prior) {
+single_dose_prior_function <- function(parameters_vector, informative_prior) {
   
   k_abs <- parameters_vector[1]
   bioavailability <- parameters_vector[2]
@@ -27,7 +27,7 @@ prior_function <- function(parameters_vector, informative_prior) {
 }
 
 #Likelihood Function
-single_dose_loglikelihood_function <- function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, time_increment = 0.1) {
+single_dose_single_dose_loglikelihood_function <- function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, time_increment) {
   
   # Extracting relevant dose information
   dose <- dose_info$amount 
@@ -104,7 +104,7 @@ single_dose_loglikelihood_function <- function(parameters_vector, Alb_data, Alb_
 }
 
 #Likelihood Function
-multi_dose_loglikelihood_function <- function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, time_increment = 0.1) {
+single_dose_multi_dose_loglikelihood_function <- function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, time_increment) {
   
   # Extracting relevant dose information
   dose_amounts <- dose_info$amount
@@ -136,7 +136,7 @@ multi_dose_loglikelihood_function <- function(parameters_vector, Alb_data, Alb_S
       model_output[, "t"] <- model_output[, "t"] + max(final[, "t"]) 
       final <- rbind(final[-dim(final)[1], ], model_output) 
     }
-    final_vals <- extract_final_values(model_output)
+    final_vals <- single_dose_extract_final_values(model_output)
   }
   
   Times <- final[, "t"]
@@ -211,16 +211,16 @@ proposal_function <- function(current_parameters, covariance_matrix, scaling_fac
 }  
 
 # Posterior Function
-posterior_function <- function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, informative_prior, dosage, time_increment = 0.1){
+single_dose_posterior_function <- function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, informative_prior, dosage, time_increment){
   if (dosage == "Single") {
-    loglik <- single_dose_loglikelihood_function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, time_increment)
-    posterior <- loglik$likelihood + prior_function(parameters_vector, informative_prior)
+    loglik <- single_dose_single_dose_loglikelihood_function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, time_increment)
+    posterior <- loglik$likelihood + single_dose_prior_function(parameters_vector, informative_prior)
     alb <- loglik$Alb_output
     alb_so <- loglik$Alb_SO_output
     times <- loglik$Times
   } else if (dosage == "Multiple") {
-    loglik <- multi_dose_loglikelihood_function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, time_increment)
-    posterior <- loglik$likelihood + prior_function(parameters_vector, informative_prior)
+    loglik <- single_dose_multi_dose_loglikelihood_function(parameters_vector, Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, time_increment)
+    posterior <- loglik$likelihood + single_dose_prior_function(parameters_vector, informative_prior)
     alb <- loglik$Alb_output
     alb_so <- loglik$Alb_SO_output
     times <- loglik$Times
@@ -231,7 +231,7 @@ posterior_function <- function(parameters_vector, Alb_data, Alb_SO_data, metabol
 }
 
 # Extract Final Values
-extract_final_values <- function(model_output) {
+single_dose_extract_final_values <- function(model_output) {
   end <- dim(model_output)[1]
   Gut_1 <- model_output[end, "Gut_1"]
   Gut_2 <- model_output[end, "Gut_2"]
@@ -258,9 +258,9 @@ jc_prop_update <- function(accepted, i, current_sf, previous_mu, current_paramet
 }
 
 # MCMC Function
-MCMC_running <- function(number_of_iterations, parameters_vector, sd_proposals, start_covariance_adaptation, 
-                         Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, dosage,
-                         output, informative_prior, reparam, refresh, time_increment = 0.1) {
+single_dose_MCMC_running <- function(number_of_iterations, parameters_vector, sd_proposals, start_covariance_adaptation, 
+                                Alb_data, Alb_SO_data, metabolite_availability, model_instance, dose_info, dosage,
+                                output, informative_prior, reparam, refresh, time_increment) {
   
   # Scaling Factor Adaptation Parameters 
   scaling_factor <- 1
@@ -293,8 +293,8 @@ MCMC_running <- function(number_of_iterations, parameters_vector, sd_proposals, 
   # Calculating the Posterior Probability for the Initial Values
   current_parameter_values <- MCMC_output[1, ]
   reparam_current_parameter_values <- t(as.matrix(current_parameter_values / reparam)) ## reverse reparameterisation for model running 
-  raw_current_posterior <- posterior_function(reparam_current_parameter_values, Alb_data, Alb_SO_data, metabolite_availability, 
-                                              model_instance, dose_info, informative_prior, dosage)
+  raw_current_posterior <- single_dose_posterior_function(reparam_current_parameter_values, Alb_data, Alb_SO_data, metabolite_availability, 
+                                                     model_instance, dose_info, informative_prior, dosage, time_increment)
   current_posterior <- raw_current_posterior$posterior
   
   # Running the Actual MCMC
@@ -304,8 +304,8 @@ MCMC_running <- function(number_of_iterations, parameters_vector, sd_proposals, 
     proposed_parameter_values <- proposal_function(MCMC_output[i, ], sigma, scaling_factor)
     reparam_proposed_parameter_values <-  proposed_parameter_values / reparam ## reverse reparameterisation for model running 
     colnames(reparam_proposed_parameter_values) <- c("k_abs", "bioavailability", "sigma", "k_alb", "k_alb_so")
-    raw_proposed_posterior <- posterior_function(reparam_proposed_parameter_values, Alb_data, Alb_SO_data, metabolite_availability, 
-                                                 model_instance, dose_info, informative_prior, dosage)
+    raw_proposed_posterior <- single_dose_posterior_function(reparam_proposed_parameter_values, Alb_data, Alb_SO_data, metabolite_availability, 
+                                                        model_instance, dose_info, informative_prior, dosage, time_increment)
     proposed_posterior <- raw_proposed_posterior$posterior
     
     uncorrected_likelihood_ratio <- exp(proposed_posterior - current_posterior)
