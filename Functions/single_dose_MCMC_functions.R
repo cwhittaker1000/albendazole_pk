@@ -294,7 +294,7 @@ single_dose_MCMC_running <- function(number_of_iterations, parameters_vector, sd
   current_parameter_values <- MCMC_output[1, ]
   reparam_current_parameter_values <- t(as.matrix(current_parameter_values / reparam)) ## reverse reparameterisation for model running 
   raw_current_posterior <- single_dose_posterior_function(reparam_current_parameter_values, Alb_data, Alb_SO_data, metabolite_availability, 
-                                                     model_instance, dose_info, informative_prior, dosage, time_increment)
+                                                          model_instance, dose_info, informative_prior, dosage, time_increment)
   current_posterior <- raw_current_posterior$posterior
   
   # Running the Actual MCMC
@@ -305,7 +305,7 @@ single_dose_MCMC_running <- function(number_of_iterations, parameters_vector, sd
     reparam_proposed_parameter_values <-  proposed_parameter_values / reparam ## reverse reparameterisation for model running 
     colnames(reparam_proposed_parameter_values) <- c("k_abs", "bioavailability", "sigma", "k_alb", "k_alb_so")
     raw_proposed_posterior <- single_dose_posterior_function(reparam_proposed_parameter_values, Alb_data, Alb_SO_data, metabolite_availability, 
-                                                        model_instance, dose_info, informative_prior, dosage, time_increment)
+                                                             model_instance, dose_info, informative_prior, dosage, time_increment)
     proposed_posterior <- raw_proposed_posterior$posterior
     
     uncorrected_likelihood_ratio <- exp(proposed_posterior - current_posterior)
