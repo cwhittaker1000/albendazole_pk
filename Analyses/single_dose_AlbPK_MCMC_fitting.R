@@ -14,7 +14,7 @@ multiple_PK_Data <- read.csv("Data/multiple_dose_AlbPK_data.csv", stringsAsFacto
 overall <- rbind(single_PK_Data, multiple_PK_Data) 
 
 # Defining the MCMC Inputs
-number_iterations <- 40000
+number_iterations <- 25000
 initial_parameters <- c(k_abs = 2, bioavailability = 0.01, sigma = 15, k_alb = 0.2, k_alb_so = 0.1300)
 sd_proposals <- c(0.002, 0.002, 0.002, 0.002, 0.002)
 reparam <- c(1, 100, 0.1, 10, 10) 
@@ -29,10 +29,14 @@ results <- data.frame(median_k_alb_so = rep(NA, num_TS), median_bioavailability 
                       sex = rep(NA_character_, num_TS), sex_ratio = rep(NA, num_TS), state = rep(NA_character_, num_TS), dose = rep(NA, num_TS),
                       dose_single = rep(NA, num_TS), dose_binary = rep(NA_character_, num_TS), infection = rep(NA_character_, num_TS), 
                       age = rep(NA, num_TS), age_binary = rep(NA_character_, num_TS), weight = rep(NA, num_TS), drug = rep(NA_character_, num_TS), 
-                      dosing = character(num_TS), number = rep(NA, num_TS), dose_data_availabilty = rep(NA, num_TS), stringsAsFactors = FALSE)
+                      dosing = character(num_TS), number = rep(NA, num_TS), dose_data_availability = rep(NA, num_TS), stringsAsFactors = FALSE)
 
 # Looping Over the Dataset and Fitting Each of the Datasets
-for (k in 1:num_TS) {
+fresh_run <- TRUE
+for (k in 75:num_TS) {
+  
+  # Set Seed
+  set.seed(140194)
   
   # Selecting individual time series for fitting 
   time_series_number <- k
@@ -56,8 +60,13 @@ for (k in 1:num_TS) {
   data_available <- unique(Single_PK_Dataset$Data)
   if (dosing == "Multiple" & data_available == "Multiple") {
     time_2nd_dose <- dose_info$times[2]
-    Single_PK_Dataset <- Single_PK_Dataset %>%
-      filter(Time < time_2nd_dose) ## go back and check this is correct for each
+    if (k == 77 | k == 79) {
+      Single_PK_Dataset <- Single_PK_Dataset %>% # for these two, ambiguous whether measured after giving drug - fairly certain measured after 2nd dose so remove 
+        filter(Time < time_2nd_dose) 
+    } else {
+      Single_PK_Dataset <- Single_PK_Dataset %>%
+        filter(Time <= time_2nd_dose)  
+    }
     dose_info <- dose_info[1, ]
     amount <- dose_info$amount[1]
     dosing <- "Single"
@@ -82,33 +91,41 @@ for (k in 1:num_TS) {
   }
   
   # Running the MCMC and saving the output
-  run_MCMC <- single_dose_MCMC_running (number_of_iterations = number_iterations, 
-                                        parameters_vector = initial_parameters, 
-                                        sd_proposals = sd_proposals, 
-                                        start_covariance_adaptation = start_covariance_adaptation, 
-                                        Alb_data = Alb_data, 
-                                        Alb_SO_data = Alb_SO_data, 
-                                        metabolite_availability = metabolite_availability, 
-                                        model_instance = Albendazole_PK_Model, 
-                                        dose_info = dose_info, 
-                                        dosage = dosing, 
-                                        output = FALSE, 
-                                        informative_prior = informative_prior, 
-                                        reparam = reparam, 
-                                        refresh = 1000,
-                                        time_increment = time_increment)
-  
-  # Saving Output
   if (informative_prior) {
     prior_string <- "Inf"
   } else {
     prior_string <- "Uninf"
   }
-  saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC, Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
-          paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
+  if (fresh_run) {
+    run_MCMC <- single_dose_MCMC_running (number_of_iterations = number_iterations, 
+                                          parameters_vector = initial_parameters, 
+                                          sd_proposals = sd_proposals, 
+                                          start_covariance_adaptation = start_covariance_adaptation, 
+                                          Alb_data = Alb_data, 
+                                          Alb_SO_data = Alb_SO_data, 
+                                          metabolite_availability = metabolite_availability, 
+                                          model_instance = Albendazole_PK_Model, 
+                                          dose_info = dose_info, 
+                                          dosage = dosing, 
+                                          output = TRUE, 
+                                          informative_prior = informative_prior, 
+                                          reparam = reparam, 
+                                          refresh = 1000,
+                                          time_increment = time_increment)
+    
+    # Saving Output
+    saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC, Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
+            paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
+    saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC, Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
+            paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", "prior", prior_string, "_singleDose_simpleModel_.rds"))
+  } else {
+    #run_MCMC <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
+    run_MCMC <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", "prior", prior_string, "_singleDose_simpleModel_.rds"))
+    run_MCMC <- run_MCMC$mcmc_output
+  }
   
   # Plotting Output
-  alb_so <- run_MCMC$Alb_SO[burnin:number_iterations, ]
+  alb_so <- run_MCMC$Alb_SO[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), ]
   mean <- apply(alb_so, 2, mean)
   lower <- apply(alb_so, 2, quantile, 0.025)
   upper <- apply(alb_so, 2, quantile, 0.975)
@@ -121,11 +138,11 @@ for (k in 1:num_TS) {
   dose <- dose_info$amount
   
   ## Extracting and Running Model With Median Outputs
-  median_k_abs <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "k_abs"]) / reparam[1]
-  median_bioavailability <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "bioavailability"]) / reparam[2]
-  median_sigma <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "sigma"]) / reparam[3]
-  median_k_alb <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "k_alb"]) / reparam[4]
-  median_k_alb_so <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "k_alb_so"]) / reparam[5]
+  median_k_abs <- median(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "k_abs"]) / reparam[1]
+  median_bioavailability <- median(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "bioavailability"]) / reparam[2]
+  median_sigma <- median(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "sigma"]) / reparam[3]
+  median_k_alb <- median(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "k_alb"]) / reparam[4]
+  median_k_alb_so <- median(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "k_alb_so"]) / reparam[5]
   median_model <- Albendazole_PK_Model(k_abs = median_k_abs, sigma = median_sigma, k_alb_so = median_k_alb_so, k_alb = median_k_alb, 
                                        gut_1 = (median_bioavailability/1e+5) * (dose * 1e+6), gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
   median_out <- median_model$run(times)
@@ -138,11 +155,11 @@ for (k in 1:num_TS) {
   results$median_Cmax[k] <- median_Cmax
   
   ## Mean Outputs
-  mean_k_abs <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "k_abs"]) / reparam[1]
-  mean_bioavailability <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "bioavailability"]) / reparam[2]
-  mean_sigma <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "sigma"]) / reparam[3]
-  mean_k_alb <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "k_alb"]) / reparam[4]
-  mean_k_alb_so <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "k_alb_so"]) / reparam[5]
+  mean_k_abs <- mean(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "k_abs"]) / reparam[1]
+  mean_bioavailability <- mean(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "bioavailability"]) / reparam[2]
+  mean_sigma <- mean(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "sigma"]) / reparam[3]
+  mean_k_alb <- mean(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "k_alb"]) / reparam[4]
+  mean_k_alb_so <- mean(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "k_alb_so"]) / reparam[5]
   mean_model <- Albendazole_PK_Model(k_abs = mean_k_abs, sigma = mean_sigma, k_alb_so = mean_k_alb_so, k_alb = mean_k_alb, 
                                      gut_1 = (mean_bioavailability/1e+5) * (dose * 1e+6), gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
   mean_out <- mean_model$run(times)
