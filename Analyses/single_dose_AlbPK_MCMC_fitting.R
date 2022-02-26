@@ -1,30 +1,38 @@
 # Loading In Required Libraries 
-library(tictoc); library(deSolve); library(MALDIquant); library(mvtnorm); library(MASS); library(tmvtnorm); 
-library(odin); library(dplyr); library(naniar)
+library(tictoc); library(deSolve); library(MALDIquant); library(mvtnorm); library(MASS); 
+library(tmvtnorm); library(odin); library(dplyr); library(naniar)
 
 # Loading in ODIN Model Instance
 source("Models/Alb_PK_Single_Dose_Odin_Model.R")
-source("Functions/simple_model_MCMC_Functions.R")
+source("Functions/single_dose_MCMC_functions.R")
 
 # Importing and Processing the Data - 60 (1-60) single dose time-series; 
 #                                     13 (61-73) multiple dose, single time-series; 
 #                                      9 (74-82) multiple dose, multiple time-series
-single_PK_Data <- read.csv("Data/single_dose_data.csv", stringsAsFactors = FALSE)
-multiple_PK_Data <- read.csv("Data/multiple_dose_data.csv", stringsAsFactors = FALSE)
-overall <- rbind(single_PK_Data, multiple_PK_Data) #%>%
-  #filter(Data == "Single")
-max(multiple_PK_Data$Temporal_ID)
+single_PK_Data <- read.csv("Data/single_dose_AlbPK_data.csv", stringsAsFactors = FALSE)
+multiple_PK_Data <- read.csv("Data/multiple_dose_AlbPK_data.csv", stringsAsFactors = FALSE)
+overall <- rbind(single_PK_Data, multiple_PK_Data) 
 
 # Defining the MCMC Inputs
-number_iterations <- 60000
+number_iterations <- 40000
 initial_parameters <- c(k_abs = 2, bioavailability = 0.01, sigma = 15, k_alb = 0.2, k_alb_so = 0.1300)
 sd_proposals <- c(0.002, 0.002, 0.002, 0.002, 0.002)
 reparam <- c(1, 100, 0.1, 10, 10) 
 start_covariance_adaptation <- 5000
 informative_prior <- FALSE
+burnin <- min(number_iterations/2, start_covariance_adaptation * 2)
+
+# Dataframe for Summary Model Outputs
+num_TS <- max(overall$Temporal_ID)
+results <- data.frame(median_k_alb_so = rep(NA, num_TS), median_bioavailability = rep(NA, num_TS), median_AUC = rep(NA, num_TS), median_Cmax = rep(NA, num_TS),
+                      mean_k_alb_so = rep(NA, num_TS), mean_bioavailability = rep(NA, num_TS), mean_AUC = rep(NA, num_TS), mean_Cmax = rep(NA, num_TS),
+                      sex = rep(NA_character_, num_TS), sex_ratio = rep(NA, num_TS), state = rep(NA_character_, num_TS), dose = rep(NA, num_TS),
+                      dose_single = rep(NA, num_TS), dose_binary = rep(NA_character_, num_TS), infection = rep(NA_character_, num_TS), 
+                      age = rep(NA, num_TS), age_binary = rep(NA_character_, num_TS), weight = rep(NA, num_TS), drug = rep(NA_character_, num_TS), 
+                      dosing = character(num_TS), number = rep(NA, num_TS), dose_data_availabilty = rep(NA, num_TS), stringsAsFactors = FALSE)
 
 # Looping Over the Dataset and Fitting Each of the Datasets
-for (k in 80:max(overall$Temporal_ID)) {
+for (k in 1:num_TS) {
   
   # Selecting individual time series for fitting 
   time_series_number <- k
@@ -44,6 +52,17 @@ for (k in 80:max(overall$Temporal_ID)) {
     dose_info <- data.frame(amount = amount, times = unique(dose_info$times))
   }
   
+  # Converting Multiple Dose Time-Series Where We have Starting Dose Time-Series Available to Single-Dose Time-Series
+  data_available <- unique(Single_PK_Dataset$Data)
+  if (dosing == "Multiple" & data_available == "Multiple") {
+    time_2nd_dose <- dose_info$times[2]
+    Single_PK_Dataset <- Single_PK_Dataset %>%
+      filter(Time < time_2nd_dose) ## go back and check this is correct for each
+    dose_info <- dose_info[1, ]
+    amount <- dose_info$amount[1]
+    dosing <- "Single"
+  } 
+  
   # Extracting Albendazole and Albendazole Sulfoxide data if present
   Albendazole_Time <- Single_PK_Dataset$Time[Single_PK_Dataset$Metabolite == "Alb"]  
   Albendazole_Conc <- Single_PK_Dataset$Converted_Concentration[Single_PK_Dataset$Metabolite == "Alb"]  
@@ -62,46 +81,100 @@ for (k in 80:max(overall$Temporal_ID)) {
     time_increment <- min(c(1, diff(Alb_SO_data$Time)))
   }
   
-  
   # Running the MCMC and saving the output
-  run_MCMC <- simple_MCMC_running(number_of_iterations = number_iterations, 
-                                  parameters_vector = initial_parameters, 
-                                  sd_proposals = sd_proposals, 
-                                  start_covariance_adaptation = start_covariance_adaptation, 
-                                  Alb_data = Alb_data, 
-                                  Alb_SO_data = Alb_SO_data, 
-                                  metabolite_availability = metabolite_availability, 
-                                  model_instance = Albendazole_PK_Model, 
-                                  dose_info = dose_info, 
-                                  dosage = dosing, 
-                                  output = FALSE, 
-                                  informative_prior = informative_prior, 
-                                  reparam = reparam, 
-                                  refresh = 1000,
-                                  time_increment = time_increment)
+  run_MCMC <- single_dose_MCMC_running (number_of_iterations = number_iterations, 
+                                        parameters_vector = initial_parameters, 
+                                        sd_proposals = sd_proposals, 
+                                        start_covariance_adaptation = start_covariance_adaptation, 
+                                        Alb_data = Alb_data, 
+                                        Alb_SO_data = Alb_SO_data, 
+                                        metabolite_availability = metabolite_availability, 
+                                        model_instance = Albendazole_PK_Model, 
+                                        dose_info = dose_info, 
+                                        dosage = dosing, 
+                                        output = FALSE, 
+                                        informative_prior = informative_prior, 
+                                        reparam = reparam, 
+                                        refresh = 1000,
+                                        time_increment = time_increment)
   
+  # Saving Output
   if (informative_prior) {
     prior_string <- "Inf"
   } else {
     prior_string <- "Uninf"
   }
+  saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC, Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
+          paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
   
-  saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC,
-               Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
-          paste0("Outputs/SingleDose_SimpleModel_MCMC_Outputs/TS", k, "_prior", prior_string, "_", tolower(dosing), "Dose_simpleModel_.rds"))
-  
-  alb_so <- run_MCMC$Alb_SO[max(number_iterations/2, start_covariance_adaptation):number_iterations, ]
+  # Plotting Output
+  alb_so <- run_MCMC$Alb_SO[burnin:number_iterations, ]
   mean <- apply(alb_so, 2, mean)
   lower <- apply(alb_so, 2, quantile, 0.025)
   upper <- apply(alb_so, 2, quantile, 0.975)
-  
-  plot(run_MCMC$Times, mean, type = "l", col = "#7609BA", ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2, 
-       main = paste0("Time Series ", k), ylim = c(0, max(c(upper, Alb_SO_data$Alb_SO))))
+  plot(run_MCMC$Times, mean, type = "l", col = "#7609BA", ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2, main = paste0("Time Series ", k), ylim = c(0, max(c(upper, Alb_SO_data$Alb_SO))))
   points(Alb_SO_data$Time, Alb_SO_data$Alb_SO, pch = 20, col = "#7609BA", cex = 2)
   polygon(c(run_MCMC$Times, rev(run_MCMC$Times)), c(lower, rev(upper)), col = adjustcolor("#7609BA", alpha.f = 0.2), border = NA)
   
+  # Generating and Saving Summary Statistics for Each Fitted Output 
+  times <- seq(0, 100, 0.01)
+  dose <- dose_info$amount
+  
+  ## Extracting and Running Model With Median Outputs
+  median_k_abs <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "k_abs"]) / reparam[1]
+  median_bioavailability <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "bioavailability"]) / reparam[2]
+  median_sigma <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "sigma"]) / reparam[3]
+  median_k_alb <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "k_alb"]) / reparam[4]
+  median_k_alb_so <- median(run_MCMC$MCMC_Output[burnin:number_iterations, "k_alb_so"]) / reparam[5]
+  median_model <- Albendazole_PK_Model(k_abs = median_k_abs, sigma = median_sigma, k_alb_so = median_k_alb_so, k_alb = median_k_alb, 
+                                       gut_1 = (median_bioavailability/1e+5) * (dose * 1e+6), gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
+  median_out <- median_model$run(times)
+  median_alb_so_PK <- median_out[, 6]
+  median_AUC <- DescTools::AUC(times, median_alb_so_PK)
+  median_Cmax <- max(median_alb_so_PK)
+  results$median_k_alb_so[k] <- median_k_alb_so
+  results$median_bioavailability[k] <- median_bioavailability
+  results$median_AUC[k] <- median_AUC
+  results$median_Cmax[k] <- median_Cmax
+  
+  ## Mean Outputs
+  mean_k_abs <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "k_abs"]) / reparam[1]
+  mean_bioavailability <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "bioavailability"]) / reparam[2]
+  mean_sigma <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "sigma"]) / reparam[3]
+  mean_k_alb <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "k_alb"]) / reparam[4]
+  mean_k_alb_so <- mean(run_MCMC$MCMC_Output[burnin:number_iterations, "k_alb_so"]) / reparam[5]
+  mean_model <- Albendazole_PK_Model(k_abs = mean_k_abs, sigma = mean_sigma, k_alb_so = mean_k_alb_so, k_alb = mean_k_alb, 
+                                     gut_1 = (mean_bioavailability/1e+5) * (dose * 1e+6), gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
+  mean_out <- mean_model$run(times)
+  mean_alb_so_PK <- mean_out[, 6]
+  mean_AUC <- DescTools::AUC(times, mean_alb_so_PK)
+  mean_Cmax <- max(mean_alb_so_PK)
+  results$mean_k_alb_so[k] <- mean_k_alb_so # change to 1 over this quantity i.e. half life
+  results$mean_bioavailability[k] <- mean_bioavailability
+  results$mean_AUC[k] <- mean_AUC
+  results$mean_Cmax[k] <- mean_Cmax  
+  
+  # Get metadata for each timeseries
+  meta <- Single_PK_Dataset
+  results$sex[k] <- unique(meta$Sex_Binary)
+  results$sex_ratio[k] <- unique(meta$Sex_Ratio)
+  results$state[k] <- unique(meta$Feeding_State)
+  results$dose[k] <- unique(meta$Dose_mg_daily)
+  results$dose_single[k] <- unique(meta$Dose_Amount)
+  results$dose_binary[k] <- unique(meta$Dose_Binary)
+  results$infection[k] <- unique(meta$Disease_Binary)
+  results$age[k] <- unique(meta$Age_Cont)
+  results$age_binary[k] <- unique(meta$Age_Binary)
+  results$weight[k] <- unique(meta$Weight)
+  results$dosing[k] <- unique(meta$Dosing)
+  results$dose_data_availability[k] <- unique(meta$Data)
+  results$number[k] <- unique(meta$Number)
+  results$drug[k] <- unique(meta$Drug_Binary)
+  
   print(k) 
+  
 }
+
 
 # Plotting all the raw model fitting results
 m <- matrix(c(1, 1, 2, 3, 1, 1, 4, 5, 1, 1, 6, 7), nrow = 3, ncol = 4, byrow = TRUE)
@@ -141,109 +214,6 @@ for (i in 1:max(overall$Temporal_ID)) {
   }
   plot.new()
   
-}
-
-# Compiling parameter estimates and covariates
-results <- data.frame(median_k_alb_so = rep(NA, max(overall$Temporal_ID)),
-                      median_bioavailability = rep(NA, max(overall$Temporal_ID)),
-                      median_AUC = rep(NA, max(overall$Temporal_ID)),
-                      median_Cmax = rep(NA, max(overall$Temporal_ID)),
-                      mean_k_alb_so = rep(NA, max(overall$Temporal_ID)),
-                      mean_bioavailability = rep(NA, max(overall$Temporal_ID)),
-                      mean_AUC = rep(NA, max(overall$Temporal_ID)),
-                      mean_Cmax = rep(NA, max(overall$Temporal_ID)),
-                      sex = rep(NA_character_, max(overall$Temporal_ID)),
-                      sex_ratio = rep(NA, max(overall$Temporal_ID)), 
-                      state = rep(NA_character_, max(overall$Temporal_ID)), 
-                      dose = rep(NA, max(overall$Temporal_ID)),
-                      dose_single = rep(NA, max(overall$Temporal_ID)),
-                      dose_binary = rep(NA_character_, max(overall$Temporal_ID)),
-                      infection = rep(NA_character_, max(overall$Temporal_ID)), 
-                      age = rep(NA, max(overall$Temporal_ID)),
-                      age_binary = rep(NA_character_, max(overall$Temporal_ID)),
-                      weight = rep(NA, max(overall$Temporal_ID)),
-                      drug = rep(NA_character_, max(overall$Temporal_ID)), 
-                      dosing = character(max(overall$Temporal_ID)),
-                      number = rep(NA, max(overall$Temporal_ID)),
-                      dose_data_availabilty = rep(NA, max(overall$Temporal_ID)),
-                      stringsAsFactors = FALSE)
-
-for (k in 1:max(overall$Temporal_ID)) {
-  
-  # Reading in the Dataset
-  Single_PK_Dataset <- filter(overall, Temporal_ID == k) # filter by time_series_number
-  dosing <- unique(Single_PK_Dataset$Dosing)
-  if (informative_prior) {
-    prior_string <- "Inf"
-  } else {
-    prior_string <- "Uninf"
-  }
-  temp <- readRDS(paste0("Outputs/SingleDose_SimpleModel_MCMC_Outputs/TS", k, "_prior", prior_string, "_", tolower(dosing), "Dose_simpleModel_.rds"))
-  
-  # Generic inputs
-  times <- seq(0, 100, 0.01)
-  dose <- unique(temp$info$Dose_mg_daily)
-  
-  # Running model with median parameter estimates
-  median_k_abs <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_abs"]) / reparam[1]
-  median_bioavailability <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "bioavailability"]) / reparam[2]
-  median_sigma <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "sigma"]) / reparam[3]
-  median_k_alb <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_alb"]) / reparam[4]
-  median_k_alb_so <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_alb_so"]) / reparam[5]
-  median_model <- Albendazole_PK_Model(k_abs = median_k_abs, sigma = median_sigma, 
-                                       k_alb_so = median_k_alb_so, k_alb = median_k_alb, 
-                                       gut_1 = (median_bioavailability/1e+5) * (dose * 1e+6), 
-                                       gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
-  median_out <- median_model$run(times)
-  median_alb_so_PK <- median_out[, 6]
-  median_AUC <- DescTools::AUC(times, median_alb_so_PK)
-  median_Cmax <- max(median_alb_so_PK)
-  
-  results$median_k_alb_so[k] <- median_k_alb_so
-  results$median_bioavailability[k] <- median_bioavailability
-  results$median_AUC[k] <- median_AUC
-  results$median_Cmax[k] <- median_Cmax
-  
-  # Running model with mean parameter estimates
-  mean_k_abs <- mean(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_abs"]) / reparam[1]
-  mean_bioavailability <- mean(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "bioavailability"]) / reparam[2]
-  mean_sigma <- mean(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "sigma"]) / reparam[3]
-  mean_k_alb <- mean(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_alb"]) / reparam[4]
-  mean_k_alb_so <- mean(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_alb_so"]) / reparam[5]
-  mean_model <- Albendazole_PK_Model(k_abs = mean_k_abs, sigma = mean_sigma, 
-                                       k_alb_so = mean_k_alb_so, k_alb = mean_k_alb, 
-                                       gut_1 = (mean_bioavailability/1e+5) * (dose * 1e+6), 
-                                       gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
-  mean_out <- mean_model$run(times)
-  mean_alb_so_PK <- mean_out[, 6]
-  mean_AUC <- DescTools::AUC(times, mean_alb_so_PK)
-  mean_Cmax <- max(mean_alb_so_PK)
-
-  results$mean_k_alb_so[k] <- mean_k_alb_so # change to 1 over this quantity i.e. half life
-  results$mean_bioavailability[k] <- mean_bioavailability
-  results$mean_AUC[k] <- mean_AUC
-  results$mean_Cmax[k] <- mean_Cmax  
-  
-  # Get metadata for each timeseries
-  meta <- temp$info
-  
-  results$sex[k] <- unique(meta$Sex_Binary)
-  results$sex_ratio[k] <- unique(meta$Sex_Ratio)
-  results$state[k] <- unique(meta$Feeding_State)
-  results$dose[k] <- unique(meta$Dose_mg_daily)
-  results$dose_single[k] <- unique(meta$Dose_Amount)
-  results$dose_binary[k] <- unique(meta$Dose_Binary)
-  results$infection[k] <- unique(meta$Disease_Binary)
-  results$age[k] <- unique(meta$Age_Cont)
-  results$age_binary[k] <- unique(meta$Age_Binary)
-  results$weight[k] <- unique(meta$Weight)
-  results$dosing[k] <- unique(meta$Dosing)
-  results$dose_data_availability[k] <- unique(meta$Data)
-  results$number[k] <- unique(meta$Number)
-  results$drug[k] <- unique(meta$Drug_Binary)
-  
-  print(k)
-
 }
 
 # Regression Results - need to decide how and what to include here given data sparsity
