@@ -587,531 +587,519 @@ Single,Single,0,29,45,3,453.7,AlbSO,400,400,Low,Fasted,0.75,Mixture,NA,Adult,NA,
 Single,Single,0,29,45,4,387.6,AlbSO,400,400,Low,Fasted,0.75,Mixture,NA,Adult,NA,4,None,Healthy,None,None,None,0.3876,ug/ml,ug -> ng = * 1000,Experiments in Figure 2
 Single,Single,0,29,45,6,325.6,AlbSO,400,400,Low,Fasted,0.75,Mixture,NA,Adult,NA,4,None,Healthy,None,None,None,0.3256,ug/ml,ug -> ng = * 1000,Experiments in Figure 2
 Single,Single,0,29,45,8,151.5,AlbSO,400,400,Low,Fasted,0.75,Mixture,NA,Adult,NA,4,None,Healthy,None,None,None,0.1515,ug/ml,ug -> ng = * 1000,Experiments in Figure 2
-Single,Single,0,32,46,0,0,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,32,46,1,323.0663,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,323.0663,ng/ml,No conversion required,
-Single,Single,0,32,46,2,724.7368,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,724.7368,ng/ml,No conversion required,
-Single,Single,0,32,46,3,380.5948,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,380.5948,ng/ml,No conversion required,
-Single,Single,0,32,46,4,384.2803,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,384.2803,ng/ml,No conversion required,
-Single,Single,0,32,46,4.5,451.3371,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,451.3371,ng/ml,No conversion required,
-Single,Single,0,32,46,5,464.8919,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,464.8919,ng/ml,No conversion required,
-Single,Single,0,32,46,5.5,568.7511,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,568.7511,ng/ml,No conversion required,
-Single,Single,0,32,46,6,418.373,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,418.373,ng/ml,No conversion required,
-Single,Single,0,32,46,8,241.8141,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,241.8141,ng/ml,No conversion required,
-Single,Single,0,32,46,10,219.0484,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,219.0484,ng/ml,No conversion required,
-Single,Single,0,32,46,24,126.7454,AlbSO,800,800,High,Fasted,0.666666667,Mixture,30,Adult,67.7,12,None,Healthy,None,None,None,126.7454,ng/ml,No conversion required,
-Single,Single,0,33,47,0,0,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,33,47,1,226.5779,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,226.5779,ng/ml,No conversion required,
-Single,Single,0,33,47,2,471.5238,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,471.5238,ng/ml,No conversion required,
-Single,Single,0,33,47,3,407.8996,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,407.8996,ng/ml,No conversion required,
-Single,Single,0,33,47,4,334.4795,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,334.4795,ng/ml,No conversion required,
-Single,Single,0,33,47,4.5,351.6477,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,351.6477,ng/ml,No conversion required,
-Single,Single,0,33,47,5,434.9356,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,434.9356,ng/ml,No conversion required,
-Single,Single,0,33,47,5.5,412.9186,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,412.9186,ng/ml,No conversion required,
-Single,Single,0,33,47,6,334.5781,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,334.5781,ng/ml,No conversion required,
-Single,Single,0,33,47,8,261.2031,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,261.2031,ng/ml,No conversion required,
-Single,Single,0,33,47,10,207.4325,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,207.4325,ng/ml,No conversion required,
-Single,Single,0,33,47,24,151.7877,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,151.7877,ng/ml,No conversion required,
-Single,Single,0,33,48,0,0,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,33,48,1,373.5181,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,373.5181,ng/ml,No conversion required,
-Single,Single,0,33,48,2,571.932,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,571.932,ng/ml,No conversion required,
-Single,Single,0,33,48,3,537.697,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,537.697,ng/ml,No conversion required,
-Single,Single,0,33,48,4,373.6632,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,373.6632,ng/ml,No conversion required,
-Single,Single,0,33,48,4.5,488.792,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,488.792,ng/ml,No conversion required,
-Single,Single,0,33,48,5,525.5493,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,525.5493,ng/ml,No conversion required,
-Single,Single,0,33,48,5.5,505.9842,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,505.9842,ng/ml,No conversion required,
-Single,Single,0,33,48,6,415.3902,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,415.3902,ng/ml,No conversion required,
-Single,Single,0,33,48,8,302.8386,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,302.8386,ng/ml,No conversion required,
-Single,Single,0,33,48,10,271.1004,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,271.1004,ng/ml,No conversion required,
-Single,Single,0,33,48,24,164.0299,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,164.0299,ng/ml,No conversion required,
-Single,Single,0,33,49,0,0,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,33,49,1,385.7588,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,385.7588,ng/ml,No conversion required,
-Single,Single,0,33,49,2,787.4423,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,787.4423,ng/ml,No conversion required,
-Single,Single,0,33,49,3,745.8589,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,745.8589,ng/ml,No conversion required,
-Single,Single,0,33,49,4,750.8075,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,750.8075,ng/ml,No conversion required,
-Single,Single,0,33,49,4.5,804.7077,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,804.7077,ng/ml,No conversion required,
-Single,Single,0,33,49,5,1076.5713,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,1076.5713,ng/ml,No conversion required,
-Single,Single,0,33,49,5.5,785.1665,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,785.1665,ng/ml,No conversion required,
-Single,Single,0,33,49,6,687.2285,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,687.2285,ng/ml,No conversion required,
-Single,Single,0,33,49,8,484.0645,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,484.0645,ng/ml,No conversion required,
-Single,Single,0,33,49,10,422.9372,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,422.9372,ng/ml,No conversion required,
-Single,Single,0,33,49,24,173.8258,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,173.8258,ng/ml,No conversion required,
-Single,Single,0,34,50,0,0,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,34,50,0.5,46.4918,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,46.4918,ng/ml,No conversion required,
-Single,Single,0,34,50,1,87,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,87,ng/ml,No conversion required,
-Single,Single,0,34,50,1.5,142.0614,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,142.0614,ng/ml,No conversion required,
-Single,Single,0,34,50,2,207.223,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,207.223,ng/ml,No conversion required,
-Single,Single,0,34,50,3,197.6251,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,197.6251,ng/ml,No conversion required,
-Single,Single,0,34,50,4,188.4635,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,188.4635,ng/ml,No conversion required,
-Single,Single,0,34,50,6,163.5133,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,163.5133,ng/ml,No conversion required,
-Single,Single,0,34,50,8,135.319,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,135.319,ng/ml,No conversion required,
-Single,Single,0,34,50,10,103.5133,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,103.5133,ng/ml,No conversion required,
-Single,Single,0,34,50,12,95.6396,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,95.6396,ng/ml,No conversion required,
-Single,Single,0,34,50,16,74.2864,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,74.2864,ng/ml,No conversion required,
-Single,Single,0,34,50,20,57.7033,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,57.7033,ng/ml,No conversion required,
-Single,Single,0,34,50,24,46.253,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,46.253,ng/ml,No conversion required,
-Single,Single,0,34,50,30,30.2044,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,30.2044,ng/ml,No conversion required,
-Single,Single,0,34,50,36,17.3905,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,17.3905,ng/ml,No conversion required,
-Single,Single,0,34,50,48,9.8439,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,9.8439,ng/ml,No conversion required,
-Single,Single,0,34,50,60,1.94125,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,1.94125,ng/ml,No conversion required,
-Single,Single,0,34,51,0,0,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,34,51,0.5,46.4918,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,46.4918,ng/ml,No conversion required,
-Single,Single,0,34,51,1,87,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,87,ng/ml,No conversion required,
-Single,Single,0,34,51,1.5,142.0614,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,142.0614,ng/ml,No conversion required,
-Single,Single,0,34,51,2,224.1851,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,224.1851,ng/ml,No conversion required,
-Single,Single,0,34,51,3,240.5823,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,240.5823,ng/ml,No conversion required,
-Single,Single,0,34,51,4,213.7478,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,213.7478,ng/ml,No conversion required,
-Single,Single,0,34,51,6,186.9131,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,186.9131,ng/ml,No conversion required,
-Single,Single,0,34,51,8,163.4402,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,163.4402,ng/ml,No conversion required,
-Single,Single,0,34,51,10,134.2014,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,134.2014,ng/ml,No conversion required,
-Single,Single,0,34,51,12,119.2066,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,119.2066,ng/ml,No conversion required,
-Single,Single,0,34,51,16,103.3721,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,103.3721,ng/ml,No conversion required,
-Single,Single,0,34,51,20,73.6432,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,73.6432,ng/ml,No conversion required,
-Single,Single,0,34,51,24,57.1999,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,57.1999,ng/ml,No conversion required,
-Single,Single,0,34,51,30,38.5468,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,38.5468,ng/ml,No conversion required,
-Single,Single,0,34,51,36,21.1708,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,21.1708,ng/ml,No conversion required,
-Single,Single,0,34,51,48,9.7669,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,9.7669,ng/ml,No conversion required,
-Single,Single,0,34,51,60,0.987,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,0.987,ng/ml,No conversion required,
-Single,Single,0,35,52,0,0,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,52,1,378.3,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.3783,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,52,2,635.3,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.6353,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,52,3,1028.9,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,1.0289,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,52,4,1177.5,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,1.1775,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,52,6,1349.6,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,1.3496,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,52,8,1279,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,1.279,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,52,11,958.6,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.9586,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,52,24,344.1,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.3441,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,53,0,0,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,53,1,128.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.1285,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,53,2,211,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.211,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,53,3,225.2,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.2252,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,53,4,206.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.2064,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,53,6,121.7,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.1217,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,53,8,110,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.11,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,53,11,79.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.0795,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,53,24,40.1,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.0401,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,35,54,0,0,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,54,1,40.7,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.0407,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,54,2,211.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.2114,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,54,3,461.7,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.4617,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,54,4,618.3,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.6183,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,54,6,692.6,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.6926,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,54,8,408.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.4085,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,54,11,264.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.2645,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,54,24,35.1,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.0351,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,55,0,0,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,55,1,14.9,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.0149,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,55,2,61.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.0614,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,55,3,187.6,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.1876,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,55,4,311.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.3115,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,55,6,388,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.388,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,55,8,223.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.2234,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,55,11,147.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.1474,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,35,55,24,42.2,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.0422,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
-Single,Single,0,36,56,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient EA
-Single,Single,0,36,56,1,224.2,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.2242,ug/ml,ug -> ng = * 1000,Patient EA
-Single,Single,0,36,56,2,349.7,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.3497,ug/ml,ug -> ng = * 1000,Patient EA
-Single,Single,0,36,56,4,435.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.4354,ug/ml,ug -> ng = * 1000,Patient EA
-Single,Single,0,36,56,6,659.8,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.6598,ug/ml,ug -> ng = * 1000,Patient EA
-Single,Single,0,36,56,14,338.6,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.3386,ug/ml,ug -> ng = * 1000,Patient EA
-Single,Single,0,36,56,24,153.8,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,v,None,None,None,0.1538,ug/ml,ug -> ng = * 1000,Patient EA
-Single,Single,0,36,57,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient ET
-Single,Single,0,36,57,1,133.5,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1335,ug/ml,ug -> ng = * 1000,Patient ET
-Single,Single,0,36,57,2,192.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1924,ug/ml,ug -> ng = * 1000,Patient ET
-Single,Single,0,36,57,6,490.9,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.4909,ug/ml,ug -> ng = * 1000,Patient ET
-Single,Single,0,36,57,14,173.3,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1733,ug/ml,ug -> ng = * 1000,Patient ET
-Single,Single,0,36,57,24,144.9,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1449,ug/ml,ug -> ng = * 1000,Patient ET
-Single,Single,0,36,58,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient KE
-Single,Single,0,36,58,1,95.3,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.0953,ug/ml,ug -> ng = * 1000,Patient KE
-Single,Single,0,36,58,2,223,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.223,ug/ml,ug -> ng = * 1000,Patient KE
-Single,Single,0,36,58,6,214.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.2144,ug/ml,ug -> ng = * 1000,Patient KE
-Single,Single,0,36,58,14,112.8,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1128,ug/ml,ug -> ng = * 1000,Patient KE
-Single,Single,0,36,58,24,104,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.104,ug/ml,ug -> ng = * 1000,Patient KE
-Single,Single,0,36,59,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient NK
-Single,Single,0,36,59,1,75.8,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.0758,ug/ml,ug -> ng = * 1000,Patient NK
-Single,Single,0,36,59,2,251.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.2514,ug/ml,ug -> ng = * 1000,Patient NK
-Single,Single,0,36,59,6,280.2,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.2802,ug/ml,ug -> ng = * 1000,Patient NK
-Single,Single,0,36,59,14,173.2,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1732,ug/ml,ug -> ng = * 1000,Patient NK
-Single,Single,0,36,59,24,115.6,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1156,ug/ml,ug -> ng = * 1000,Patient NK
-Single,Single,0,36,60,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient KL
-Single,Single,0,36,60,1,48.2,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.0482,ug/ml,ug -> ng = * 1000,Patient KL
-Single,Single,0,36,60,2,103.5,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1035,ug/ml,ug -> ng = * 1000,Patient KL
-Single,Single,0,36,60,4,134.9,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1349,ug/ml,ug -> ng = * 1000,Patient KL
-Single,Single,0,36,60,6,193.1,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1931,ug/ml,ug -> ng = * 1000,Patient KL
-Single,Single,0,36,60,14,172.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1724,ug/ml,ug -> ng = * 1000,Patient KL
-Single,Single,0,36,60,24,142.1,AlbSO,250,250,High,Mixture,2,Male,10,Children,26.8,5,Hydatid,Infected,None,None,None,0.1421,ug/ml,ug -> ng = * 1001,Patient KL
-Single,Single,0,38,61,0,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,38,61,0.5,1.6897,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,1.6897,ng/ml,No conversion required,
-Single,Single,0,38,61,1,13.8186,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,13.8186,ng/ml,No conversion required,
-Single,Single,0,38,61,1.5,27.2939,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,27.2939,ng/ml,No conversion required,
-Single,Single,0,38,61,2,10.4641,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,10.4641,ng/ml,No conversion required,
-Single,Single,0,38,61,3,0.3763,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0.3763,ng/ml,No conversion required,
-Single,Single,0,38,61,4,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,38,61,6,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,38,61,8,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,38,61,12,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,38,61,24,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,38,61,0,0,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,38,61,0.5,147.0419,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,147.0419,ng/ml,No conversion required,
-Single,Single,0,38,61,1,449.8453,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,449.8453,ng/ml,No conversion required,
-Single,Single,0,38,61,1.5,668.4133,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,668.4133,ng/ml,No conversion required,
-Single,Single,0,38,61,2,828.1344,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,828.1344,ng/ml,No conversion required,
-Single,Single,0,38,61,3,878.1411,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,878.1411,ng/ml,No conversion required,
-Single,Single,0,38,61,4,625.0576,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,625.0576,ng/ml,No conversion required,
-Single,Single,0,38,61,6,363.164,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,363.164,ng/ml,No conversion required,
-Single,Single,0,38,61,8,202.1898,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,202.1898,ng/ml,No conversion required,
-Single,Single,0,38,61,12,73.9041,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,73.9041,ng/ml,No conversion required,
-Single,Single,0,38,61,24,0,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,38,62,0,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,38,62,0.5,1.0225,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,1.0225,ng/ml,No conversion required,
-Single,Single,0,38,62,1,39.4377,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,39.4377,ng/ml,No conversion required,
-Single,Single,0,38,62,1.5,78.5394,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,78.5394,ng/ml,No conversion required,
-Single,Single,0,38,62,2,9.9218,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,9.9218,ng/ml,No conversion required,
-Single,Single,0,38,62,3,0.3025,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0.3025,ng/ml,No conversion required,
-Single,Single,0,38,62,4,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,38,62,6,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,38,62,8,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,38,62,12,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,38,62,24,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,38,62,0,0,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,38,62,0.5,142.5819,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,142.5819,ng/ml,No conversion required,
-Single,Single,0,38,62,1,496.7244,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,496.7244,ng/ml,No conversion required,
-Single,Single,0,38,62,1.5,574.529,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,574.529,ng/ml,No conversion required,
-Single,Single,0,38,62,2,583.2438,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,583.2438,ng/ml,No conversion required,
-Single,Single,0,38,62,3,643.8777,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,643.8777,ng/ml,No conversion required,
-Single,Single,0,38,62,4,384.98,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,384.98,ng/ml,No conversion required,
-Single,Single,0,38,62,6,316.2391,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,316.2391,ng/ml,No conversion required,
-Single,Single,0,38,62,8,126.595,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,126.595,ng/ml,No conversion required,
-Single,Single,0,38,62,12,75.4792,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,75.4792,ng/ml,No conversion required,
-Single,Single,0,38,62,24,8.3713,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,8.3713,ng/ml,No conversion required,
-Single,Single,0,40,63,0,0,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 1
-Single,Single,0,40,63,1,346.4,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.3464,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 2
-Single,Single,0,40,63,2,584,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.584,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 3
-Single,Single,0,40,63,3,523.2,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.5232,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 4
-Single,Single,0,40,63,4,348.3,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.3483,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 5
-Single,Single,0,40,63,5,307.5,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.3075,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 6
-Single,Single,0,40,63,6,256.4,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.2564,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 7
-Single,Single,0,40,63,7,205.3,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.2053,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 8
-Single,Single,0,40,63,8,180,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.18,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 9
-Single,Single,0,40,63,10,154.8,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.1548,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 10
-Single,Single,0,40,63,11,150.2,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.1502,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 11
-Single,Single,0,40,63,12,119.8,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.1198,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 12
-Single,Single,0,40,63,24,59.1,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.0591,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 13
-Single,Single,0,42,64,0,0.00,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,64,1,123.50,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1235,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,64,2,387.30,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3873,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,64,3,331.60,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3316,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,64,4,259.30,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2593,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,64,6,149.10,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1491,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,64,8,130.20,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1302,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,64,11,128.00,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.128,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,64,24,52.30,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.0523,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,65,0,0.00,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,65,1,114.60,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1146,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,65,2,240.40,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2404,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,65,3,220.30,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2203,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,65,4,188.10,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1881,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,65,6,115.70,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1157,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,65,8,129.10,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1291,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,65,11,89.00,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.089,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,65,24,39.00,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.039,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,66,0,0.00,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,66,1,358.30,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3583,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,66,2,543.10,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.5431,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,66,3,676.60,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.6766,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,66,4,626.60,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.6266,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,66,6,382.80,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3828,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,66,8,308.30,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3083,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,66,11,225.90,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2259,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,66,24,60.10,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.0601,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,67,0,0.00,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,67,1,296.00,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.296,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,67,2,289.30,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2893,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,67,3,259.30,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2593,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,67,4,240.40,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2404,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,67,6,181.40,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1814,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,67,8,150.20,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1502,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,67,11,159.10,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1591,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,67,24,70.10,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.0701,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,68,0,0.00,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1001",20mg/kg
-Single,Single,0,42,68,1,136.90,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1369,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1002",20mg/kg
-Single,Single,0,42,68,2,136.90,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1369,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1003",20mg/kg
-Single,Single,0,42,68,3,152.50,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1525,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1004",20mg/kg
-Single,Single,0,42,68,4,136.90,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1369,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1005",20mg/kg
-Single,Single,0,42,68,6,107.80,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1078,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1006",20mg/kg
-Single,Single,0,42,68,8,97.90,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.0979,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1007",20mg/kg
-Single,Single,0,42,68,11,97.90,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.0979,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1008",20mg/kg
-Single,Single,0,42,68,24,41.20,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.0412,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1009",20mg/kg
-Single,Single,0,42,69,0,0.00,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,69,1,78.10,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0781,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,69,2,196.70,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1967,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,69,3,170.20,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1702,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,69,4,165.10,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1651,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,69,6,117.90,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1179,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,69,8,92.40,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0924,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,69,11,76.00,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.076,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,69,24,23.50,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0235,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
-Single,Single,0,42,70,0,0.00,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,70,1,112.20,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1122,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,70,2,174.50,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1745,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,70,3,187.30,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1873,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,70,4,166.80,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1668,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,70,6,107.80,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1078,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,70,8,98.30,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0983,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,70,11,69.20,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0692,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,70,24,44.80,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0448,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
-Single,Single,0,42,71,0,0.00,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,71,1,148.10,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1481,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,71,2,230.00,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.23,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,71,3,276.10,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.2761,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,71,4,246.90,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.2469,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,71,6,156.50,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1565,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,71,8,130.80,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1308,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,71,11,90.50,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0905,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,71,24,49.10,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0491,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
-Single,Single,0,42,72,0,0.00,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,72,1,160.00,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.16,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,72,2,293.20,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.2932,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,72,3,367.40,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.3674,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,72,4,320.50,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.3205,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,72,6,221.30,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.2213,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,72,8,182.00,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.182,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,72,11,139.20,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1392,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,42,72,24,52.50,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0525,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
-Single,Single,0,43,73,0,0,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0,ng/ml,No conversion required,
-Single,Single,0,43,73,1,9.0871,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,9.0871,ng/ml,No conversion required,
-Single,Single,0,43,73,2,17.0539,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,17.0539,ng/ml,No conversion required,
-Single,Single,0,43,73,3,12.8216,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,12.8216,ng/ml,No conversion required,
-Single,Single,0,43,73,4,10.9544,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,10.9544,ng/ml,No conversion required,
-Single,Single,0,43,73,5,5.8506,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,5.8506,ng/ml,No conversion required,
-Single,Single,0,43,73,6,2.9876,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,2.9876,ng/ml,No conversion required,
-Single,Single,0,43,73,7,0.8714,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0.8714,ng/ml,No conversion required,
-Single,Single,0,43,73,8,0.8714,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0.8714,ng/ml,No conversion required,
-Single,Single,0,43,73,24,0,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0,ng/ml,No conversion required,
-Single,Single,0,43,73,0,0,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0,ng/ml,No conversion required,
-Single,Single,0,43,73,1,116.4199,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,116.4199,ng/ml,No conversion required,
-Single,Single,0,43,73,2,247.7776,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,247.7776,ng/ml,No conversion required,
-Single,Single,0,43,73,3,323.6178,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,323.6178,ng/ml,No conversion required,
-Single,Single,0,43,73,4,339.6752,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,339.6752,ng/ml,No conversion required,
-Single,Single,0,43,73,5,291.6716,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,291.6716,ng/ml,No conversion required,
-Single,Single,0,43,73,6,272.4988,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,272.4988,ng/ml,No conversion required,
-Single,Single,0,43,73,7,228.7732,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,228.7732,ng/ml,No conversion required,
-Single,Single,0,43,73,8,229.884,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,229.884,ng/ml,No conversion required,
-Single,Single,0,43,73,24,56.5426,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,56.5426,ng/ml,No conversion required,
-Single,Single,0,44,74,0,0,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,44,74,0.66,48.9101,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,48.9101,ng/ml,No conversion required,
-Single,Single,0,44,74,1,49.517,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,49.517,ng/ml,No conversion required,
-Single,Single,0,44,74,1.5,58.5234,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,58.5234,ng/ml,No conversion required,
-Single,Single,0,44,74,2,91.7003,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,91.7003,ng/ml,No conversion required,
-Single,Single,0,44,74,3,52.7279,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,52.7279,ng/ml,No conversion required,
-Single,Single,0,44,74,4,31.4576,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,31.4576,ng/ml,No conversion required,
-Single,Single,0,44,74,6,25.1756,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,25.1756,ng/ml,No conversion required,
-Single,Single,0,44,74,0,0,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,44,74,0.33,55.1282,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,55.1282,ng/ml,No conversion required,
-Single,Single,0,44,74,0.67,59.4977,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,59.4977,ng/ml,No conversion required,
-Single,Single,0,44,74,1,144.3687,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,144.3687,ng/ml,No conversion required,
-Single,Single,0,44,74,1.5,276.6714,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,276.6714,ng/ml,No conversion required,
-Single,Single,0,44,74,2,434.3294,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,434.3294,ng/ml,No conversion required,
-Single,Single,0,44,74,3,561.0633,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,561.0633,ng/ml,No conversion required,
-Single,Single,0,44,74,4,533.3697,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,533.3697,ng/ml,No conversion required,
-Single,Single,0,44,74,6,411.8312,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,411.8312,ng/ml,No conversion required,
-Single,Single,0,44,74,8,323.3744,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,323.3744,ng/ml,No conversion required,
-Single,Single,0,44,74,12,241.3122,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,241.3122,ng/ml,No conversion required,
-Single,Single,0,44,74,24,138.5179,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,138.5179,ng/ml,No conversion required,
-Single,Single,0,44,74,36,57.7761,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,57.7761,ng/ml,No conversion required,
-Single,Single,0,44,75,0,0,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,44,75,1,57.5427,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,57.5427,ng/ml,No conversion required,
-Single,Single,0,44,75,1.5,26.8542,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,26.8542,ng/ml,No conversion required,
-Single,Single,0,44,75,2,48.3984,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,48.3984,ng/ml,No conversion required,
-Single,Single,0,44,75,3,43.5692,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,43.5692,ng/ml,No conversion required,
-Single,Single,0,44,75,4,60.318,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,60.318,ng/ml,No conversion required,
-Single,Single,0,44,75,6,35.5546,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,35.5546,ng/ml,No conversion required,
-Single,Single,0,44,75,8,26.3292,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,26.3292,ng/ml,No conversion required,
-Single,Single,0,44,75,0,0,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,44,75,0.33,40.9748,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,40.9748,ng/ml,No conversion required,
-Single,Single,0,44,75,0.67,94.2652,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,94.2652,ng/ml,No conversion required,
-Single,Single,0,44,75,1,145.5044,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,145.5044,ng/ml,No conversion required,
-Single,Single,0,44,75,1.5,211.0607,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,211.0607,ng/ml,No conversion required,
-Single,Single,0,44,75,2,299.2053,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,299.2053,ng/ml,No conversion required,
-Single,Single,0,44,75,3,488.7862,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,488.7862,ng/ml,No conversion required,
-Single,Single,0,44,75,4,573.7628,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,573.7628,ng/ml,No conversion required,
-Single,Single,0,44,75,6,509.8846,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,509.8846,ng/ml,No conversion required,
-Single,Single,0,44,75,8,400.8961,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,400.8961,ng/ml,No conversion required,
-Single,Single,0,44,75,12,292.6181,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,292.6181,ng/ml,No conversion required,
-Single,Single,0,44,75,24,125.7785,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,125.7785,ng/ml,No conversion required,
-Single,Single,0,44,75,36,63.543,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,63.543,ng/ml,No conversion required,
-Single,Single,0,44,75,48,28.9907,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,28.9907,ng/ml,No conversion required,
-Single,Single,0,48,76,0,0,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,48,76,1,38.7315,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,38.7315,ng/ml,No conversion required,
-Single,Single,0,48,76,2,93.3981,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,93.3981,ng/ml,No conversion required,
-Single,Single,0,48,76,3,110.1516,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,110.1516,ng/ml,No conversion required,
-Single,Single,0,48,76,4,131.2998,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,131.2998,ng/ml,No conversion required,
-Single,Single,0,48,76,6,143.3798,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,143.3798,ng/ml,No conversion required,
-Single,Single,0,48,76,8,121.3927,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,121.3927,ng/ml,No conversion required,
-Single,Single,0,48,76,12,89.7793,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,89.7793,ng/ml,No conversion required,
-Single,Single,0,48,76,24,43.0226,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,43.0226,ng/ml,No conversion required,
-Single,Single,0,48,76,36,13.0221,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,13.0221,ng/ml,No conversion required,
-Single,Single,0,48,76,48,12.142,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,12.142,ng/ml,No conversion required,
-Single,Single,0,48,76,72,4.339,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,4.339,ng/ml,No conversion required,
-Single,Single,0,48,77,0,0,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,48,77,1,39.2816,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,39.2816,ng/ml,No conversion required,
-Single,Single,0,48,77,2,92.5728,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,92.5728,ng/ml,No conversion required,
-Single,Single,0,48,77,3,124.437,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,124.437,ng/ml,No conversion required,
-Single,Single,0,48,77,4,135.9701,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,135.9701,ng/ml,No conversion required,
-Single,Single,0,48,77,6,145.8519,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,145.8519,ng/ml,No conversion required,
-Single,Single,0,48,77,8,135.4032,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,135.4032,ng/ml,No conversion required,
-Single,Single,0,48,77,12,106.5381,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,106.5381,ng/ml,No conversion required,
-Single,Single,0,48,77,24,63.9007,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,63.9007,ng/ml,No conversion required,
-Single,Single,0,48,77,36,27.5816,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,27.5816,ng/ml,No conversion required,
-Single,Single,0,48,77,48,25.878,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,25.878,ng/ml,No conversion required,
-Single,Single,0,48,77,72,17.5253,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,17.5253,ng/ml,No conversion required,
-Single,Single,0,51,78,0,0,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,1,517.1,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.5171,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,3,1040.7,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,1.0407,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,5,916.2,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.9162,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,6,717,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.717,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,8,598.7,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.5987,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,9,595.6,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.5956,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,11,440,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.44,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,14,300,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.3,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,18,203.7,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.2037,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,24,126.2,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.1262,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,36,89.6,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.0896,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,51,78,48,77.9,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.0779,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
-Single,Single,0,52,79,0,0,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,52,79,1,192.3374,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,192.3374,ng/ml,No conversion required,
-Single,Single,0,52,79,2,336.8751,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,336.8751,ng/ml,No conversion required,
-Single,Single,0,52,79,4,361.6892,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,361.6892,ng/ml,No conversion required,
-Single,Single,0,52,79,8,255.708,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,255.708,ng/ml,No conversion required,
-Single,Single,0,52,79,24,167.0285,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,167.0285,ng/ml,No conversion required,
-Single,Single,0,52,79,48,72.8105,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,72.8105,ng/ml,No conversion required,
-Single,Single,0,52,79,72,43.6457,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,43.6457,ng/ml,No conversion required,
-Single,Single,0,53,80,0,0,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,53,80,0.5,77.25,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,77.25,ng/ml,No conversion required,
-Single,Single,0,53,80,0.75,131.1,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,131.1,ng/ml,No conversion required,
-Single,Single,0,53,80,1,184.96,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,184.96,ng/ml,No conversion required,
-Single,Single,0,53,80,1.5,372.33,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,372.33,ng/ml,No conversion required,
-Single,Single,0,53,80,2,696.75,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,696.75,ng/ml,No conversion required,
-Single,Single,0,53,80,2.5,950.91,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,950.91,ng/ml,No conversion required,
-Single,Single,0,53,80,3,1206.22,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,1206.22,ng/ml,No conversion required,
-Single,Single,0,53,80,4,1562.23,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,1562.23,ng/ml,No conversion required,
-Single,Single,0,53,80,6,1701.34,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,1701.34,ng/ml,No conversion required,
-Single,Single,0,53,80,8,1438.66,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,1438.66,ng/ml,No conversion required,
-Single,Single,0,53,80,12,892.16,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,892.16,ng/ml,No conversion required,
-Single,Single,0,53,80,24,445.31,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,445.31,ng/ml,No conversion required,
-Single,Single,0,53,80,48,94,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,94,ng/ml,No conversion required,
-Single,Single,0,53,81,0,0,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,53,81,0.5,59.67,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,59.67,ng/ml,No conversion required,
-Single,Single,0,53,81,0.75,107.66,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,107.66,ng/ml,No conversion required,
-Single,Single,0,53,81,1,136.93,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,136.93,ng/ml,No conversion required,
-Single,Single,0,53,81,1.5,179.03,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,179.03,ng/ml,No conversion required,
-Single,Single,0,53,81,2,208.23,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,208.23,ng/ml,No conversion required,
-Single,Single,0,53,81,2.5,233.93,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,233.93,ng/ml,No conversion required,
-Single,Single,0,53,81,3,237.38,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,237.38,ng/ml,No conversion required,
-Single,Single,0,53,81,4,238.41,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,238.41,ng/ml,No conversion required,
-Single,Single,0,53,81,6,183.07,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,183.07,ng/ml,No conversion required,
-Single,Single,0,53,81,8,148.82,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,148.82,ng/ml,No conversion required,
-Single,Single,0,53,81,12,128.33,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,128.33,ng/ml,No conversion required,
-Single,Single,0,53,81,24,99.71,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,99.71,ng/ml,No conversion required,
-Single,Single,0,53,81,48,52.99,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,52.99,ng/ml,No conversion required,
-Single,Single,0,58,82,0,0,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,58,82,0.5,4.0162,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,4.0162,ng/ml,No conversion required,
-Single,Single,0,58,82,1,8.7389,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,8.7389,ng/ml,No conversion required,
-Single,Single,0,58,82,1.5,9.5486,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,9.5486,ng/ml,No conversion required,
-Single,Single,0,58,82,2,9.0546,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,9.0546,ng/ml,No conversion required,
-Single,Single,0,58,82,2.33,9.0502,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,9.0502,ng/ml,No conversion required,
-Single,Single,0,58,82,2.66,8.8836,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,8.8836,ng/ml,No conversion required,
-Single,Single,0,58,82,3,8.1733,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,8.1733,ng/ml,No conversion required,
-Single,Single,0,58,82,3.33,7.6812,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,7.6812,ng/ml,No conversion required,
-Single,Single,0,58,82,3.66,6.8622,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,6.8622,ng/ml,No conversion required,
-Single,Single,0,58,82,4,5.4457,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,5.4457,ng/ml,No conversion required,
-Single,Single,0,58,82,4.33,4.8439,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,4.8439,ng/ml,No conversion required,
-Single,Single,0,58,82,4.66,4.2968,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,4.2968,ng/ml,No conversion required,
-Single,Single,0,58,82,5,3.9127,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,3.9127,ng/ml,No conversion required,
-Single,Single,0,58,82,5.5,3.5271,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,3.5271,ng/ml,No conversion required,
-Single,Single,0,58,82,6,2.8691,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,2.8691,ng/ml,No conversion required,
-Single,Single,0,58,82,8,2.0322,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,2.0322,ng/ml,No conversion required,
-Single,Single,0,58,82,10,1.4674,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,1.4674,ng/ml,No conversion required,
-Single,Single,0,58,82,12,1.2667,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,1.2667,ng/ml,No conversion required,
-Single,Single,0,58,82,16,1.0106,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,1.0106,ng/ml,No conversion required,
-Single,Single,0,58,82,24,0.6385,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0.6385,ng/ml,No conversion required,
-Single,Single,0,58,82,48,0.3649,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0.3649,ng/ml,No conversion required,
-Single,Single,0,58,82,72,0.4187,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0.4187,ng/ml,No conversion required,
-Single,Single,0,58,82,0,0,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0,ng/ml,No conversion required,
-Single,Single,0,58,82,0.5,36.7832,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,36.7832,ng/ml,No conversion required,
-Single,Single,0,58,82,1,94.2288,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,94.2288,ng/ml,No conversion required,
-Single,Single,0,58,82,1.5,128.3127,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,128.3127,ng/ml,No conversion required,
-Single,Single,0,58,82,2,151.6118,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,151.6118,ng/ml,No conversion required,
-Single,Single,0,58,82,2.33,165.9371,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,165.9371,ng/ml,No conversion required,
-Single,Single,0,58,82,2.66,176.6718,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,176.6718,ng/ml,No conversion required,
-Single,Single,0,58,82,3,180.1998,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,180.1998,ng/ml,No conversion required,
-Single,Single,0,58,82,3.33,180.1309,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,180.1309,ng/ml,No conversion required,
-Single,Single,0,58,82,3.66,174.6665,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,174.6665,ng/ml,No conversion required,
-Single,Single,0,58,82,4,171.0256,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,171.0256,ng/ml,No conversion required,
-Single,Single,0,58,82,4.33,165.5674,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,165.5674,ng/ml,No conversion required,
-Single,Single,0,58,82,4.66,151.123,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,151.123,ng/ml,No conversion required,
-Single,Single,0,58,82,5,138.4645,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,138.4645,ng/ml,No conversion required,
-Single,Single,0,58,82,5.5,131.1764,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,131.1764,ng/ml,No conversion required,
-Single,Single,0,58,82,6,120.3103,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,120.3103,ng/ml,No conversion required,
-Single,Single,0,58,82,8,103.7477,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,103.7477,ng/ml,No conversion required,
-Single,Single,0,58,82,10,89.0025,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,89.0025,ng/ml,No conversion required,
-Single,Single,0,58,82,12,87.2098,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,87.2098,ng/ml,No conversion required,
-Single,Single,0,58,82,16,67.8552,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,67.8552,ng/ml,No conversion required,
-Single,Single,0,58,82,24,54.2426,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,54.2426,ng/ml,No conversion required,
-Single,Single,0,58,82,48,18.2435,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,18.2435,ng/ml,No conversion required,
-Single,Single,0,58,82,72,10.2285,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,10.2285,ng/ml,No conversion required,
-Single,Single,0,60,83,0,0,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0,ug/ml,ug -> ng = * 1000,
-Single,Single,0,60,83,0.5,60.5,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.0605,ug/ml,ug -> ng = * 1000,
-Single,Single,0,60,83,1,172.1,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.1721,ug/ml,ug -> ng = * 1000,
-Single,Single,0,60,83,2,357.6,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.3576,ug/ml,ug -> ng = * 1000,
-Single,Single,0,60,83,3,468.2,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.4682,ug/ml,ug -> ng = * 1000,
-Single,Single,0,60,83,4,539.4,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.5394,ug/ml,ug -> ng = * 1000,
-Single,Single,0,60,83,6,390.6,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.3906,ug/ml,ug -> ng = * 1000,
-Single,Single,0,60,83,8,285.2,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.2852,ug/ml,ug -> ng = * 1000,
-Single,Single,0,60,83,10,129.2,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.1292,ug/ml,ug -> ng = * 1000,
-Single,Single,0,60,83,12,97.7,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.0977,ug/ml,ug -> ng = * 1000,
-Single,Single,0,62,84,0,0,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,62,84,1,12.865,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,12.865,ng/ml,No conversion required,
-Single,Single,0,62,84,2,53.2692,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,53.2692,ng/ml,No conversion required,
-Single,Single,0,62,84,3,66.4901,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,66.4901,ng/ml,No conversion required,
-Single,Single,0,62,84,4,62.5891,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,62.5891,ng/ml,No conversion required,
-Single,Single,0,62,84,6,26.0468,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,26.0468,ng/ml,No conversion required,
-Single,Single,0,62,84,8,10.9493,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,10.9493,ng/ml,No conversion required,
-Single,Single,0,62,84,12,3.9174,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,3.9174,ng/ml,No conversion required,
-Single,Single,0,62,84,24,0.9653,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0.9653,ng/ml,No conversion required,
-Single,Single,0,62,84,36,0.4487,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0.4487,ng/ml,No conversion required,
-Single,Single,0,62,84,48,0.3859,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0.3859,ng/ml,No conversion required,
-Single,Single,0,62,84,0,0,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,62,84,1,55.503,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,55.503,ng/ml,No conversion required,
-Single,Single,0,62,84,2,217.25,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,217.25,ng/ml,No conversion required,
-Single,Single,0,62,84,3,383.6435,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,383.6435,ng/ml,No conversion required,
-Single,Single,0,62,84,4,514.0035,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,514.0035,ng/ml,No conversion required,
-Single,Single,0,62,84,6,505.8384,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,505.8384,ng/ml,No conversion required,
-Single,Single,0,62,84,8,365.6104,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,365.6104,ng/ml,No conversion required,
-Single,Single,0,62,84,12,270.8383,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,270.8383,ng/ml,No conversion required,
-Single,Single,0,62,84,24,102.335,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,102.335,ng/ml,No conversion required,
-Single,Single,0,62,84,36,38.3557,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,38.3557,ng/ml,No conversion required,
-Single,Single,0,62,84,48,20.5505,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,20.5505,ng/ml,No conversion required,
-Single,Single,0,62,84,72,4.5493,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,4.5493,ng/ml,No conversion required,
-Single,Single,0,62,85,0,0,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,62,85,1,7.171,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,7.171,ng/ml,No conversion required,
-Single,Single,0,62,85,2,20.6585,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,20.6585,ng/ml,No conversion required,
-Single,Single,0,62,85,3,25.7856,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,25.7856,ng/ml,No conversion required,
-Single,Single,0,62,85,4,34.8875,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,34.8875,ng/ml,No conversion required,
-Single,Single,0,62,85,6,21.0791,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,21.0791,ng/ml,No conversion required,
-Single,Single,0,62,85,8,9.0414,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,9.0414,ng/ml,No conversion required,
-Single,Single,0,62,85,12,3.107,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,3.107,ng/ml,No conversion required,
-Single,Single,0,62,85,24,0.8052,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0.8052,ng/ml,No conversion required,
-Single,Single,0,62,85,36,0.3454,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0.3454,ng/ml,No conversion required,
-Single,Single,0,62,85,48,0.3186,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0.3186,ng/ml,No conversion required,
-Single,Single,0,62,85,0,0,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
-Single,Single,0,62,85,1,38.8252,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,38.8252,ng/ml,No conversion required,
-Single,Single,0,62,85,2,134.5415,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,134.5415,ng/ml,No conversion required,
-Single,Single,0,62,85,3,226.2784,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,226.2784,ng/ml,No conversion required,
-Single,Single,0,62,85,4,356.6404,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,356.6404,ng/ml,No conversion required,
-Single,Single,0,62,85,6,433.4934,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,433.4934,ng/ml,No conversion required,
-Single,Single,0,62,85,8,331.6561,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,331.6561,ng/ml,No conversion required,
-Single,Single,0,62,85,12,221.0683,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,221.0683,ng/ml,No conversion required,
-Single,Single,0,62,85,24,81.5203,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,81.5203,ng/ml,No conversion required,
-Single,Single,0,62,85,36,30.3059,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,30.3059,ng/ml,No conversion required,
-Single,Single,0,62,85,48,14.1438,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,14.1438,ng/ml,No conversion required,
-Single,Single,0,62,85,72,3.2083,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,3.2083,ng/ml,No conversion required,
+Single,Single,0,33,46,0,0,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,33,46,1,226.5779,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,226.5779,ng/ml,No conversion required,
+Single,Single,0,33,46,2,471.5238,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,471.5238,ng/ml,No conversion required,
+Single,Single,0,33,46,3,407.8996,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,407.8996,ng/ml,No conversion required,
+Single,Single,0,33,46,4,334.4795,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,334.4795,ng/ml,No conversion required,
+Single,Single,0,33,46,4.5,351.6477,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,351.6477,ng/ml,No conversion required,
+Single,Single,0,33,46,5,434.9356,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,434.9356,ng/ml,No conversion required,
+Single,Single,0,33,46,5.5,412.9186,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,412.9186,ng/ml,No conversion required,
+Single,Single,0,33,46,6,334.5781,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,334.5781,ng/ml,No conversion required,
+Single,Single,0,33,46,8,261.2031,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,261.2031,ng/ml,No conversion required,
+Single,Single,0,33,46,10,207.4325,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,207.4325,ng/ml,No conversion required,
+Single,Single,0,33,46,24,151.7877,AlbSO,400,400,Low,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,151.7877,ng/ml,No conversion required,
+Single,Single,0,33,47,0,0,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,33,47,1,373.5181,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,373.5181,ng/ml,No conversion required,
+Single,Single,0,33,47,2,571.932,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,571.932,ng/ml,No conversion required,
+Single,Single,0,33,47,3,537.697,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,537.697,ng/ml,No conversion required,
+Single,Single,0,33,47,4,373.6632,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,373.6632,ng/ml,No conversion required,
+Single,Single,0,33,47,4.5,488.792,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,488.792,ng/ml,No conversion required,
+Single,Single,0,33,47,5,525.5493,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,525.5493,ng/ml,No conversion required,
+Single,Single,0,33,47,5.5,505.9842,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,505.9842,ng/ml,No conversion required,
+Single,Single,0,33,47,6,415.3902,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,415.3902,ng/ml,No conversion required,
+Single,Single,0,33,47,8,302.8386,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,302.8386,ng/ml,No conversion required,
+Single,Single,0,33,47,10,271.1004,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,271.1004,ng/ml,No conversion required,
+Single,Single,0,33,47,24,164.0299,AlbSO,800,800,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,164.0299,ng/ml,No conversion required,
+Single,Single,0,33,48,0,0,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,33,48,1,385.7588,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,385.7588,ng/ml,No conversion required,
+Single,Single,0,33,48,2,787.4423,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,787.4423,ng/ml,No conversion required,
+Single,Single,0,33,48,3,745.8589,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,745.8589,ng/ml,No conversion required,
+Single,Single,0,33,48,4,750.8075,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,750.8075,ng/ml,No conversion required,
+Single,Single,0,33,48,4.5,804.7077,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,804.7077,ng/ml,No conversion required,
+Single,Single,0,33,48,5,1076.5713,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,1076.5713,ng/ml,No conversion required,
+Single,Single,0,33,48,5.5,785.1665,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,785.1665,ng/ml,No conversion required,
+Single,Single,0,33,48,6,687.2285,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,687.2285,ng/ml,No conversion required,
+Single,Single,0,33,48,8,484.0645,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,484.0645,ng/ml,No conversion required,
+Single,Single,0,33,48,10,422.9372,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,422.9372,ng/ml,No conversion required,
+Single,Single,0,33,48,24,173.8258,AlbSO,1200,1200,High,Fasted,0.6,Mixture,33,Adult,64,10,None,Healthy,None,None,None,173.8258,ng/ml,No conversion required,
+Single,Single,0,34,49,0,0,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,34,49,0.5,46.4918,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,46.4918,ng/ml,No conversion required,
+Single,Single,0,34,49,1,87,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,87,ng/ml,No conversion required,
+Single,Single,0,34,49,1.5,142.0614,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,142.0614,ng/ml,No conversion required,
+Single,Single,0,34,49,2,207.223,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,207.223,ng/ml,No conversion required,
+Single,Single,0,34,49,3,197.6251,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,197.6251,ng/ml,No conversion required,
+Single,Single,0,34,49,4,188.4635,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,188.4635,ng/ml,No conversion required,
+Single,Single,0,34,49,6,163.5133,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,163.5133,ng/ml,No conversion required,
+Single,Single,0,34,49,8,135.319,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,135.319,ng/ml,No conversion required,
+Single,Single,0,34,49,10,103.5133,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,103.5133,ng/ml,No conversion required,
+Single,Single,0,34,49,12,95.6396,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,95.6396,ng/ml,No conversion required,
+Single,Single,0,34,49,16,74.2864,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,74.2864,ng/ml,No conversion required,
+Single,Single,0,34,49,20,57.7033,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,57.7033,ng/ml,No conversion required,
+Single,Single,0,34,49,24,46.253,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,46.253,ng/ml,No conversion required,
+Single,Single,0,34,49,30,30.2044,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,30.2044,ng/ml,No conversion required,
+Single,Single,0,34,49,36,17.3905,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,17.3905,ng/ml,No conversion required,
+Single,Single,0,34,49,48,9.8439,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,9.8439,ng/ml,No conversion required,
+Single,Single,0,34,49,60,1.94125,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM,Yes,IVM_DEC_PQ,1.94125,ng/ml,No conversion required,
+Single,Single,0,34,50,0,0,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,34,50,0.5,46.4918,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,46.4918,ng/ml,No conversion required,
+Single,Single,0,34,50,1,87,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,87,ng/ml,No conversion required,
+Single,Single,0,34,50,1.5,142.0614,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,142.0614,ng/ml,No conversion required,
+Single,Single,0,34,50,2,224.1851,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,224.1851,ng/ml,No conversion required,
+Single,Single,0,34,50,3,240.5823,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,240.5823,ng/ml,No conversion required,
+Single,Single,0,34,50,4,213.7478,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,213.7478,ng/ml,No conversion required,
+Single,Single,0,34,50,6,186.9131,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,186.9131,ng/ml,No conversion required,
+Single,Single,0,34,50,8,163.4402,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,163.4402,ng/ml,No conversion required,
+Single,Single,0,34,50,10,134.2014,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,134.2014,ng/ml,No conversion required,
+Single,Single,0,34,50,12,119.2066,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,119.2066,ng/ml,No conversion required,
+Single,Single,0,34,50,16,103.3721,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,103.3721,ng/ml,No conversion required,
+Single,Single,0,34,50,20,73.6432,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,73.6432,ng/ml,No conversion required,
+Single,Single,0,34,50,24,57.1999,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,57.1999,ng/ml,No conversion required,
+Single,Single,0,34,50,30,38.5468,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,38.5468,ng/ml,No conversion required,
+Single,Single,0,34,50,36,21.1708,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,21.1708,ng/ml,No conversion required,
+Single,Single,0,34,50,48,9.7669,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,9.7669,ng/ml,No conversion required,
+Single,Single,0,34,50,60,0.987,AlbSO,400,400,Low,Fasted,0.52173913,Mixture,21,Adult,53.1,23,None,Healthy,IVM + PQ,Yes,IVM_DEC_PQ,0.987,ng/ml,No conversion required,
+Single,Single,0,35,51,0,0,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,51,1,378.3,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.3783,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,51,2,635.3,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.6353,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,51,3,1028.9,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,1.0289,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,51,4,1177.5,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,1.1775,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,51,6,1349.6,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,1.3496,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,51,8,1279,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,1.279,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,51,11,958.6,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.9586,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,51,24,344.1,AlbSO,690,690,High,Fatty_meal,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.3441,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,52,0,0,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,52,1,128.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.1285,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,52,2,211,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.211,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,52,3,225.2,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.2252,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,52,4,206.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.2064,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,52,6,121.7,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.1217,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,52,8,110,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.11,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,52,11,79.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.0795,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,52,24,40.1,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.0401,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,35,53,0,0,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,53,1,40.7,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.0407,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,53,2,211.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.2114,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,53,3,461.7,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.4617,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,53,4,618.3,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.6183,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,53,6,692.6,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.6926,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,53,8,408.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.4085,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,53,11,264.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.2645,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,53,24,35.1,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,None,None,None,0.0351,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,54,0,0,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,54,1,14.9,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.0149,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,54,2,61.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.0614,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,54,3,187.6,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.1876,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,54,4,311.5,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.3115,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,54,6,388,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.388,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,54,8,223.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.2234,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,54,11,147.4,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.1474,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,35,54,24,42.2,AlbSO,690,690,High,Fasted,1,Male,20,Adult,69,6,None,Healthy,Cimetidine,Yes,Other,0.0422,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Grapefruit Juice
+Single,Single,0,36,55,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient EA
+Single,Single,0,36,55,1,224.2,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.2242,ug/ml,ug -> ng = * 1000,Patient EA
+Single,Single,0,36,55,2,349.7,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.3497,ug/ml,ug -> ng = * 1000,Patient EA
+Single,Single,0,36,55,4,435.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.4354,ug/ml,ug -> ng = * 1000,Patient EA
+Single,Single,0,36,55,6,659.8,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.6598,ug/ml,ug -> ng = * 1000,Patient EA
+Single,Single,0,36,55,14,338.6,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.3386,ug/ml,ug -> ng = * 1000,Patient EA
+Single,Single,0,36,55,24,153.8,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,v,None,None,None,0.1538,ug/ml,ug -> ng = * 1000,Patient EA
+Single,Single,0,36,56,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient ET
+Single,Single,0,36,56,1,133.5,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1335,ug/ml,ug -> ng = * 1000,Patient ET
+Single,Single,0,36,56,2,192.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1924,ug/ml,ug -> ng = * 1000,Patient ET
+Single,Single,0,36,56,6,490.9,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.4909,ug/ml,ug -> ng = * 1000,Patient ET
+Single,Single,0,36,56,14,173.3,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1733,ug/ml,ug -> ng = * 1000,Patient ET
+Single,Single,0,36,56,24,144.9,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1449,ug/ml,ug -> ng = * 1000,Patient ET
+Single,Single,0,36,57,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient KE
+Single,Single,0,36,57,1,95.3,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.0953,ug/ml,ug -> ng = * 1000,Patient KE
+Single,Single,0,36,57,2,223,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.223,ug/ml,ug -> ng = * 1000,Patient KE
+Single,Single,0,36,57,6,214.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.2144,ug/ml,ug -> ng = * 1000,Patient KE
+Single,Single,0,36,57,14,112.8,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1128,ug/ml,ug -> ng = * 1000,Patient KE
+Single,Single,0,36,57,24,104,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.104,ug/ml,ug -> ng = * 1000,Patient KE
+Single,Single,0,36,58,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient NK
+Single,Single,0,36,58,1,75.8,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.0758,ug/ml,ug -> ng = * 1000,Patient NK
+Single,Single,0,36,58,2,251.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.2514,ug/ml,ug -> ng = * 1000,Patient NK
+Single,Single,0,36,58,6,280.2,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.2802,ug/ml,ug -> ng = * 1000,Patient NK
+Single,Single,0,36,58,14,173.2,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1732,ug/ml,ug -> ng = * 1000,Patient NK
+Single,Single,0,36,58,24,115.6,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1156,ug/ml,ug -> ng = * 1000,Patient NK
+Single,Single,0,36,59,0,0,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0,ug/ml,ug -> ng = * 1000,Patient KL
+Single,Single,0,36,59,1,48.2,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.0482,ug/ml,ug -> ng = * 1000,Patient KL
+Single,Single,0,36,59,2,103.5,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1035,ug/ml,ug -> ng = * 1000,Patient KL
+Single,Single,0,36,59,4,134.9,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1349,ug/ml,ug -> ng = * 1000,Patient KL
+Single,Single,0,36,59,6,193.1,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1931,ug/ml,ug -> ng = * 1000,Patient KL
+Single,Single,0,36,59,14,172.4,AlbSO,250,250,High,Mixture,1,Male,9,Children,26.8,5,Hydatid,Infected,None,None,None,0.1724,ug/ml,ug -> ng = * 1000,Patient KL
+Single,Single,0,36,59,24,142.1,AlbSO,250,250,High,Mixture,2,Male,10,Children,26.8,5,Hydatid,Infected,None,None,None,0.1421,ug/ml,ug -> ng = * 1001,Patient KL
+Single,Single,0,38,60,0,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,38,60,0.5,1.6897,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,1.6897,ng/ml,No conversion required,
+Single,Single,0,38,60,1,13.8186,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,13.8186,ng/ml,No conversion required,
+Single,Single,0,38,60,1.5,27.2939,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,27.2939,ng/ml,No conversion required,
+Single,Single,0,38,60,2,10.4641,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,10.4641,ng/ml,No conversion required,
+Single,Single,0,38,60,3,0.3763,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0.3763,ng/ml,No conversion required,
+Single,Single,0,38,60,4,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,38,60,6,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,38,60,8,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,38,60,12,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,38,60,24,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,38,60,0,0,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,38,60,0.5,147.0419,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,147.0419,ng/ml,No conversion required,
+Single,Single,0,38,60,1,449.8453,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,449.8453,ng/ml,No conversion required,
+Single,Single,0,38,60,1.5,668.4133,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,668.4133,ng/ml,No conversion required,
+Single,Single,0,38,60,2,828.1344,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,828.1344,ng/ml,No conversion required,
+Single,Single,0,38,60,3,878.1411,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,878.1411,ng/ml,No conversion required,
+Single,Single,0,38,60,4,625.0576,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,625.0576,ng/ml,No conversion required,
+Single,Single,0,38,60,6,363.164,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,363.164,ng/ml,No conversion required,
+Single,Single,0,38,60,8,202.1898,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,202.1898,ng/ml,No conversion required,
+Single,Single,0,38,60,12,73.9041,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,73.9041,ng/ml,No conversion required,
+Single,Single,0,38,60,24,0,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,8.5,Children,21,10,Giardia intestinalis,Infected,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,38,61,0,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,38,61,0.5,1.0225,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,1.0225,ng/ml,No conversion required,
+Single,Single,0,38,61,1,39.4377,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,39.4377,ng/ml,No conversion required,
+Single,Single,0,38,61,1.5,78.5394,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,78.5394,ng/ml,No conversion required,
+Single,Single,0,38,61,2,9.9218,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,9.9218,ng/ml,No conversion required,
+Single,Single,0,38,61,3,0.3025,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0.3025,ng/ml,No conversion required,
+Single,Single,0,38,61,4,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,38,61,6,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,38,61,8,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,38,61,12,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,38,61,24,0,Alb,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,38,61,0,0,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,38,61,0.5,142.5819,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,142.5819,ng/ml,No conversion required,
+Single,Single,0,38,61,1,496.7244,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,496.7244,ng/ml,No conversion required,
+Single,Single,0,38,61,1.5,574.529,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,574.529,ng/ml,No conversion required,
+Single,Single,0,38,61,2,583.2438,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,583.2438,ng/ml,No conversion required,
+Single,Single,0,38,61,3,643.8777,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,643.8777,ng/ml,No conversion required,
+Single,Single,0,38,61,4,384.98,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,384.98,ng/ml,No conversion required,
+Single,Single,0,38,61,6,316.2391,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,316.2391,ng/ml,No conversion required,
+Single,Single,0,38,61,8,126.595,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,126.595,ng/ml,No conversion required,
+Single,Single,0,38,61,12,75.4792,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,75.4792,ng/ml,No conversion required,
+Single,Single,0,38,61,24,8.3713,AlbSO,400,400,Low,Fatty_meal,0.7,Mixture,9.1,Children,24,10,Giardia intestinalis,Infected,Praziquantel,Yes,IVM_DEC_PQ,8.3713,ng/ml,No conversion required,
+Single,Single,0,40,62,0,0,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 1
+Single,Single,0,40,62,1,346.4,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.3464,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 2
+Single,Single,0,40,62,2,584,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.584,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 3
+Single,Single,0,40,62,3,523.2,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.5232,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 4
+Single,Single,0,40,62,4,348.3,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.3483,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 5
+Single,Single,0,40,62,5,307.5,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.3075,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 6
+Single,Single,0,40,62,6,256.4,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.2564,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 7
+Single,Single,0,40,62,7,205.3,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.2053,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 8
+Single,Single,0,40,62,8,180,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.18,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 9
+Single,Single,0,40,62,10,154.8,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.1548,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 10
+Single,Single,0,40,62,11,150.2,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.1502,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 11
+Single,Single,0,40,62,12,119.8,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.1198,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 12
+Single,Single,0,40,62,24,59.1,AlbSO,400,400,Low,Fasted,NA,NA,NA,Adult,NA,1,None,Healthy,None,None,None,0.0591,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",Only 1 person out of 10 person study shown in Fig 13
+Single,Single,0,42,63,0,0,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,63,1,123.5,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1235,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,63,2,387.3,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3873,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,63,3,331.6,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3316,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,63,4,259.3,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2593,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,63,6,149.1,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1491,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,63,8,130.2,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1302,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,63,11,128,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.128,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,63,24,52.3,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.0523,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,64,0,0,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,64,1,114.6,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1146,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,64,2,240.4,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2404,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,64,3,220.3,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2203,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,64,4,188.1,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1881,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,64,6,115.7,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1157,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,64,8,129.1,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1291,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,64,11,89,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.089,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,64,24,39,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.039,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,65,0,0,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,65,1,358.3,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3583,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,65,2,543.1,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.5431,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,65,3,676.6,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.6766,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,65,4,626.6,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.6266,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,65,6,382.8,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3828,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,65,8,308.3,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.3083,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,65,11,225.9,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2259,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,65,24,60.1,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.0601,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,66,0,0,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,66,1,296,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.296,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,66,2,289.3,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2893,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,66,3,259.3,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2593,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,66,4,240.4,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.2404,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,66,6,181.4,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1814,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,66,8,150.2,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1502,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,66,11,159.1,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.1591,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,66,24,70.1,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,None,None,None,0.0701,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,67,0,0,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1001",20mg/kg
+Single,Single,0,42,67,1,136.9,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1369,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1002",20mg/kg
+Single,Single,0,42,67,2,136.9,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1369,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1003",20mg/kg
+Single,Single,0,42,67,3,152.5,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1525,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1004",20mg/kg
+Single,Single,0,42,67,4,136.9,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1369,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1005",20mg/kg
+Single,Single,0,42,67,6,107.8,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.1078,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1006",20mg/kg
+Single,Single,0,42,67,8,97.9,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.0979,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1007",20mg/kg
+Single,Single,0,42,67,11,97.9,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.0979,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1008",20mg/kg
+Single,Single,0,42,67,24,41.2,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,1,None,Healthy,Cimetidine,Yes,Cimetidine,0.0412,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1009",20mg/kg
+Single,Single,0,42,68,0,0,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,68,1,78.1,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0781,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,68,2,196.7,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1967,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,68,3,170.2,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1702,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,68,4,165.1,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1651,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,68,6,117.9,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1179,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,68,8,92.4,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0924,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,68,11,76,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.076,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,68,24,23.5,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0235,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",5mg/kg
+Single,Single,0,42,69,0,0,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,69,1,112.2,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1122,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,69,2,174.5,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1745,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,69,3,187.3,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1873,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,69,4,166.8,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1668,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,69,6,107.8,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1078,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,69,8,98.3,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0983,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,69,11,69.2,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0692,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,69,24,44.8,AlbSO,NA,NA,Low,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0448,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",10mg/kg
+Single,Single,0,42,70,0,0,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,70,1,148.1,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1481,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,70,2,230,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.23,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,70,3,276.1,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.2761,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,70,4,246.9,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.2469,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,70,6,156.5,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1565,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,70,8,130.8,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1308,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,70,11,90.5,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0905,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,70,24,49.1,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0491,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",20mg/kg
+Single,Single,0,42,71,0,0,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.00E+00,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,71,1,160,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.16,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,71,2,293.2,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.2932,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,71,3,367.4,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.3674,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,71,4,320.5,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.3205,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,71,6,221.3,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.2213,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,71,8,182,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.182,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,71,11,139.2,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.1392,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,42,71,24,52.5,AlbSO,NA,NA,High,Fasted,1,Male,20,Adult,NA,6,None,Healthy,None,None,None,0.0525,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",30mg/kg
+Single,Single,0,43,72,0,0,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0,ng/ml,No conversion required,
+Single,Single,0,43,72,1,9.0871,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,9.0871,ng/ml,No conversion required,
+Single,Single,0,43,72,2,17.0539,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,17.0539,ng/ml,No conversion required,
+Single,Single,0,43,72,3,12.8216,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,12.8216,ng/ml,No conversion required,
+Single,Single,0,43,72,4,10.9544,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,10.9544,ng/ml,No conversion required,
+Single,Single,0,43,72,5,5.8506,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,5.8506,ng/ml,No conversion required,
+Single,Single,0,43,72,6,2.9876,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,2.9876,ng/ml,No conversion required,
+Single,Single,0,43,72,7,0.8714,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0.8714,ng/ml,No conversion required,
+Single,Single,0,43,72,8,0.8714,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0.8714,ng/ml,No conversion required,
+Single,Single,0,43,72,24,0,Alb,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0,ng/ml,No conversion required,
+Single,Single,0,43,72,0,0,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,0,ng/ml,No conversion required,
+Single,Single,0,43,72,1,116.4199,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,116.4199,ng/ml,No conversion required,
+Single,Single,0,43,72,2,247.7776,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,247.7776,ng/ml,No conversion required,
+Single,Single,0,43,72,3,323.6178,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,323.6178,ng/ml,No conversion required,
+Single,Single,0,43,72,4,339.6752,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,339.6752,ng/ml,No conversion required,
+Single,Single,0,43,72,5,291.6716,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,291.6716,ng/ml,No conversion required,
+Single,Single,0,43,72,6,272.4988,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,272.4988,ng/ml,No conversion required,
+Single,Single,0,43,72,7,228.7732,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,228.7732,ng/ml,No conversion required,
+Single,Single,0,43,72,8,229.884,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,229.884,ng/ml,No conversion required,
+Single,Single,0,43,72,24,56.5426,AlbSO,400,400,Low,Fatty_meal,1,Male,NA,Children,NA,10,Hookworm,Infected,Oxantel Pamoate,Yes,Other,56.5426,ng/ml,No conversion required,
+Single,Single,0,44,73,0,0,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,44,73,0.66,48.9101,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,48.9101,ng/ml,No conversion required,
+Single,Single,0,44,73,1,49.517,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,49.517,ng/ml,No conversion required,
+Single,Single,0,44,73,1.5,58.5234,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,58.5234,ng/ml,No conversion required,
+Single,Single,0,44,73,2,91.7003,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,91.7003,ng/ml,No conversion required,
+Single,Single,0,44,73,3,52.7279,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,52.7279,ng/ml,No conversion required,
+Single,Single,0,44,73,4,31.4576,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,31.4576,ng/ml,No conversion required,
+Single,Single,0,44,73,6,25.1756,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,25.1756,ng/ml,No conversion required,
+Single,Single,0,44,73,0,0,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,44,73,0.33,55.1282,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,55.1282,ng/ml,No conversion required,
+Single,Single,0,44,73,0.67,59.4977,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,59.4977,ng/ml,No conversion required,
+Single,Single,0,44,73,1,144.3687,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,144.3687,ng/ml,No conversion required,
+Single,Single,0,44,73,1.5,276.6714,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,276.6714,ng/ml,No conversion required,
+Single,Single,0,44,73,2,434.3294,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,434.3294,ng/ml,No conversion required,
+Single,Single,0,44,73,3,561.0633,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,561.0633,ng/ml,No conversion required,
+Single,Single,0,44,73,4,533.3697,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,533.3697,ng/ml,No conversion required,
+Single,Single,0,44,73,6,411.8312,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,411.8312,ng/ml,No conversion required,
+Single,Single,0,44,73,8,323.3744,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,323.3744,ng/ml,No conversion required,
+Single,Single,0,44,73,12,241.3122,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,241.3122,ng/ml,No conversion required,
+Single,Single,0,44,73,24,138.5179,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,138.5179,ng/ml,No conversion required,
+Single,Single,0,44,73,36,57.7761,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,None,None,None,57.7761,ng/ml,No conversion required,
+Single,Single,0,44,74,0,0,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,44,74,1,57.5427,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,57.5427,ng/ml,No conversion required,
+Single,Single,0,44,74,1.5,26.8542,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,26.8542,ng/ml,No conversion required,
+Single,Single,0,44,74,2,48.3984,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,48.3984,ng/ml,No conversion required,
+Single,Single,0,44,74,3,43.5692,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,43.5692,ng/ml,No conversion required,
+Single,Single,0,44,74,4,60.318,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,60.318,ng/ml,No conversion required,
+Single,Single,0,44,74,6,35.5546,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,35.5546,ng/ml,No conversion required,
+Single,Single,0,44,74,8,26.3292,Alb,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,26.3292,ng/ml,No conversion required,
+Single,Single,0,44,74,0,0,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,44,74,0.33,40.9748,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,40.9748,ng/ml,No conversion required,
+Single,Single,0,44,74,0.67,94.2652,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,94.2652,ng/ml,No conversion required,
+Single,Single,0,44,74,1,145.5044,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,145.5044,ng/ml,No conversion required,
+Single,Single,0,44,74,1.5,211.0607,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,211.0607,ng/ml,No conversion required,
+Single,Single,0,44,74,2,299.2053,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,299.2053,ng/ml,No conversion required,
+Single,Single,0,44,74,3,488.7862,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,488.7862,ng/ml,No conversion required,
+Single,Single,0,44,74,4,573.7628,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,573.7628,ng/ml,No conversion required,
+Single,Single,0,44,74,6,509.8846,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,509.8846,ng/ml,No conversion required,
+Single,Single,0,44,74,8,400.8961,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,400.8961,ng/ml,No conversion required,
+Single,Single,0,44,74,12,292.6181,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,292.6181,ng/ml,No conversion required,
+Single,Single,0,44,74,24,125.7785,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,125.7785,ng/ml,No conversion required,
+Single,Single,0,44,74,36,63.543,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,63.543,ng/ml,No conversion required,
+Single,Single,0,44,74,48,28.9907,AlbSO,400,400,Low,Unclear,0.80952381,Mixture,31.5,Adult,57.5,14,None,Healthy,DEC,Yes,IVM_DEC_PQ,28.9907,ng/ml,No conversion required,
+Single,Single,0,48,75,0,0,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,48,75,1,38.7315,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,38.7315,ng/ml,No conversion required,
+Single,Single,0,48,75,2,93.3981,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,93.3981,ng/ml,No conversion required,
+Single,Single,0,48,75,3,110.1516,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,110.1516,ng/ml,No conversion required,
+Single,Single,0,48,75,4,131.2998,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,131.2998,ng/ml,No conversion required,
+Single,Single,0,48,75,6,143.3798,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,143.3798,ng/ml,No conversion required,
+Single,Single,0,48,75,8,121.3927,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,121.3927,ng/ml,No conversion required,
+Single,Single,0,48,75,12,89.7793,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,89.7793,ng/ml,No conversion required,
+Single,Single,0,48,75,24,43.0226,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,43.0226,ng/ml,No conversion required,
+Single,Single,0,48,75,36,13.0221,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,13.0221,ng/ml,No conversion required,
+Single,Single,0,48,75,48,12.142,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,12.142,ng/ml,No conversion required,
+Single,Single,0,48,75,72,4.339,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,28,Adult,49,12,Wucheria bancrofti,Infected,DEC,Yes,IVM_DEC_PQ,4.339,ng/ml,No conversion required,
+Single,Single,0,48,76,0,0,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,48,76,1,39.2816,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,39.2816,ng/ml,No conversion required,
+Single,Single,0,48,76,2,92.5728,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,92.5728,ng/ml,No conversion required,
+Single,Single,0,48,76,3,124.437,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,124.437,ng/ml,No conversion required,
+Single,Single,0,48,76,4,135.9701,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,135.9701,ng/ml,No conversion required,
+Single,Single,0,48,76,6,145.8519,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,145.8519,ng/ml,No conversion required,
+Single,Single,0,48,76,8,135.4032,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,135.4032,ng/ml,No conversion required,
+Single,Single,0,48,76,12,106.5381,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,106.5381,ng/ml,No conversion required,
+Single,Single,0,48,76,24,63.9007,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,63.9007,ng/ml,No conversion required,
+Single,Single,0,48,76,36,27.5816,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,27.5816,ng/ml,No conversion required,
+Single,Single,0,48,76,48,25.878,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,25.878,ng/ml,No conversion required,
+Single,Single,0,48,76,72,17.5253,AlbSO,400,400,Low,Fatty_meal,0.5,Mixture,30,Adult,53,12,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,17.5253,ng/ml,No conversion required,
+Single,Single,0,51,77,0,0,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,1,517.1,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.5171,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,3,1040.7,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,1.0407,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,5,916.2,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.9162,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,6,717,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.717,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,8,598.7,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.5987,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,9,595.6,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.5956,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,11,440,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.44,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,14,300,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.3,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,18,203.7,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.2037,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,24,126.2,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.1262,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,36,89.6,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.0896,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,51,77,48,77.9,AlbSO,830,830,High,Unclear,1,Male,29,Adult,66.4,7,Echinococcosis,Infected,None,None,None,0.0779,mg/l,"Conv = *10^6 for mg -> ng, but /10^3 for l -> ml, overall * 1000",
+Single,Single,0,52,78,0,0,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,52,78,1,192.3374,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,192.3374,ng/ml,No conversion required,
+Single,Single,0,52,78,2,336.8751,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,336.8751,ng/ml,No conversion required,
+Single,Single,0,52,78,4,361.6892,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,361.6892,ng/ml,No conversion required,
+Single,Single,0,52,78,8,255.708,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,255.708,ng/ml,No conversion required,
+Single,Single,0,52,78,24,167.0285,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,167.0285,ng/ml,No conversion required,
+Single,Single,0,52,78,48,72.8105,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,72.8105,ng/ml,No conversion required,
+Single,Single,0,52,78,72,43.6457,AlbSO,600,600,High,Fatty_meal,NA,Mixture,NA,Adult,59.8,10,None,Healthy,None,None,None,43.6457,ng/ml,No conversion required,
+Single,Single,0,53,79,0,0,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,53,79,0.5,77.25,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,77.25,ng/ml,No conversion required,
+Single,Single,0,53,79,0.75,131.1,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,131.1,ng/ml,No conversion required,
+Single,Single,0,53,79,1,184.96,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,184.96,ng/ml,No conversion required,
+Single,Single,0,53,79,1.5,372.33,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,372.33,ng/ml,No conversion required,
+Single,Single,0,53,79,2,696.75,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,696.75,ng/ml,No conversion required,
+Single,Single,0,53,79,2.5,950.91,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,950.91,ng/ml,No conversion required,
+Single,Single,0,53,79,3,1206.22,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,1206.22,ng/ml,No conversion required,
+Single,Single,0,53,79,4,1562.23,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,1562.23,ng/ml,No conversion required,
+Single,Single,0,53,79,6,1701.34,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,1701.34,ng/ml,No conversion required,
+Single,Single,0,53,79,8,1438.66,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,1438.66,ng/ml,No conversion required,
+Single,Single,0,53,79,12,892.16,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,892.16,ng/ml,No conversion required,
+Single,Single,0,53,79,24,445.31,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,445.31,ng/ml,No conversion required,
+Single,Single,0,53,79,48,94,AlbSO,800,800,High,Fatty_meal,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,94,ng/ml,No conversion required,
+Single,Single,0,53,80,0,0,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,53,80,0.5,59.67,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,59.67,ng/ml,No conversion required,
+Single,Single,0,53,80,0.75,107.66,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,107.66,ng/ml,No conversion required,
+Single,Single,0,53,80,1,136.93,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,136.93,ng/ml,No conversion required,
+Single,Single,0,53,80,1.5,179.03,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,179.03,ng/ml,No conversion required,
+Single,Single,0,53,80,2,208.23,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,208.23,ng/ml,No conversion required,
+Single,Single,0,53,80,2.5,233.93,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,233.93,ng/ml,No conversion required,
+Single,Single,0,53,80,3,237.38,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,237.38,ng/ml,No conversion required,
+Single,Single,0,53,80,4,238.41,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,238.41,ng/ml,No conversion required,
+Single,Single,0,53,80,6,183.07,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,183.07,ng/ml,No conversion required,
+Single,Single,0,53,80,8,148.82,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,148.82,ng/ml,No conversion required,
+Single,Single,0,53,80,12,128.33,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,128.33,ng/ml,No conversion required,
+Single,Single,0,53,80,24,99.71,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,99.71,ng/ml,No conversion required,
+Single,Single,0,53,80,48,52.99,AlbSO,800,800,High,Fasted,0.5625,Mixture,25,Adult,62.9,16,None,Healthy,None,None,None,52.99,ng/ml,No conversion required,
+Single,Single,0,58,81,0,0,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,58,81,0.5,4.0162,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,4.0162,ng/ml,No conversion required,
+Single,Single,0,58,81,1,8.7389,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,8.7389,ng/ml,No conversion required,
+Single,Single,0,58,81,1.5,9.5486,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,9.5486,ng/ml,No conversion required,
+Single,Single,0,58,81,2,9.0546,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,9.0546,ng/ml,No conversion required,
+Single,Single,0,58,81,2.33,9.0502,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,9.0502,ng/ml,No conversion required,
+Single,Single,0,58,81,2.66,8.8836,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,8.8836,ng/ml,No conversion required,
+Single,Single,0,58,81,3,8.1733,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,8.1733,ng/ml,No conversion required,
+Single,Single,0,58,81,3.33,7.6812,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,7.6812,ng/ml,No conversion required,
+Single,Single,0,58,81,3.66,6.8622,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,6.8622,ng/ml,No conversion required,
+Single,Single,0,58,81,4,5.4457,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,5.4457,ng/ml,No conversion required,
+Single,Single,0,58,81,4.33,4.8439,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,4.8439,ng/ml,No conversion required,
+Single,Single,0,58,81,4.66,4.2968,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,4.2968,ng/ml,No conversion required,
+Single,Single,0,58,81,5,3.9127,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,3.9127,ng/ml,No conversion required,
+Single,Single,0,58,81,5.5,3.5271,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,3.5271,ng/ml,No conversion required,
+Single,Single,0,58,81,6,2.8691,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,2.8691,ng/ml,No conversion required,
+Single,Single,0,58,81,8,2.0322,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,2.0322,ng/ml,No conversion required,
+Single,Single,0,58,81,10,1.4674,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,1.4674,ng/ml,No conversion required,
+Single,Single,0,58,81,12,1.2667,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,1.2667,ng/ml,No conversion required,
+Single,Single,0,58,81,16,1.0106,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,1.0106,ng/ml,No conversion required,
+Single,Single,0,58,81,24,0.6385,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0.6385,ng/ml,No conversion required,
+Single,Single,0,58,81,48,0.3649,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0.3649,ng/ml,No conversion required,
+Single,Single,0,58,81,72,0.4187,Alb,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0.4187,ng/ml,No conversion required,
+Single,Single,0,58,81,0,0,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,0,ng/ml,No conversion required,
+Single,Single,0,58,81,0.5,36.7832,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,36.7832,ng/ml,No conversion required,
+Single,Single,0,58,81,1,94.2288,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,94.2288,ng/ml,No conversion required,
+Single,Single,0,58,81,1.5,128.3127,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,128.3127,ng/ml,No conversion required,
+Single,Single,0,58,81,2,151.6118,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,151.6118,ng/ml,No conversion required,
+Single,Single,0,58,81,2.33,165.9371,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,165.9371,ng/ml,No conversion required,
+Single,Single,0,58,81,2.66,176.6718,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,176.6718,ng/ml,No conversion required,
+Single,Single,0,58,81,3,180.1998,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,180.1998,ng/ml,No conversion required,
+Single,Single,0,58,81,3.33,180.1309,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,180.1309,ng/ml,No conversion required,
+Single,Single,0,58,81,3.66,174.6665,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,174.6665,ng/ml,No conversion required,
+Single,Single,0,58,81,4,171.0256,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,171.0256,ng/ml,No conversion required,
+Single,Single,0,58,81,4.33,165.5674,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,165.5674,ng/ml,No conversion required,
+Single,Single,0,58,81,4.66,151.123,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,151.123,ng/ml,No conversion required,
+Single,Single,0,58,81,5,138.4645,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,138.4645,ng/ml,No conversion required,
+Single,Single,0,58,81,5.5,131.1764,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,131.1764,ng/ml,No conversion required,
+Single,Single,0,58,81,6,120.3103,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,120.3103,ng/ml,No conversion required,
+Single,Single,0,58,81,8,103.7477,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,103.7477,ng/ml,No conversion required,
+Single,Single,0,58,81,10,89.0025,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,89.0025,ng/ml,No conversion required,
+Single,Single,0,58,81,12,87.2098,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,87.2098,ng/ml,No conversion required,
+Single,Single,0,58,81,16,67.8552,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,67.8552,ng/ml,No conversion required,
+Single,Single,0,58,81,24,54.2426,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,54.2426,ng/ml,No conversion required,
+Single,Single,0,58,81,48,18.2435,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,18.2435,ng/ml,No conversion required,
+Single,Single,0,58,81,72,10.2285,AlbSO,400,400,Low,Fasted,NA,Unclear,NA,Adult,NA,51,None,Healthy,None,None,None,10.2285,ng/ml,No conversion required,
+Single,Single,0,60,82,0,0,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0,ug/ml,ug -> ng = * 1000,
+Single,Single,0,60,82,0.5,60.5,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.0605,ug/ml,ug -> ng = * 1000,
+Single,Single,0,60,82,1,172.1,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.1721,ug/ml,ug -> ng = * 1000,
+Single,Single,0,60,82,2,357.6,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.3576,ug/ml,ug -> ng = * 1000,
+Single,Single,0,60,82,3,468.2,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.4682,ug/ml,ug -> ng = * 1000,
+Single,Single,0,60,82,4,539.4,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.5394,ug/ml,ug -> ng = * 1000,
+Single,Single,0,60,82,6,390.6,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.3906,ug/ml,ug -> ng = * 1000,
+Single,Single,0,60,82,8,285.2,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.2852,ug/ml,ug -> ng = * 1000,
+Single,Single,0,60,82,10,129.2,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.1292,ug/ml,ug -> ng = * 1000,
+Single,Single,0,60,82,12,97.7,AlbSO,NA,NA,High,Fasted,1,Male,NA,Adult,NA,4,None,Healthy,None,None,None,0.0977,ug/ml,ug -> ng = * 1000,
+Single,Single,0,62,83,0,0,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,62,83,1,12.865,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,12.865,ng/ml,No conversion required,
+Single,Single,0,62,83,2,53.2692,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,53.2692,ng/ml,No conversion required,
+Single,Single,0,62,83,3,66.4901,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,66.4901,ng/ml,No conversion required,
+Single,Single,0,62,83,4,62.5891,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,62.5891,ng/ml,No conversion required,
+Single,Single,0,62,83,6,26.0468,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,26.0468,ng/ml,No conversion required,
+Single,Single,0,62,83,8,10.9493,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,10.9493,ng/ml,No conversion required,
+Single,Single,0,62,83,12,3.9174,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,3.9174,ng/ml,No conversion required,
+Single,Single,0,62,83,24,0.9653,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0.9653,ng/ml,No conversion required,
+Single,Single,0,62,83,36,0.4487,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0.4487,ng/ml,No conversion required,
+Single,Single,0,62,83,48,0.3859,Alb,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0.3859,ng/ml,No conversion required,
+Single,Single,0,62,83,0,0,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,62,83,1,55.503,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,55.503,ng/ml,No conversion required,
+Single,Single,0,62,83,2,217.25,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,217.25,ng/ml,No conversion required,
+Single,Single,0,62,83,3,383.6435,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,383.6435,ng/ml,No conversion required,
+Single,Single,0,62,83,4,514.0035,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,514.0035,ng/ml,No conversion required,
+Single,Single,0,62,83,6,505.8384,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,505.8384,ng/ml,No conversion required,
+Single,Single,0,62,83,8,365.6104,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,365.6104,ng/ml,No conversion required,
+Single,Single,0,62,83,12,270.8383,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,270.8383,ng/ml,No conversion required,
+Single,Single,0,62,83,24,102.335,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,102.335,ng/ml,No conversion required,
+Single,Single,0,62,83,36,38.3557,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,38.3557,ng/ml,No conversion required,
+Single,Single,0,62,83,48,20.5505,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,20.5505,ng/ml,No conversion required,
+Single,Single,0,62,83,72,4.5493,AlbSO,400,400,Low,Unclear,0.63,Mixture,44,Adult,NA,32,Wucheria bancrofti,Infected,DEC + IVM,Yes,IVM_DEC_PQ,4.5493,ng/ml,No conversion required,
+Single,Single,0,62,84,0,0,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,62,84,1,7.171,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,7.171,ng/ml,No conversion required,
+Single,Single,0,62,84,2,20.6585,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,20.6585,ng/ml,No conversion required,
+Single,Single,0,62,84,3,25.7856,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,25.7856,ng/ml,No conversion required,
+Single,Single,0,62,84,4,34.8875,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,34.8875,ng/ml,No conversion required,
+Single,Single,0,62,84,6,21.0791,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,21.0791,ng/ml,No conversion required,
+Single,Single,0,62,84,8,9.0414,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,9.0414,ng/ml,No conversion required,
+Single,Single,0,62,84,12,3.107,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,3.107,ng/ml,No conversion required,
+Single,Single,0,62,84,24,0.8052,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0.8052,ng/ml,No conversion required,
+Single,Single,0,62,84,36,0.3454,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0.3454,ng/ml,No conversion required,
+Single,Single,0,62,84,48,0.3186,Alb,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0.3186,ng/ml,No conversion required,
+Single,Single,0,62,84,0,0,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,0,ng/ml,No conversion required,
+Single,Single,0,62,84,1,38.8252,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,38.8252,ng/ml,No conversion required,
+Single,Single,0,62,84,2,134.5415,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,134.5415,ng/ml,No conversion required,
+Single,Single,0,62,84,3,226.2784,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,226.2784,ng/ml,No conversion required,
+Single,Single,0,62,84,4,356.6404,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,356.6404,ng/ml,No conversion required,
+Single,Single,0,62,84,6,433.4934,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,433.4934,ng/ml,No conversion required,
+Single,Single,0,62,84,8,331.6561,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,331.6561,ng/ml,No conversion required,
+Single,Single,0,62,84,12,221.0683,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,221.0683,ng/ml,No conversion required,
+Single,Single,0,62,84,24,81.5203,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,81.5203,ng/ml,No conversion required,
+Single,Single,0,62,84,36,30.3059,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,30.3059,ng/ml,No conversion required,
+Single,Single,0,62,84,48,14.1438,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,14.1438,ng/ml,No conversion required,
+Single,Single,0,62,84,72,3.2083,AlbSO,400,400,Low,Unclear,0.5,Mixture,36,Adult,NA,24,None,Healthy,DEC + IVM,Yes,IVM_DEC_PQ,3.2083,ng/ml,No conversion required,
