@@ -454,7 +454,7 @@ for (i in 1:max(overall$Temporal_ID)) {
 #        title = "Dosing", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting sex results
-par(mfrow = c(1, 1))
+par(mfrow = c(2, 4))
 sex <- factor(overall_results$Sex)
 colours <- c("#4E90CE", "#CE4E61")
 indices <- which(!is.na(sex) & sex != "Unclear" & sex != "FeMale")
@@ -482,9 +482,9 @@ mean_fasted <- apply(median_output[state == "Fasted", ], 2, mean)
 for (i in indices) {
   if (i == 1) {
     plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
-         col = ifelse(state[i] == "Fatty_meal", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+         col = ifelse(state[i] == "Fatty Meal", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
   } else {
-    lines(times, median_output[i, ], col = ifelse(state[i] == "Fatty_meal", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+    lines(times, median_output[i, ], col = ifelse(state[i] == "Fatty Meal", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
   }
 }
 lines(times, mean_fatty_meal, lwd = 3, col = colours[1])
@@ -547,7 +547,7 @@ for (i in indices) {
 }
 lines(times, mean_none, lwd = 3, col = colours[1])
 lines(times, mean_drug, lwd = 3, col = colours[2])
-legend("topright", inset = 0.02, legend = c(paste0("None (n = ", sum(drug == "None"), ")"), paste0("Drug (n = ", sum(drug == "Yes"), ")")), 
+legend("topright", inset = 0.02, legend = c(paste0("None (n = ", sum(drug == "No"), ")"), paste0("Drug (n = ", sum(drug == "Yes"), ")")), 
        title = "Drug Co-Administration", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting age results
@@ -566,7 +566,7 @@ for (i in indices) {
 }
 lines(times, mean_adults, lwd = 3, col = colours[1])
 lines(times, mean_children, lwd = 3, col = colours[2])
-legend("topright", inset = 0.02, legend = c(paste0("Adults (n = ", sum(age == "Adult"), ")"), paste0("Children (n = ", sum(age == "Children"), ")")), 
+legend("topright", inset = 0.02, legend = c(paste0("Adults (n = ", sum(!is.na(age) & age == "Adults"), ")"), paste0("Children (n = ", sum(!is.na(age) & age == "Children"), ")")), 
        title = "Age", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting weight results
@@ -586,7 +586,7 @@ for (i in indices) {
 lines(times, mean_heavy, lwd = 3, col = colours[1])
 lines(times, mean_light, lwd = 3, col = colours[2])
 legend("topright", inset = 0.02, legend = c(paste0(">60kg (n = ", sum(weight[indices]), ")"), paste0("<60kg (n = ", sum(sum(!weight[indices])), ")")), 
-       title = "Age", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
+       title = "Weight", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Compare these results with old results
 # old <- readRDS("Outputs/MCMC_Output_26th_December.rds")
