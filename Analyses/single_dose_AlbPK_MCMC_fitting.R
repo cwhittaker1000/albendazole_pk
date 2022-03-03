@@ -13,6 +13,20 @@ single_PK_Data <- read.csv("Data/single_dose_AlbPK_data.csv", stringsAsFactors =
 multiple_PK_Data <- read.csv("Data/multiple_dose_AlbPK_data.csv", stringsAsFactors = FALSE)
 overall <- rbind(single_PK_Data, multiple_PK_Data) 
 
+# tst <- overall %>%
+#   group_by(Temporal_ID) %>%
+#   filter(row_number()==1) %>%
+#   select(Temporal_ID, Dose_Amount)
+# for (k in 1:max(overall$Temporal_ID)) {
+#   time_series_number <- k
+#   Single_PK_Dataset <- filter(overall, Temporal_ID == k) # filter by time_series_number
+#   Albendazole_Sulfoxide_Time <- Single_PK_Dataset$Time[Single_PK_Dataset$Metabolite == "AlbSO"]  
+#   Albendazole_Sulfoxide_Conc <- Single_PK_Dataset$Converted_Concentration[Single_PK_Dataset$Metabolite == "AlbSO"]  
+#   Alb_SO_data <- data.frame(Time = Albendazole_Sulfoxide_Time, Alb_SO = Albendazole_Sulfoxide_Conc)
+#   plot(Alb_SO_data$Time, Alb_SO_data$Alb_SO, pch = 20, col = "#7609BA", cex = 2, main = paste0("Time Series ", k))
+#   browser()
+# }
+
 # Defining the MCMC Inputs
 number_iterations <- 25000
 initial_parameters <- c(k_abs = 2, bioavailability = 0.01, sigma = 15, k_alb = 0.2, k_alb_so = 0.1300)
@@ -32,8 +46,8 @@ results <- data.frame(median_k_alb_so = rep(NA, num_TS), median_bioavailability 
                       dosing = character(num_TS), number = rep(NA, num_TS), dose_data_availability = rep(NA, num_TS), stringsAsFactors = FALSE)
 
 # Looping Over the Dataset and Fitting Each of the Datasets
-fresh_run <- TRUE
-for (k in 75:num_TS) {
+fresh_run <- FALSE
+for (k in 1:num_TS) {
   
   # Set Seed
   set.seed(140194)
@@ -60,7 +74,7 @@ for (k in 75:num_TS) {
   data_available <- unique(Single_PK_Dataset$Data)
   if (dosing == "Multiple" & data_available == "Multiple") {
     time_2nd_dose <- dose_info$times[2]
-    if (k == 77 | k == 79) {
+    if (k == 96 | k == 98) {
       Single_PK_Dataset <- Single_PK_Dataset %>% # for these two, ambiguous whether measured after giving drug - fairly certain measured after 2nd dose so remove 
         filter(Time < time_2nd_dose) 
     } else {
@@ -116,11 +130,11 @@ for (k in 75:num_TS) {
     # Saving Output
     saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC, Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
             paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
-    saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC, Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
-            paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", "prior", prior_string, "_singleDose_simpleModel_.rds"))
+    # saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC, Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
+    #         paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", "prior", prior_string, "_singleDose_simpleModel_.rds"))
   } else {
-    #run_MCMC <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
-    run_MCMC <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", "prior", prior_string, "_singleDose_simpleModel_.rds"))
+    run_MCMC <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
+    # run_MCMC <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", "prior", prior_string, "_singleDose_simpleModel_.rds"))
     run_MCMC <- run_MCMC$mcmc_output
   }
   
@@ -133,9 +147,19 @@ for (k in 75:num_TS) {
   points(Alb_SO_data$Time, Alb_SO_data$Alb_SO, pch = 20, col = "#7609BA", cex = 2)
   polygon(c(run_MCMC$Times, rev(run_MCMC$Times)), c(lower, rev(upper)), col = adjustcolor("#7609BA", alpha.f = 0.2), border = NA)
   
+  if("Alb" %in% Single_PK_Dataset$Metabolite) {
+    alb <- run_MCMC$Alb[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), ]
+    mean_alb <- apply(alb, 2, mean)
+    lower_alb <- apply(alb, 2, quantile, 0.025)
+    upper_alb <- apply(alb, 2, quantile, 0.975)
+    lines(run_MCMC$Times, mean_alb, type = "l", col = "#E5005F", ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2)
+    points(Alb_data$Time, Alb_data$Alb, pch = 20, col = "#E5005F", cex = 2)
+    polygon(c(run_MCMC$Times, rev(run_MCMC$Times)), c(lower_alb, rev(upper_alb)), col = adjustcolor("#E5005F", alpha.f = 0.2), border = NA)
+  }
+  
   # Generating and Saving Summary Statistics for Each Fitted Output 
   times <- seq(0, 100, 0.01)
-  dose <- dose_info$amount
+  dose <- dose_info$amount[1]
   
   ## Extracting and Running Model With Median Outputs
   median_k_abs <- median(run_MCMC$MCMC_Output[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), "k_abs"]) / reparam[1]
@@ -191,17 +215,21 @@ for (k in 75:num_TS) {
   print(k) 
   
 }
+saveRDS(results, paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/AllTS_Results.rds"))
 
 
 # Plotting all the raw model fitting results
 m <- matrix(c(1, 1, 2, 3, 1, 1, 4, 5, 1, 1, 6, 7), nrow = 3, ncol = 4, byrow = TRUE)
+prior_string <- "Uninf"
 layout(m)
 for (i in 1:max(overall$Temporal_ID)) {
   
   # Loading in results
   Single_PK_Dataset <- filter(overall, Temporal_ID == i) # filter by time_series_number
   dosing <- unique(Single_PK_Dataset$Dosing)
-  temp <- readRDS(paste0("Outputs/SingleDose_SimpleModel_MCMC_Outputs/TS", i, "_prior", prior_string, "_", tolower(dosing), "Dose_simpleModel_.rds"))
+  
+  temp <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", i, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
+
   alb_so <- temp$mcmc_output$Alb_SO[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, ]
   mean_alb_so <- apply(alb_so, 2, mean)
   lower_alb_so <- apply(alb_so, 2, quantile, 0.025)
@@ -236,114 +264,141 @@ for (i in 1:max(overall$Temporal_ID)) {
 # Regression Results - need to decide how and what to include here given data sparsity
 miss_var_summary(results)
 
-# Sex
-sex <- results[!is.na(results$sex) & results$sex != "Unclear" & results$sex != "Female", ]
-summary(lm(median_bioavailability ~ sex, data = sex))
-summary(lm(median_k_alb_so ~ sex, data = sex))
-summary(lm(median_Cmax ~ sex, data = sex))
+# Loading in MCMC results table 
+results <- readRDS("outputs/SingleDose_AlbPK_ModelFitting_Outputs/AllTS_Results.rds")
+results$id <- seq(1:dim(results)[1])
+results <- results %>% 
+  relocate(id, .before = median_k_alb_so) %>%
+  select(id, median_k_alb_so, median_bioavailability, median_AUC, median_Cmax)
 
-sex_ratio <- results[!is.na(results$sex_ratio), ]
-summary(lm(median_bioavailability ~ sex_ratio, data = sex_ratio))
-summary(lm(median_k_alb_so ~ sex_ratio, data = sex_ratio))
-summary(lm(median_Cmax ~ sex_ratio, data = sex_ratio))
+# Loading in the metadata about each time-series
+study_metadata <- read.csv("data/metadata_for_import.csv") %>%
+  select(TS_Num, Dosing_Regimen, Data_Availability, 
+         Single_Dose_Mg, Dose_Per_Kg, Number_People, 
+         Age_Used, Age_Group, Weight_Used,
+         Sex, Sex_Ratio, State, 
+         Disease_Status, Disease_Specific, Onchocerciasis, Echinococcosis, Neurocysticercosis,
+         Co_Drugs_Binary, Ivermectin, DEC, Anti_Epileptics) 
+
+overall_results <- results %>%
+  left_join(study_metadata, by = c("id" = "TS_Num")) %>%
+  mutate(Sex = ifelse(is.na(Sex), "Unclear", Sex)) %>%
+  mutate(State = ifelse(is.na(State), "Unclear", State))
+miss_var_summary(overall_results)
+
+# Sex
+table(overall_results$Sex)
+summary(lm(median_bioavailability ~ Sex, data = overall_results))
+summary(lm(median_k_alb_so ~ Sex, data = overall_results))
+summary(lm(median_Cmax ~ Sex, data = overall_results))
+summary(lm(median_AUC ~ Sex, data = overall_results))
+summary(lm(median_bioavailability ~ Sex_Ratio, data = overall_results))
+summary(lm(median_k_alb_so ~ Sex_Ratio, data = overall_results))
+summary(lm(median_Cmax ~ Sex_Ratio, data = overall_results))
+summary(lm(median_AUC ~ Sex_Ratio, data = overall_results))
 
 # Fasting State
-state <- results[!is.na(results$state) & results$state != "Mixture" & results$state != "Unclear", ]
-summary(lm(median_bioavailability ~ state, data = state))
-summary(lm(median_k_alb_so ~ state, data = state))
-summary(lm(median_Cmax ~ state, data = state))
+table(overall_results$State)
+summary(lm(median_bioavailability ~ State, data = overall_results))
+summary(lm(median_k_alb_so ~ State, data = overall_results))
+summary(lm(median_Cmax ~ State, data = overall_results))
+summary(lm(median_AUC ~ State, data = overall_results))
 
 # Dose
-dose_single <- results[!is.na(results$dose_single), ]
-summary(lm(median_bioavailability ~ dose_single, data = dose_single))
-summary(lm(median_k_alb_so ~ dose_single, data = dose_single))
-summary(lm(median_Cmax ~ dose_single, data = dose_single))
-
-dose_binary <- results[!is.na(results$dose_binary), ]
-summary(lm(median_bioavailability ~ dose_binary, data = dose_binary))
-summary(lm(median_k_alb_so ~ dose_binary, data = dose_binary))
-summary(lm(median_Cmax ~ dose_binary, data = dose_binary))
-
-# Infection
-infection <- results[!is.na(results$infection) & results$infection != "Mixture" & results$infection != "None", ]
-summary(lm(median_bioavailability ~ infection, data = infection))
-summary(lm(median_k_alb_so ~ infection, data = infection))
-summary(lm(median_Cmax ~ infection, data = infection))
-
-# Age
-age <- results[!is.na(results$age), ]
-summary(lm(median_bioavailability ~ age, data = age))
-summary(lm(median_k_alb_so ~ age, data = age))
-summary(lm(median_Cmax ~ age, data = age))
-
-age_binary <- results[!is.na(results$age_binary) & results$age_binary != "Unclear", ]
-summary(lm(median_bioavailability ~ age_binary, data = age_binary))
-summary(lm(median_k_alb_so ~ age_binary, data = age_binary))
-summary(lm(median_Cmax ~ age_binary, data = age_binary))
+table(overall_results$Dose_Per_Kg)
+table(overall_results$Single_Dose_Mg)
+summary(lm(median_bioavailability ~ Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Single_Dose_Mg, data = overall_results))
+summary(lm(median_k_alb_so ~ Single_Dose_Mg, data = overall_results))
+summary(lm(median_Cmax ~ Single_Dose_Mg, data = overall_results))
+summary(lm(median_AUC ~ Single_Dose_Mg, data = overall_results))
 
 # Weight
-weight <- results[!is.na(results$weight), ]
-summary(lm(median_bioavailability ~ weight, data = weight))
-summary(lm(median_k_alb_so ~ weight, data = weight))
-summary(lm(median_Cmax ~ weight, data = weight))
+table(overall_results$Weight_Used)
+summary(lm(median_bioavailability ~ Weight_Used, data = overall_results))
+summary(lm(median_k_alb_so ~ Weight_Used, data = overall_results))
+summary(lm(median_Cmax ~ Weight_Used, data = overall_results))
+summary(lm(median_AUC ~ Weight_Used, data = overall_results))
+
+# Age
+table(overall_results$Age_Used)
+table(overall_results$Age_Group)
+summary(lm(median_bioavailability ~ Age_Used, data = overall_results))
+summary(lm(median_k_alb_so ~ Age_Used, data = overall_results))
+summary(lm(median_Cmax ~ Age_Used, data = overall_results))
+summary(lm(median_AUC ~ Age_Used, data = overall_results))
+summary(lm(median_bioavailability ~ Age_Group, data = overall_results))
+summary(lm(median_k_alb_so ~ Age_Group, data = overall_results))
+summary(lm(median_Cmax ~ Age_Group, data = overall_results))
+summary(lm(median_AUC ~ Age_Group, data = overall_results))
+
+# Infection
+table(overall_results$Disease_Status)
+table(overall_results$Onchocerciasis)
+table(overall_results$Echinococcosis)
+table(overall_results$Neurocysticercosis)
+
+summary(lm(median_bioavailability ~ Disease_Status + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Disease_Status + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Disease_Status + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Disease_Status + Dose_Per_Kg, data = overall_results))
+
+summary(lm(median_bioavailability ~ Onchocerciasis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Onchocerciasis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Onchocerciasis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Onchocerciasis + Dose_Per_Kg, data = overall_results))
+
+summary(lm(median_bioavailability ~ Echinococcosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Echinococcosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Echinococcosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Echinococcosis + Dose_Per_Kg, data = overall_results))
+
+summary(lm(median_bioavailability ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results))
 
 # Drug
-drug <- results[!is.na(results$drug), ]
-summary(lm(median_bioavailability ~ drug, data = drug))
-summary(lm(median_k_alb_so ~ drug, data = drug))
-summary(lm(median_Cmax ~ drug, data = drug))
+table(overall_results$Co_Drugs_Binary)
+table(overall_results$DEC)
+table(overall_results$Anti_Epileptics)
+table(overall_results$Ivermectin)
 
-# Dosing
-dosing <- results[!is.na(results$dosing), ]
-summary(lm(median_bioavailability ~ dosing, data = dosing))
-summary(lm(median_k_alb_so ~ dosing, data = dosing))
-summary(lm(median_Cmax ~ dosing, data = dosing))
+summary(lm(median_bioavailability ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results))
+summary(lm(median_k_alb_so ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results))
+summary(lm(median_Cmax ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results))
+summary(lm(median_AUC ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results))
 
-dosing <- results[!is.na(results$dosing), ]
-summary(lm(median_bioavailability ~ dosing, data = dosing))
-summary(lm(median_k_alb_so ~ dosing, data = dosing))
-summary(lm(median_Cmax ~ dosing, data = dosing))
+summary(lm(median_bioavailability ~ DEC + Single_Dose_Mg, data = overall_results))
+summary(lm(median_k_alb_so ~ DEC + Single_Dose_Mg, data = overall_results))
+summary(lm(median_Cmax ~ DEC + Single_Dose_Mg, data = overall_results))
+summary(lm(median_AUC ~ DEC + Single_Dose_Mg, data = overall_results))
 
+summary(lm(median_bioavailability ~ Anti_Epileptics + Single_Dose_Mg, data = overall_results))
+summary(lm(median_k_alb_so ~ Anti_Epileptics + Single_Dose_Mg, data = overall_results))
+summary(lm(median_Cmax ~ Anti_Epileptics + Single_Dose_Mg, data = overall_results))
+summary(lm(median_AUC ~ Anti_Epileptics + Single_Dose_Mg, data = overall_results))
 
+summary(lm(median_bioavailability ~ Ivermectin + Single_Dose_Mg, data = overall_results))
+summary(lm(median_k_alb_so ~ Ivermectin + Single_Dose_Mg, data = overall_results))
+summary(lm(median_Cmax ~ Ivermectin + Single_Dose_Mg, data = overall_results))
+summary(lm(median_AUC ~ Ivermectin + Single_Dose_Mg, data = overall_results))
 
-colnames(results)
-summary(lm(median_AUC ~ dosing + sex + state + infection, data = results))
+# Overall
+miss_var_summary(overall_results)
 
-summary(lm(median_bioavailability ~ dose_binary + dosing + state + infection, data = results))
-summary(lm(median_k_alb_so ~ dose_binary + dosing + state + infection, data = results))
-summary(lm(median_Cmax ~ dose_binary + dosing + state + infection, data = results))
+summary(lm(median_bioavailability ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, data = overall_results))
+summary(lm(median_k_alb_so ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, data = overall_results))
+summary(lm(median_Cmax ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, data = overall_results))
+summary(lm(median_AUC ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, data = overall_results))
 
-
-summary(lm(median_bioavailability ~ dose_binary + dosing + sex + state + infection, data = results))
-summary(lm(median_k_alb_so ~ dose_binary + dosing + sex + state + infection, data = results))
-summary(lm(median_Cmax ~ dose_binary + dosing + sex + state + infection, data = results))
-
-summary(lm(median_Cmax ~ dosing + sex + state, data = results))
-
-
-summary(lm(median_bioavailability ~ sex + state + dose_binary + drug + age_binary + infection, data = results))
-summary(lm(median_k_alb_so ~ sex + state + dose_binary + drug + age_binary + infection, data = results))
-summary(lm(median_AUC ~ sex + state + dose_binary + drug + age_binary + infection, data = results))
-summary(lm(median_Cmax ~ sex + state + dose_binary + drug + age_binary + infection, data = results))
-
-x <- results[!is.na(results$sex_ratio) & !is.na(results$state)  & !is.na(results$dose_binary) &
-               !is.na(results$drug) & !is.na(results$age_binary) & !is.na(results$infection), ]
-
-sum(!is.na(results$sex))
-sum(!is.na(results$sex_ratio))
-sum(!is.na(results$state))
-sum(!is.na(results$dose_binary))
-sum(!is.na(results$drug))
-sum(!is.na(results$age))
-sum(!is.na(results$age_binary))
-sum(!is.na(results$weight))
-sum(!is.na(results$infection))
-
-
-summary(lm(mean_bioavailability ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results))
-summary(lm(mean_k_alb_so ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results))
-summary(lm(mean_AUC ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results))
-summary(lm(mean_Cmax ~ sex_ratio + state + dose_binary + drug + age + weight + infection, data = results))
+summary(lm(median_bioavailability ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, data = overall_results))
+summary(lm(median_k_alb_so ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, data = overall_results))
+summary(lm(median_Cmax ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, data = overall_results))
+summary(lm(median_AUC ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, data = overall_results))
 
 # Generating median outputs for plotting
 times <- seq(0, 50, 0.1)
@@ -351,10 +406,14 @@ median_output <- matrix(nrow = max(overall$Temporal_ID), ncol = length(times))
 for (i in 1:max(overall$Temporal_ID)) {
   
   # Loading in results
-  Single_PK_Dataset <- filter(overall, Temporal_ID == i) # filter by time_series_number
+  Single_PK_Dataset <- filter(overall_results, id == i) # filter by time_series_number
   dosing <- unique(Single_PK_Dataset$Dosing)
-  temp <- readRDS(paste0("Outputs/SingleDose_SimpleModel_MCMC_Outputs/TS", i, "_prior", prior_string, "_", tolower(dosing), "Dose_simpleModel_.rds"))
-
+  dosing <- ifelse(dosing == "Single_Dose", "Single", "Multiple")
+  if (i %in% c(95, 96, 97, 98, 99, 100, 107, 108)) {
+    dosing <- "Single"
+  }
+  temp <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", i, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
+  
   # Running model with median parameter estimates
   median_k_abs <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_abs"]) / reparam[1]
   median_bioavailability <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "bioavailability"]) / reparam[2]
@@ -363,7 +422,7 @@ for (i in 1:max(overall$Temporal_ID)) {
   median_k_alb_so <- median(temp$mcmc_output$MCMC_Output[max(temp$number_iterations/2, start_covariance_adaptation):temp$number_iterations, "k_alb_so"]) / reparam[5]
   median_model <- Albendazole_PK_Model(k_abs = median_k_abs, sigma = median_sigma, 
                                        k_alb_so = median_k_alb_so, k_alb = median_k_alb, 
-                                       gut_1 = (median_bioavailability/1e+5) * (dose * 1e+6), 
+                                       gut_1 = (median_bioavailability/1e+5) * (400 * 1e+6), 
                                        gut_2 = 0, liver = 0, blood_alb = 0, blood_alb_so = 0)
   median_out <- median_model$run(times)
   median_alb_so_PK <- median_out[, 6]
@@ -374,32 +433,31 @@ for (i in 1:max(overall$Temporal_ID)) {
 }
 
 # Plotting dosing results
-par(mfrow = c(1, 1))
-dosing <- factor(results$dosing)
-colours <- c("#4E90CE", "#CE4E61")
-indices <- which(!is.na(dosing))
-mean_single <- apply(median_output[dosing == "Single", ], 2, mean)
-mean_multiple <- apply(median_output[dosing == "Multiple", ], 2, mean)
-for (i in indices) {
-  if (i == 1) {
-    plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
-         col = ifelse(dosing[i] == "Single", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
-  } else {
-    lines(times, median_output[i, ], col = ifelse(dosing[i] == "Single", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
-  }
-}
-lines(times, mean_single, lwd = 3, col = colours[1])
-lines(times, mean_multiple, lwd = 3, col = colours[2])
-legend("topright", inset = 0.02, legend = c(paste0("Single (n = ", sum(dosing == "Single"), ")"), 
-                                            paste0("Multiple (n = ", sum(dosing == "Multiple"), ")")), 
-       title = "Dosing", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
-
+# par(mfrow = c(1, 1))
+# dosing <- factor(results$dosing)
+# colours <- c("#4E90CE", "#CE4E61")
+# indices <- which(!is.na(dosing))
+# mean_single <- apply(median_output[dosing == "Single", ], 2, mean)
+# mean_multiple <- apply(median_output[dosing == "Multiple", ], 2, mean)
+# for (i in indices) {
+#   if (i == 1) {
+#     plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
+#          col = ifelse(dosing[i] == "Single", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+#   } else {
+#     lines(times, median_output[i, ], col = ifelse(dosing[i] == "Single", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+#   }
+# }
+# lines(times, mean_single, lwd = 3, col = colours[1])
+# lines(times, mean_multiple, lwd = 3, col = colours[2])
+# legend("topright", inset = 0.02, legend = c(paste0("Single (n = ", sum(dosing == "Single"), ")"), 
+#                                             paste0("Multiple (n = ", sum(dosing == "Multiple"), ")")), 
+#        title = "Dosing", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting sex results
 par(mfrow = c(1, 1))
-sex <- factor(results$sex)
+sex <- factor(overall_results$Sex)
 colours <- c("#4E90CE", "#CE4E61")
-indices <- which(!is.na(sex) & sex != "Unclear")
+indices <- which(!is.na(sex) & sex != "Unclear" & sex != "FeMale")
 mean_men <- apply(median_output[sex == "Male", ], 2, mean)
 mean_mixture <- apply(median_output[sex == "Mixture", ], 2, mean)
 for (i in indices) {
@@ -416,10 +474,10 @@ legend("topright", inset = 0.02, legend = c(paste0("Males (n = ", sum(sex == "Ma
        title = "Sex", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting state results
-state <- factor(results$state)
+state <- factor(overall_results$State)
 colours <- c("#4BBC00","#F28123")
 indices <- which(!is.na(state) & state != "Unclear" & state != "Mixture")
-mean_fatty_meal <- apply(median_output[state == "Fatty_meal", ], 2, mean)
+mean_fatty_meal <- apply(median_output[state == "Fatty Meal", ], 2, mean)
 mean_fasted <- apply(median_output[state == "Fasted", ], 2, mean)
 for (i in indices) {
   if (i == 1) {
@@ -431,11 +489,12 @@ for (i in indices) {
 }
 lines(times, mean_fatty_meal, lwd = 3, col = colours[1])
 lines(times, mean_fasted, lwd = 3, col = colours[2])
-legend("topright", inset = 0.02, legend = c(paste0("Fatty Meal (n = ", sum(state == "Fatty_meal"), ")"), paste0("Fasted (n = ", sum(state == "Fasted"), ")")), 
+legend("topright", inset = 0.02, legend = c(paste0("Fatty Meal (n = ", sum(state == "Fatty Meal"), ")"), paste0("Fasted (n = ", sum(state == "Fasted"), ")")), 
        title = "State", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting dose results
-dose <- factor(results$dose_binary)
+overall_results$Dose_Binary <- ifelse(overall_results$Single_Dose_Mg <= 400, "Low", "High")
+dose <- factor(overall_results$Dose_Binary)
 colours <- c("#3ED6BA", "#725FAD")
 indices <- which(!is.na(dose))
 mean_high <- apply(median_output[dose == "High", ], 2, mean)
@@ -454,7 +513,7 @@ legend("topright", inset = 0.02, legend = c(paste0("High (n = ", sum(dose == "Hi
        title = "State", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting infection results
-infection <- factor(results$infection)
+infection <- factor(overall_results$Disease_Status)
 colours <- c("#F7C911", "#CE5A90")
 indices <- which(!is.na(infection) & infection != "Mixture")
 mean_infected <- apply(median_output[infection == "Infected", ], 2, mean)
@@ -473,17 +532,17 @@ legend("topright", inset = 0.02, legend = c(paste0("Healthy (n = ", sum(infectio
        title = "Infection Status", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting drug results
-drug <- factor(results$drug)
+drug <- factor(overall_results$Co_Drugs_Binary)
 colours <- c("#ADA9A9", "#D62C2C")
 indices <- which(!is.na(drug))
-mean_none <- apply(median_output[drug == "None", ], 2, mean)
+mean_none <- apply(median_output[drug == "No", ], 2, mean)
 mean_drug <- apply(median_output[drug == "Yes", ], 2, mean)
 for (i in indices) {
   if (i == 1) {
     plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
          col = ifelse(drug[i] == "None", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
   } else {
-    lines(times, median_output[i, ], col = ifelse(drug[i] == "None", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+    lines(times, median_output[i, ], col = ifelse(drug[i] == "No", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
   }
 }
 lines(times, mean_none, lwd = 3, col = colours[1])
@@ -492,17 +551,17 @@ legend("topright", inset = 0.02, legend = c(paste0("None (n = ", sum(drug == "No
        title = "Drug Co-Administration", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting age results
-age <- factor(results$age_binary)
+age <- factor(overall_results$Age_Group)
 colours <- c("#E0A02A", "#ED7BEB")
-indices <- which(!is.na(age) & age != "Unclear")
-mean_adults <- apply(median_output[age == "Adult", ], 2, mean)
-mean_children <- apply(median_output[age == "Children", ], 2, mean)
+indices <- which(!is.na(age) & age != "Unclear" & age != "Mixture")
+mean_adults <- apply(median_output[!is.na(age) & age == "Adults", ], 2, mean)
+mean_children <- apply(median_output[!is.na(age) & age == "Children", ], 2, mean)
 for (i in indices) {
   if (i == 1) {
     plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
-         col = ifelse(age[i] == "Adult", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+         col = ifelse(age[i] == "Adults", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
   } else {
-    lines(times, median_output[i, ], col = ifelse(age[i] == "Adult", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+    lines(times, median_output[i, ], col = ifelse(age[i] == "Adults", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
   }
 }
 lines(times, mean_adults, lwd = 3, col = colours[1])
@@ -511,7 +570,7 @@ legend("topright", inset = 0.02, legend = c(paste0("Adults (n = ", sum(age == "A
        title = "Age", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting weight results
-weight <- results$weight > 60
+weight <- overall_results$Weight_Used > 60
 colours <- c("#32720C", "#CCB5FF")
 indices <- which(!is.na(weight))
 mean_heavy <- apply(median_output[weight[indices], ], 2, mean)
