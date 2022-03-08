@@ -7,25 +7,11 @@ source("Models/Alb_PK_Single_Dose_Odin_Model.R")
 source("Functions/single_dose_MCMC_functions.R")
 
 # Importing and Processing the Data - 60 (1-60) single dose time-series; 
-#                                     13 (61-73) multiple dose, single time-series; 
-#                                      9 (74-82) multiple dose, multiple time-series
+#                                     13 (61-73) multiple dose, single time-series; (ultimately excluded as no data immediately after first dose)
+#                                      9 (74-82) multiple dose, multiple time-series 
 single_PK_Data <- read.csv("Data/single_dose_AlbPK_data.csv", stringsAsFactors = FALSE)
 multiple_PK_Data <- read.csv("Data/multiple_dose_AlbPK_data.csv", stringsAsFactors = FALSE)
 overall <- rbind(single_PK_Data, multiple_PK_Data) 
-
-# tst <- overall %>%
-#   group_by(Temporal_ID) %>%
-#   filter(row_number()==1) %>%
-#   select(Temporal_ID, Dose_Amount)
-# for (k in 1:max(overall$Temporal_ID)) {
-#   time_series_number <- k
-#   Single_PK_Dataset <- filter(overall, Temporal_ID == k) # filter by time_series_number
-#   Albendazole_Sulfoxide_Time <- Single_PK_Dataset$Time[Single_PK_Dataset$Metabolite == "AlbSO"]  
-#   Albendazole_Sulfoxide_Conc <- Single_PK_Dataset$Converted_Concentration[Single_PK_Dataset$Metabolite == "AlbSO"]  
-#   Alb_SO_data <- data.frame(Time = Albendazole_Sulfoxide_Time, Alb_SO = Albendazole_Sulfoxide_Conc)
-#   plot(Alb_SO_data$Time, Alb_SO_data$Alb_SO, pch = 20, col = "#7609BA", cex = 2, main = paste0("Time Series ", k))
-#   browser()
-# }
 
 # Defining the MCMC Inputs
 number_iterations <- 25000
@@ -130,11 +116,8 @@ for (k in 1:num_TS) {
     # Saving Output
     saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC, Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
             paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
-    # saveRDS(list(number_iterations = number_iterations, info = Single_PK_Dataset, mcmc_output = run_MCMC, Alb_data = Alb_data, Alb_SO_data = Alb_SO_data), 
-    #         paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", "prior", prior_string, "_singleDose_simpleModel_.rds"))
   } else {
     run_MCMC <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
-    # run_MCMC <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", "prior", prior_string, "_singleDose_simpleModel_.rds"))
     run_MCMC <- run_MCMC$mcmc_output
   }
   
@@ -217,8 +200,7 @@ for (k in 1:num_TS) {
 }
 saveRDS(results, paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/AllTS_Results.rds"))
 
-
-# Plotting all the raw model fitting results
+# Plotting all the raw model MCMC fitting results
 m <- matrix(c(1, 1, 2, 3, 1, 1, 4, 5, 1, 1, 6, 7), nrow = 3, ncol = 4, byrow = TRUE)
 prior_string <- "Uninf"
 layout(m)
@@ -261,6 +243,16 @@ for (i in 1:max(overall$Temporal_ID)) {
   
 }
 
+hist(overall_results$median_k_alb_so, breaks = 20)
+hist(overall_results$median_bioavailability, breaks = 20)
+hist(overall_results$median_AUC, breaks = 20)
+hist(overall_results$median_Cmax, breaks = 20)
+
+hist(log(overall_results$median_k_alb_so), breaks = 20)
+hist(log(overall_results$median_bioavailability), breaks = 20)
+hist(log(overall_results$median_AUC), breaks = 20)
+hist(log(overall_results$median_Cmax), breaks = 20)
+
 # Regression Results - need to decide how and what to include here given data sparsity
 miss_var_summary(results)
 
@@ -284,272 +276,299 @@ overall_results <- results %>%
   left_join(study_metadata, by = c("id" = "TS_Num")) %>%
   mutate(Sex = ifelse(is.na(Sex), "Unclear", Sex)) %>%
   mutate(State = ifelse(is.na(State), "Unclear", State)) %>%
-  filter(!(Dosing_Regimen == "Multiple_Doses" & Data_Availability == "Single_Dose"))
+  filter(!(Dosing_Regimen == "Multiple_Doses" & Data_Availability == "Single_Dose")) %>%
+  mutate(Sex2 = ifelse(Sex == "FeMale", "Mixture", Sex)) %>%
+  mutate(Sex3 = ifelse(Sex2 == "Unclear", NA, Sex2)) %>%
+  mutate(State2 = ifelse(State == "Unclear", NA, State)) %>%
+  mutate(Disease_Status = ifelse(Disease_Status == "Mixture", NA, Disease_Status))
 
 miss_var_summary(overall_results)
 
-x <- data.frame(AUC = overall_results$median_AUC, Bio = overall_results$median_bioavailability,
-                Cmax = overall_results$median_Cmax, K = overall_results$median_k_alb_so)
-cor(x)
+cor(data.frame(AUC = overall_results$median_AUC, Bio = overall_results$median_bioavailability, 
+               Cmax = overall_results$median_Cmax, K = overall_results$median_k_alb_so))
 
 # Sex
-table(overall_results$Sex)
-summary(lm(median_bioavailability ~ Sex, data = overall_results))
-summary(lm(median_bioavailability ~ Sex + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Sex + Dose_Per_Kg, data = overall_results))
+hist(log(1 + overall_results$Number_People))
+table(overall_results$Sex3, useNA = "ifany")
 
-summary(lm(median_k_alb_so ~ Sex, data = overall_results))
-summary(lm(median_k_alb_so ~ Sex + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Sex + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Sex3, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Sex3 + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Sex3 + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Sex, data = overall_results))
-summary(lm(median_Cmax ~ Sex + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Sex + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Sex3, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Sex3 + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Sex3 + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Sex, data = overall_results))
-summary(lm(median_AUC ~ Sex + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Sex + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Sex3, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Sex3 + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Sex3 + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_bioavailability ~ Sex_Ratio, data = overall_results))
-summary(lm(median_bioavailability ~ Sex_Ratio + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Sex_Ratio + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Sex3, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Sex3 + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Sex3 + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_k_alb_so ~ Sex_Ratio, data = overall_results))
-summary(lm(median_k_alb_so ~ Sex_Ratio + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Sex_Ratio + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Sex_Ratio, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Sex_Ratio + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Sex_Ratio + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Sex_Ratio, data = overall_results))
-summary(lm(median_Cmax ~ Sex_Ratio + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Sex_Ratio + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Sex_Ratio, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Sex_Ratio + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Sex_Ratio + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Sex_Ratio, data = overall_results))
-summary(lm(median_AUC ~ Sex_Ratio + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Sex_Ratio + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Sex_Ratio, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Sex_Ratio + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Sex_Ratio + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
+
+summary(lm(median_AUC ~ Sex_Ratio, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Sex_Ratio + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Sex_Ratio + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
 # Fasting State
-table(overall_results$State)
-summary(lm(median_bioavailability ~ State, data = overall_results))
-summary(lm(median_bioavailability ~ State + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ State + Dose_Per_Kg, data = overall_results))
+table(overall_results$State2, useNA = "ifany")
+summary(lm(median_bioavailability ~ State2, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ State2 + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ State2 + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_k_alb_so ~ State, data = overall_results))
-summary(lm(median_k_alb_so ~ State + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ State + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ State2, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ State2 + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ State2 + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ State, data = overall_results))
-summary(lm(median_Cmax ~ State + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ State + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ State2, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ State2 + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ State2 + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ State, data = overall_results))
-summary(lm(median_AUC ~ State + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ State + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ State2, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ State2 + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ State2 + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
 # Dose
 table(overall_results$Dose_Per_Kg)
 table(overall_results$Single_Dose_Mg)
-summary(lm(median_bioavailability ~ Dose_Per_Kg, data = overall_results))
-summary(lm(median_bioavailability ~ Single_Dose_Mg, data = overall_results))
 
-summary(lm(median_k_alb_so ~ Dose_Per_Kg, data = overall_results))
-summary(lm(median_k_alb_so ~ Single_Dose_Mg, data = overall_results))
+summary(lm(median_bioavailability ~ Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Dose_Per_Kg, data = overall_results))
-summary(lm(median_Cmax ~ Single_Dose_Mg, data = overall_results))
-
-summary(lm(median_AUC ~ Dose_Per_Kg, data = overall_results))
-summary(lm(median_AUC ~ Single_Dose_Mg, data = overall_results))
+summary(lm(median_bioavailability ~ Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
 
 # Weight
 table(overall_results$Weight_Used)
-summary(lm(median_bioavailability ~ Weight_Used, data = overall_results))
-summary(lm(median_bioavailability ~ Weight_Used + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Weight_Used + Dose_Per_Kg, data = overall_results))
 
-summary(lm(median_k_alb_so ~ Weight_Used, data = overall_results))
-summary(lm(median_k_alb_so ~ Weight_Used + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Weight_Used + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Weight_Used, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Weight_Used + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Weight_Used + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Weight_Used, data = overall_results))
-summary(lm(median_Cmax ~ Weight_Used + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Weight_Used + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Weight_Used, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Weight_Used + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Weight_Used + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Weight_Used, data = overall_results))
-summary(lm(median_AUC ~ Weight_Used + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Weight_Used + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Weight_Used, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Weight_Used + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Weight_Used + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
+
+summary(lm(median_AUC ~ Weight_Used, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Weight_Used + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Weight_Used + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
 # Age
 table(overall_results$Age_Group)
 
-summary(lm(median_bioavailability ~ Age_Used, data = overall_results))
-summary(lm(median_bioavailability ~ Age_Used + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Age_Used + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Age_Used, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Age_Used + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Age_Used + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_k_alb_so ~ Age_Used, data = overall_results))
-summary(lm(median_k_alb_so ~ Age_Used + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Age_Used + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Age_Used, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Age_Used + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Age_Used + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Age_Used, data = overall_results))
-summary(lm(median_Cmax ~ Age_Used + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Age_Used + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Age_Used, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Age_Used + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Age_Used + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Age_Used, data = overall_results))
-summary(lm(median_AUC ~ Age_Used + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Age_Used + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Age_Used, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Age_Used + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Age_Used + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_bioavailability ~ Age_Group, data = overall_results))
-summary(lm(median_bioavailability ~ Age_Group + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Age_Group + Dose_Per_Kg, data = overall_results))
+#############################
+summary(lm(median_bioavailability ~ Age_Group, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Age_Group + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Age_Group + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_k_alb_so ~ Age_Group, data = overall_results))
-summary(lm(median_k_alb_so ~ Age_Group + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Age_Group + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Age_Group, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Age_Group + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Age_Group + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Age_Group, data = overall_results))
-summary(lm(median_Cmax ~ Age_Group + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Age_Group + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Age_Group, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Age_Group + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Age_Group + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Age_Group, data = overall_results))
-summary(lm(median_AUC ~ Age_Group + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Age_Group + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Age_Group, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Age_Group + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Age_Group + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
 # Infection
-table(overall_results$Disease_Status)
+table(overall_results$Disease_Status, useNA = "ifany")
 table(overall_results$Onchocerciasis)
 table(overall_results$Echinococcosis)
 table(overall_results$Neurocysticercosis)
 
-summary(lm(median_bioavailability ~ Disease_Status, data = overall_results))
-summary(lm(median_bioavailability ~ Disease_Status + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Disease_Status + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Disease_Status, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Disease_Status + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Disease_Status + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_k_alb_so ~ Disease_Status, data = overall_results))
-summary(lm(median_k_alb_so ~ Disease_Status + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Disease_Status + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Disease_Status, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Disease_Status + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Disease_Status + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Disease_Status, data = overall_results))
-summary(lm(median_Cmax ~ Disease_Status + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Disease_Status + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Disease_Status, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Disease_Status + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Disease_Status + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Disease_Status, data = overall_results))
-summary(lm(median_AUC ~ Disease_Status + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Disease_Status + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Disease_Status, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Disease_Status + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Disease_Status + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_bioavailability ~ Onchocerciasis, data = overall_results))
-summary(lm(median_bioavailability ~ Onchocerciasis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Onchocerciasis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Onchocerciasis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Onchocerciasis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Onchocerciasis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_k_alb_so ~ Onchocerciasis, data = overall_results))
-summary(lm(median_k_alb_so ~ Onchocerciasis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Onchocerciasis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Onchocerciasis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Onchocerciasis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Onchocerciasis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Onchocerciasis, data = overall_results))
-summary(lm(median_Cmax ~ Onchocerciasis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Onchocerciasis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Onchocerciasis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Onchocerciasis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Onchocerciasis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Onchocerciasis, data = overall_results))
-summary(lm(median_AUC ~ Onchocerciasis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Onchocerciasis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Onchocerciasis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Onchocerciasis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Onchocerciasis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_bioavailability ~ Echinococcosis, data = overall_results))
-summary(lm(median_bioavailability ~ Echinococcosis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Echinococcosis + Dose_Per_Kg, data = overall_results))
+######################
 
-summary(lm(median_k_alb_so ~ Echinococcosis, data = overall_results))
-summary(lm(median_k_alb_so ~ Echinococcosis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Echinococcosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Echinococcosis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Echinococcosis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Echinococcosis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Echinococcosis, data = overall_results))
-summary(lm(median_Cmax ~ Echinococcosis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Echinococcosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Echinococcosis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Echinococcosis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Echinococcosis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Echinococcosis, data = overall_results))
-summary(lm(median_AUC ~ Echinococcosis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Echinococcosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Echinococcosis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Echinococcosis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Echinococcosis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_bioavailability ~ Neurocysticercosis, data = overall_results))
-summary(lm(median_bioavailability ~ Neurocysticercosis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Echinococcosis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Echinococcosis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Echinococcosis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_k_alb_so ~ Neurocysticercosis, data = overall_results))
-summary(lm(median_k_alb_so ~ Neurocysticercosis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results))
+############################
 
-summary(lm(median_Cmax ~ Neurocysticercosis, data = overall_results))
-summary(lm(median_Cmax ~ Neurocysticercosis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Neurocysticercosis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Neurocysticercosis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Neurocysticercosis, data = overall_results))
-summary(lm(median_AUC ~ Neurocysticercosis + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Neurocysticercosis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Neurocysticercosis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
+
+summary(lm(median_Cmax ~ Neurocysticercosis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Neurocysticercosis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
+
+summary(lm(median_AUC ~ Neurocysticercosis, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Neurocysticercosis + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Neurocysticercosis + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
 # Drug
 table(overall_results$Co_Drugs_Binary)
 table(overall_results$DEC)
 table(overall_results$Ivermectin)
 
-summary(lm(median_bioavailability ~ Co_Drugs_Binary, data = overall_results))
-summary(lm(median_bioavailability ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Co_Drugs_Binary + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Co_Drugs_Binary, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Co_Drugs_Binary + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_k_alb_so ~ Co_Drugs_Binary, data = overall_results))
-summary(lm(median_k_alb_so ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Co_Drugs_Binary + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Co_Drugs_Binary, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Co_Drugs_Binary + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Co_Drugs_Binary, data = overall_results))
-summary(lm(median_Cmax ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Co_Drugs_Binary + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Co_Drugs_Binary, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Co_Drugs_Binary + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Co_Drugs_Binary, data = overall_results))
-summary(lm(median_AUC ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Co_Drugs_Binary + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ Co_Drugs_Binary, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Co_Drugs_Binary + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Co_Drugs_Binary + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_bioavailability ~ DEC, data = overall_results))
-summary(lm(median_bioavailability ~ DEC + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ DEC + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ DEC, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ DEC + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ DEC + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_k_alb_so ~ DEC, data = overall_results))
-summary(lm(median_k_alb_so ~ DEC + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ DEC + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ DEC, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ DEC + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ DEC + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ DEC, data = overall_results))
-summary(lm(median_Cmax ~ DEC + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ DEC + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ DEC, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ DEC + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ DEC + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ DEC, data = overall_results))
-summary(lm(median_AUC ~ DEC + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ DEC + Dose_Per_Kg, data = overall_results))
+summary(lm(median_AUC ~ DEC, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ DEC + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ DEC + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_bioavailability ~ Ivermectin, data = overall_results))
-summary(lm(median_bioavailability ~ Ivermectin + Single_Dose_Mg, data = overall_results))
-summary(lm(median_bioavailability ~ Ivermectin + Dose_Per_Kg, data = overall_results))
+######################
 
-summary(lm(median_k_alb_so ~ Ivermectin, data = overall_results))
-summary(lm(median_k_alb_so ~ Ivermectin + Single_Dose_Mg, data = overall_results))
-summary(lm(median_k_alb_so ~ Ivermectin + Dose_Per_Kg, data = overall_results))
+summary(lm(median_bioavailability ~ Ivermectin, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Ivermectin + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_bioavailability ~ Ivermectin + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_Cmax ~ Ivermectin, data = overall_results))
-summary(lm(median_Cmax ~ Ivermectin + Single_Dose_Mg, data = overall_results))
-summary(lm(median_Cmax ~ Ivermectin + Dose_Per_Kg, data = overall_results))
+summary(lm(median_k_alb_so ~ Ivermectin, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Ivermectin + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_k_alb_so ~ Ivermectin + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
-summary(lm(median_AUC ~ Ivermectin, data = overall_results))
-summary(lm(median_AUC ~ Ivermectin + Single_Dose_Mg, data = overall_results))
-summary(lm(median_AUC ~ Ivermectin + Dose_Per_Kg, data = overall_results))
+summary(lm(median_Cmax ~ Ivermectin, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Ivermectin + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_Cmax ~ Ivermectin + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
+
+summary(lm(median_AUC ~ Ivermectin, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Ivermectin + Single_Dose_Mg, data = overall_results, weights = log(1 + Number_People)))
+summary(lm(median_AUC ~ Ivermectin + Dose_Per_Kg, data = overall_results, weights = log(1 + Number_People)))
 
 # Overall
 miss_var_summary(overall_results)
 
 summary(lm(median_bioavailability ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, data = overall_results))
 summary(lm(median_bioavailability ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, data = overall_results))
+summary(lm(median_bioavailability ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis, data = overall_results))
+summary(lm(median_bioavailability ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis, data = overall_results))
 
 summary(lm(median_k_alb_so ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, data = overall_results))
 summary(lm(median_k_alb_so ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, data = overall_results))
+summary(lm(median_k_alb_so ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis, data = overall_results))
+summary(lm(median_k_alb_so ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis, data = overall_results))
 
 summary(lm(median_Cmax ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, data = overall_results))
 summary(lm(median_Cmax ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, data = overall_results))
+summary(lm(median_Cmax ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis, data = overall_results))
+summary(lm(median_Cmax ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis, data = overall_results))
 
 summary(lm(median_AUC ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, data = overall_results))
 summary(lm(median_AUC ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, data = overall_results))
-
+summary(lm(median_AUC ~ Sex + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis, data = overall_results))
+summary(lm(median_AUC ~ Sex + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis, data = overall_results))
 
 # Generating median outputs for plotting
 times <- seq(0, 50, 0.1)
@@ -585,12 +604,19 @@ for (i in unique(overall_results$id)) {
 }
 
 # Plotting sex results
-par(mfrow = c(2, 4))
-sex <- factor(overall_results$Sex)
+par(mfrow = c(2, 3))
+par(mar = c(4.1, 4.1, 2.1, 2.1))
+sex <- factor(overall_results$Sex2)
 colours <- c("#4E90CE", "#CE4E61")
 indices <- which(!is.na(sex) & sex != "Unclear" & sex != "FeMale")
 mean_men <- apply(median_output[sex == "Male", ], 2, mean)
 mean_mixture <- apply(median_output[sex == "Mixture", ], 2, mean)
+
+t.test(overall_results$median_k_alb_so[sex == "Male"], overall_results$median_k_alb_so[sex == "Mixture"])
+t.test(overall_results$median_bioavailability[sex == "Male"], overall_results$median_bioavailability[sex == "Mixture"])
+t.test(overall_results$median_Cmax[sex == "Male"], overall_results$median_Cmax[sex == "Mixture"])
+t.test(overall_results$median_AUC[sex == "Male"], overall_results$median_AUC[sex == "Mixture"])
+
 for (i in indices) {
   if (i == 1) {
     plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
@@ -649,24 +675,24 @@ legend("topright", inset = 0.02, legend = c(paste0("High (n = ", sum(dose == "Hi
 infection <- factor(overall_results$Disease_Status)
 colours <- c("#F7C911", "#CE5A90")
 indices <- which(!is.na(infection) & infection != "Mixture")
-mean_infected <- apply(median_output[infection == "Infected", ], 2, mean)
-mean_healthy <- apply(median_output[infection == "Healthy", ], 2, mean)
+mean_infected <- apply(median_output[!is.na(infection) & infection == "Infected", ], 2, mean)
+mean_healthy <- apply(median_output[!is.na(infection) & infection == "Healthy", ], 2, mean)
 for (i in indices) {
   if (i == 1) {
     plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
-         col = ifelse(infection[i] == "Healthy", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+         col = ifelse(!is.na(infection[i]) & infection[i] == "Healthy", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
   } else {
-    lines(times, median_output[i, ], col = ifelse(infection[i] == "Healthy", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+    lines(times, median_output[i, ], col = ifelse(!is.na(infection[i]) & infection[i] == "Healthy", adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
   }
 }
 lines(times, mean_healthy, lwd = 3, col = colours[1])
 lines(times, mean_infected, lwd = 3, col = colours[2])
-legend("topright", inset = 0.02, legend = c(paste0("Healthy (n = ", sum(infection == "Healthy"), ")"), paste0("Infected (n = ", sum(infection == "Infected"), ")")), 
+legend("topright", inset = 0.02, legend = c(paste0("Healthy (n = ", sum(!is.na(infection) & infection == "Healthy"), ")"), paste0("Infected (n = ", sum(!is.na(infection) & infection == "Infected"), ")")), 
        title = "Infection Status", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Plotting drug results
 drug <- factor(overall_results$Co_Drugs_Binary)
-colours <- c("#ADA9A9", "#D62C2C")
+colours <- c("#656565", "#D62C2C")
 indices <- which(!is.na(drug))
 mean_none <- apply(median_output[drug == "No", ], 2, mean)
 mean_drug <- apply(median_output[drug == "Yes", ], 2, mean)
@@ -685,7 +711,7 @@ legend("topright", inset = 0.02, legend = c(paste0("None (n = ", sum(drug == "No
 
 # Plotting age results
 age <- factor(overall_results$Age_Group)
-colours <- c("#E0A02A", "#ED7BEB")
+colours <- c("#86A5D9", "#ED7BEB")
 indices <- which(!is.na(age) & age != "Unclear" & age != "Mixture")
 mean_adults <- apply(median_output[!is.na(age) & age == "Adults", ], 2, mean)
 mean_children <- apply(median_output[!is.na(age) & age == "Children", ], 2, mean)
@@ -702,24 +728,25 @@ lines(times, mean_children, lwd = 3, col = colours[2])
 legend("topright", inset = 0.02, legend = c(paste0("Adults (n = ", sum(!is.na(age) & age == "Adults"), ")"), paste0("Children (n = ", sum(!is.na(age) & age == "Children"), ")")), 
        title = "Age", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
+####
 # Plotting weight results
-weight <- overall_results$Weight_Used > 60
-colours <- c("#32720C", "#CCB5FF")
-indices <- which(!is.na(weight))
-mean_heavy <- apply(median_output[weight[indices], ], 2, mean)
-mean_light <- apply(median_output[!weight[indices], ], 2, mean)
-for (i in indices) {
-  if (i == 1) {
-    plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
-         col = ifelse(weight[indices[i]], adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
-  } else {
-    lines(times, median_output[i, ], col = ifelse(weight[indices[i]], adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
-  }
-}
-lines(times, mean_heavy, lwd = 3, col = colours[1])
-lines(times, mean_light, lwd = 3, col = colours[2])
-legend("topright", inset = 0.02, legend = c(paste0(">60kg (n = ", sum(weight[indices]), ")"), paste0("<60kg (n = ", sum(sum(!weight[indices])), ")")), 
-       title = "Weight", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
+# weight <- overall_results$Weight_Used > 60
+# colours <- c("#32720C", "#CCB5FF")
+# indices <- which(!is.na(weight))
+# mean_heavy <- apply(median_output[weight[indices], ], 2, mean)
+# mean_light <- apply(median_output[!weight[indices], ], 2, mean)
+# for (i in indices) {
+#   if (i == 1) {
+#     plot(times, median_output[i, ], type = "l", ylim = c(0, 1000), las = 1, xlab = "Time Since Treatment (Hours)", ylab = "Concentration (ng/ml)",
+#          col = ifelse(weight[indices[i]], adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+#   } else {
+#     lines(times, median_output[i, ], col = ifelse(weight[indices[i]], adjustcolor(colours[1], alpha = 0.2), adjustcolor(colours[2], alpha = 0.2)))
+#   }
+# }
+# lines(times, mean_heavy, lwd = 3, col = colours[1])
+# lines(times, mean_light, lwd = 3, col = colours[2])
+# legend("topright", inset = 0.02, legend = c(paste0(">60kg (n = ", sum(weight[indices]), ")"), paste0("<60kg (n = ", sum(sum(!weight[indices])), ")")), 
+#        title = "Weight", col = c(colours[1], colours[2]), lty = 1, lwd = 5, cex = 1, title.adj = 0.5)
 
 # Compare these results with old results
 # old <- readRDS("Outputs/MCMC_Output_26th_December.rds")
@@ -744,4 +771,17 @@ legend("topright", inset = 0.02, legend = c(paste0(">60kg (n = ", sum(weight[ind
 #   
 #   print(i)
 #   
+# }
+# tst <- overall %>%
+#   group_by(Temporal_ID) %>%
+#   filter(row_number()==1) %>%
+#   select(Temporal_ID, Dose_Amount)
+# for (k in 1:max(overall$Temporal_ID)) {
+#   time_series_number <- k
+#   Single_PK_Dataset <- filter(overall, Temporal_ID == k) # filter by time_series_number
+#   Albendazole_Sulfoxide_Time <- Single_PK_Dataset$Time[Single_PK_Dataset$Metabolite == "AlbSO"]  
+#   Albendazole_Sulfoxide_Conc <- Single_PK_Dataset$Converted_Concentration[Single_PK_Dataset$Metabolite == "AlbSO"]  
+#   Alb_SO_data <- data.frame(Time = Albendazole_Sulfoxide_Time, Alb_SO = Albendazole_Sulfoxide_Conc)
+#   plot(Alb_SO_data$Time, Alb_SO_data$Alb_SO, pch = 20, col = "#7609BA", cex = 2, main = paste0("Time Series ", k))
+#   browser()
 # }
