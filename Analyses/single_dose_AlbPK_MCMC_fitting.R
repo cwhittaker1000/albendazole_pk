@@ -361,6 +361,50 @@ for (i in unique(overall_results$id)) {
   
 }
 
+pdf(file = here::here("Figures/Supp_Figure_AllTS.pdf"), width = 20, height = 10)
+retain <- overall_results$id
+par(mfrow = c(6, 16), mar = c(2.5, 2, 2.5, 1))
+counter <- 1
+for (k in retain) {
+  
+  # Getting the Data
+  time_series_number <- k
+  Single_PK_Dataset <- filter(overall, Temporal_ID == k) # filter by time_series_number
+  Albendazole_Sulfoxide_Time <- Single_PK_Dataset$Time[Single_PK_Dataset$Metabolite == "AlbSO"]
+  Albendazole_Sulfoxide_Conc <- Single_PK_Dataset$Converted_Concentration[Single_PK_Dataset$Metabolite == "AlbSO"]
+  Alb_SO_data <- data.frame(Time = Albendazole_Sulfoxide_Time, Alb_SO = Albendazole_Sulfoxide_Conc)
+
+  # Loading In
+  run_MCMC <- readRDS(paste0("Outputs/SingleDose_AlbPK_ModelFitting_Outputs/TS", k, "_", prior_string, "Prior", "_", dosing, "Dose.rds"))
+  run_MCMC <- run_MCMC$mcmc_output
+  
+  # Plotting Output
+  alb_so <- run_MCMC$Alb_SO[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), ]
+  mean <- apply(alb_so, 2, mean)
+  lower <- apply(alb_so, 2, quantile, 0.025)
+  upper <- apply(alb_so, 2, quantile, 0.975)
+  #plot(run_MCMC$Times, mean, type = "l", col = "#7609BA", ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2, main = paste0("Time Series ", counter), ylim = c(0, max(c(upper, Alb_SO_data$Alb_SO))))
+  plot(run_MCMC$Times, mean, type = "l", col = "#7609BA", ylab = "", xlab = "", las = 1, lwd = 2, main = paste0("Time Series ", counter), ylim = c(0, max(c(upper, Alb_SO_data$Alb_SO))))
+  points(Alb_SO_data$Time, Alb_SO_data$Alb_SO, pch = 20, col = "#7609BA", cex = 2)
+  polygon(c(run_MCMC$Times, rev(run_MCMC$Times)), c(lower, rev(upper)), col = adjustcolor("#7609BA", alpha.f = 0.2), border = NA)
+
+  if("Alb" %in% Single_PK_Dataset$Metabolite) {
+    Albendazole_Time <- Single_PK_Dataset$Time[Single_PK_Dataset$Metabolite == "Alb"]  
+    Albendazole_Conc <- Single_PK_Dataset$Converted_Concentration[Single_PK_Dataset$Metabolite == "Alb"]  
+    Alb_data <- data.frame(Time = Albendazole_Time, Alb = Albendazole_Conc)
+    alb <- run_MCMC$Alb[burnin:(dim(run_MCMC$MCMC_Output)[1] - 1), ]
+    mean_alb <- apply(alb, 2, mean)
+    lower_alb <- apply(alb, 2, quantile, 0.025)
+    upper_alb <- apply(alb, 2, quantile, 0.975)
+    lines(run_MCMC$Times, mean_alb, type = "l", col = "#E5005F", ylab = "Concentration (ng/ml)", xlab = "Time (Hours)", las = 1, lwd = 2)
+    points(Alb_data$Time, Alb_data$Alb, pch = 20, col = "#E5005F", cex = 2)
+    polygon(c(run_MCMC$Times, rev(run_MCMC$Times)), c(lower_alb, rev(upper_alb)), col = adjustcolor("#E5005F", alpha.f = 0.2), border = NA)
+  }
+  counter <- counter + 1
+  #browser()
+}
+dev.off()
+
 # Plotting sex results
 par(mfrow = c(2, 3))
 par(mar = c(4.1, 4.1, 2.1, 2.1))
