@@ -234,6 +234,8 @@ table(overall_results$Dose_Binary)
 # Overall
 miss_var_summary(overall_results)
 cor(data.frame(AUC = overall_results$median_AUC, Bio = overall_results$median_bioavailability, Cmax = overall_results$median_Cmax, K = overall_results$median_k_alb_so))
+overall_results <- overall_results %>%
+  mutate(median_k_alb_half_life = 1/median_k_alb_so)
 
 ## Bioavailablity
 summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, 
@@ -298,8 +300,6 @@ summary(lm(median_AUC ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary
 mean(overall_results$median_AUC[overall_results$Single_Dose_Mg <= 400 & !is.na(overall_results$Single_Dose_Mg)])
 mean(overall_results$median_AUC[overall_results$Single_Dose_Mg > 400 & !is.na(overall_results$Single_Dose_Mg)])
 
-
-
 overall_results$median_k_alb_so[overall_results$Disease_Status == "Healthy" & !is.na(overall_results$Disease_Status)]
 overall_results$id[overall_results$Disease_Status == "Healthy" & !is.na(overall_results$Disease_Status)]
 
@@ -312,6 +312,21 @@ mean(overall_results$median_AUC[overall_results$Echinococcosis == 1 & !is.na(ove
 
 mean(overall_results$median_Cmax[overall_results$Disease_Status == "Healthy" & !is.na(overall_results$Disease_Status)])
 mean(overall_results$median_Cmax[overall_results$Echinococcosis == 1 & !is.na(overall_results$Disease_Status)])
+
+overall_results %>%
+  group_by(Age_Group) %>%
+  summarise(bio = mean(median_bioavailability),
+            cmax = mean(median_Cmax),
+            auc = mean(median_AUC),
+            k = median(median_k_alb_so),
+            thalf = 1/k)
+
+overall_results %>%
+  group_by(Echinococcosis) %>%
+  summarise(bio = mean(median_bioavailability),
+            cmax = mean(median_Cmax),
+            auc = mean(median_AUC))
+
 
 
 1/median(overall_results$median_k_alb_so[overall_results$Age_Group == "Children" & !is.na(overall_results$Age_Group)])
