@@ -279,6 +279,7 @@ single_dose_MCMC_running <- function(number_of_iterations, parameters_vector, sd
   Acceptances <- vector(length = number_of_iterations + 1)
   Acceptance_Ratio <- vector(length = number_of_iterations + 1)
   Logposterior_storage <- vector(length = number_of_iterations + 1)
+  Correction_problems <- vector(mode = "numeric", length = number_iterations)
   
   # Generating the Covariance Matrix
   sigma <- matrix(0, nrow = number_of_parameters, ncol = number_of_parameters)
@@ -309,10 +310,22 @@ single_dose_MCMC_running <- function(number_of_iterations, parameters_vector, sd
     proposed_posterior <- raw_proposed_posterior$posterior
     
     uncorrected_likelihood_ratio <- exp(proposed_posterior - current_posterior)
+    if (sum(eigen(sigma)$values < 0) > 0) {
+      sigma <- sigma + diag(0.000001, nrow = number_of_parameters)
+    }
     prob_current_params_given_proposed <- dtmvnorm(current_parameter_values, mean = c(proposed_parameter_values), sigma = scaling_factor * sigma, lower = rep(0, length = number_of_parameters), upper = rep(Inf, length = number_of_parameters))
     prob_proposed_params_given_current <- dtmvnorm(proposed_parameter_values, mean = c(current_parameter_values), sigma = scaling_factor * sigma, lower = rep(0, length = number_of_parameters), upper = rep(Inf, length = number_of_parameters))
     correction_factor <- prob_current_params_given_proposed/prob_proposed_params_given_current
     corrected_likelihood_ratio <- uncorrected_likelihood_ratio * correction_factor
+    if (is.na(correction_factor)) {
+      correction_factor <- 1
+      corrected_likelihood_ratio <- uncorrected_likelihood_ratio * correction_factor
+      Correction_problems[i] <- 1
+    }
+    
+    # print(c(i, proposed_posterior, current_posterior, uncorrected_likelihood_ratio, scaling_factor, 
+    #         prob_current_params_given_proposed, prob_proposed_params_given_current,
+    #         correction_factor, corrected_likelihood_ratio, proposed_parameter_values, current_parameter_values))
     
     if(runif(1) < corrected_likelihood_ratio) {
       MCMC_output[i + 1, ] <- proposed_parameter_values
@@ -367,5 +380,6 @@ single_dose_MCMC_running <- function(number_of_iterations, parameters_vector, sd
   list[["Alb"]] <- alb_output_storage
   list[["Alb_SO"]] <- alb_SO_output_storage
   list[["Times"]] <- raw_current_posterior$times
+  list[["Corection_problems"]] <- Correction_problems
   return(list)
 }
