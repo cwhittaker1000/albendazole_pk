@@ -218,8 +218,8 @@ study_metadata <- read.csv("data/metadata_for_import.csv") %>%
          Single_Dose_Mg, Dose_Per_Kg, Number_People, 
          Age_Used, Age_Group, Weight_Used,
          Sex, Sex_Ratio, State, 
-         Disease_Status, Disease_Specific, Onchocerciasis, Echinococcosis, Neurocysticercosis,
-         Co_Drugs_Binary, Ivermectin, DEC, Anti_Epileptics) 
+         Disease_Status, Disease_Specific, Onchocerciasis, Echinococcosis, Neurocysticercosis, STH_giardia, Lymphatic_filariasis,
+         Co_Drugs_Binary, Ivermectin, DEC, Anti_Epileptics, Alb, AlbSO, `Age_Mean_Given.`) 
 
 overall_results <- results %>%
   left_join(study_metadata, by = c("id" = "TS_Num")) %>%
@@ -229,9 +229,37 @@ overall_results <- results %>%
   mutate(Sex2 = ifelse(Sex == "FeMale", "Mixture", Sex)) %>%
   mutate(Sex3 = ifelse(Sex2 == "Unclear", NA, Sex2)) %>%
   mutate(State2 = ifelse(State == "Unclear", NA, State)) %>%
-  mutate(Disease_Status = ifelse(Disease_Status == "Mixture", NA, Disease_Status))
+  mutate(Disease_Status = ifelse(Disease_Status == "Mixture", NA, Disease_Status)) %>%
+  mutate(LF_STH_Giardia = ifelse(STH_giardia == 1 | Lymphatic_filariasis == 1, 1, 0))
 overall_results$Dose_Binary <- ifelse(overall_results$Single_Dose_Mg <= 400, "Low", "High")
-table(overall_results$Dose_Binary)
+table(overall_results$Alb, overall_results$AlbSO)
+
+table(overall_results$Number_People)
+mean(overall_results$Number_People[overall_results$Number_People != 1])
+quantile(overall_results$Number_People[overall_results$Number_People != 1], c(0.25, 0.75))
+sum(overall_results$Number_People)
+table(overall_results$Sex)
+table(overall_results$Age_Mean_Given.)
+table(overall_results$Age_Used, useNA = "ifany")
+table(overall_results$Weight_Used, useNA = "ifany")
+table(overall_results$Age_Group, useNA = "ifany")
+table(overall_results$Disease_Status, useNA = "ifany")
+table(overall_results$Disease_Specific, useNA = "ifany")
+
+median(overall_results$Single_Dose_Mg)
+range(overall_results$Single_Dose_Mg)
+sum(overall_results$Ivermectin)
+sum(overall_results$DEC)
+
+overall_results %>%
+  group_by(overall_results$Echinococcosis) %>%
+  summarise(mean = mean(median_AUC),
+            mean2 = mean(median_Cmax))
+
+overall_results %>%
+  group_by(Age_Group) %>%
+  summarise(mean = mean(median_k_alb_half_life),
+            mean2 = mean(median_Cmax))
 
 # Overall
 miss_var_summary(overall_results)
@@ -244,19 +272,22 @@ overall_results <- overall_results %>%
 ## dose raw mg
 summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia, 
            data = overall_results, weights = log(1 + Number_People)))
 
 ## dose per kg
 summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia, 
            data = overall_results, weights = log(1 + Number_People)))
 
 ## dose binary
 summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia, 
            data = overall_results, weights = log(1 + Number_People)))
 
 # Alb SO Half Life
@@ -264,19 +295,22 @@ summary(lm(median_bioavailability ~ Sex2 + State + Age_Group + Dose_Binary + Co_
 ## dose raw mg
 summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis,  
+summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia,
            data = overall_results, weights = log(1 + Number_People)))
 
 ## dose per kg
 summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia,
            data = overall_results, weights = log(1 + Number_People)))
 
 ## dose binary
 summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia,
            data = overall_results, weights = log(1 + Number_People)))
 
 
@@ -285,19 +319,27 @@ summary(lm(median_k_alb_half_life ~ Sex2 + State + Age_Group + Dose_Binary + Co_
 ## dose raw mg
 summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis,  
+summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia,
            data = overall_results, weights = log(1 + Number_People)))
+
+mean(overall_results$median_k_alb_half_life[overall_results$Neurocysticercosis == 1], na.rm=TRUE)
+mean(overall_results$median_k_alb_half_life[overall_results$Neurocysticercosis == 0], na.rm=TRUE)
+summary(lm(median_k_alb_half_life ~ Age_Group, data = overall_results))
+summary(lm(median_k_alb_half_life ~ Age_Group, data = overall_results, weights = log(1 + Number_People)))
 
 ## dose per kg
 summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia,
            data = overall_results, weights = log(1 + Number_People)))
 
 ## dose binary
 summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia,
            data = overall_results, weights = log(1 + Number_People)))
 
 # CMax
@@ -305,19 +347,22 @@ summary(lm(median_k_alb_so ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_B
 ## dose raw mg
 summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis,  
+summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia,  
            data = overall_results, weights = log(1 + Number_People)))
 
 ## dose per kg
 summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia,
            data = overall_results, weights = log(1 + Number_People)))
 
 # dose binary
 summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia, 
            data = overall_results, weights = log(1 + Number_People)))
 
 # AUC
@@ -325,19 +370,22 @@ summary(lm(median_Cmax ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binar
 ## dose raw mg
 summary(lm(median_AUC ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Disease_Status,  
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_AUC ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis,   
+summary(lm(median_AUC ~ Sex2 + State + Age_Group + Single_Dose_Mg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia,   
            data = overall_results, weights = log(1 + Number_People)))
 
 ## dose per kg 
 summary(lm(median_AUC ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People))) 
-summary(lm(median_AUC ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_AUC ~ Sex2 + State + Age_Group + Dose_Per_Kg + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia, 
            data = overall_results, weights = log(1 + Number_People)))
 
 ## dose binary
 summary(lm(median_AUC ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Disease_Status, 
            data = overall_results, weights = log(1 + Number_People)))
-summary(lm(median_AUC ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + Onchocerciasis + Echinococcosis + Neurocysticercosis, 
+summary(lm(median_AUC ~ Sex2 + State + Age_Group + Dose_Binary + Co_Drugs_Binary + 
+             Onchocerciasis + Echinococcosis + Neurocysticercosis + LF_STH_Giardia, 
            data = overall_results, weights = log(1 + Number_People)))
 
 mean(overall_results$median_AUC[overall_results$Single_Dose_Mg <= 400 & !is.na(overall_results$Single_Dose_Mg)])
@@ -365,11 +413,18 @@ overall_results %>%
             thalf = 1/k)
 
 overall_results %>%
-  group_by(Echinococcosis) %>%
+  group_by(LF_STH_Giardia) %>%
+  summarise(bio = mean(median_bioavailability),
+            cmax = mean(median_Cmax),
+            auc = mean(median_AUC),
+            k = median(median_k_alb_so),
+            thalf = 1/k)
+
+overall_results %>%
+  group_by(State) %>%
   summarise(bio = mean(median_bioavailability),
             cmax = mean(median_Cmax),
             auc = mean(median_AUC))
-
 
 
 1/median(overall_results$median_k_alb_so[overall_results$Age_Group == "Children" & !is.na(overall_results$Age_Group)])
@@ -419,9 +474,9 @@ for (i in unique(overall_results$id)) {
   
 }
 
-pdf(file = here::here("Figures/Supp_Figure_AllTS.pdf"), width = 20, height = 10)
+pdf(file = here::here("Figures/Supp_Figure_AllTS.pdf"), width = 22, height = 11)
 retain <- overall_results$id
-par(mfrow = c(6, 16), mar = c(2.5, 2, 2.5, 1))
+par(mfrow = c(7, 17), mar = c(2.5, 2, 2.5, 1))
 counter <- 1
 for (k in retain) {
   
